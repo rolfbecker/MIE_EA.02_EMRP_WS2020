@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.0.xsd">
+	
+	<grid name="course-grid" title="Student" model="com.axelor.apps.rku.db.Course">
+		 <field name="name"/>
+		 <field name="totalYear"/>
+	</grid>
+
+	<form name="course-form" title="Course" model="com.axelor.apps.rku.db.Course">
+		
+		<panel name="mainCoursePanal">
+		<field name="name" required="true"/>
+		 <field name="totalYear"/>
+		</panel>
+		
+	</form>
+</object-views>

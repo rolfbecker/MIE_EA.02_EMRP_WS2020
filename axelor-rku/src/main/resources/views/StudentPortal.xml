@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.0.xsd">
+	
+	<grid name="student-portal-grid" title="Student" model="com.axelor.apps.rku.db.StudentPortal">
+		 <field name="enrollmentNo"/>
+		 <field name="email"/>
+		 <field name="firstName"/>
+		 <field name="phoneNo"/>
+	</grid>
+
+	<form name="student-portal-form" title="Student Portal" model="com.axelor.apps.rku.db.StudentPortal"  width="large">
+		
+		<panel name="studentPanal">
+			<field name="firstName" colSpan="3" required="true" />
+			<field name="sureName" colSpan="3" required="true" />
+			<field name="lastName" colSpan="3" required="true" />
+			<field name="enrollmentNo" required="true"/>
+			<field name="dateOfBirth" required="true"/>
+			<field name="email" required="true"/>
+			<field name="phoneNo" required="true"/>
+			<field name="startYear" required="true"/>
+			<field name="endYear" required="true"/>
+			<field name="address" required="true" type="text"></field>
+		</panel>
+		
+		<panel name="CoursePanal">
+			<field name="course"  required="true" />
+			<field name="branch" required="true"/>
+		</panel>
+		
+		<panel name="resultPanal">
+			<button name="result" title="Result" colSpan="12" height="30" onClick="" />
+		</panel>
+	
+	</form>
+</object-views>

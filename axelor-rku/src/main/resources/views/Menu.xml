@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.0.xsd">
+
+	<menuitem name="rku-root" title="RKU" order="-109 "
+		icon="fa-user" icon-background="#2fa042"/>
+	
+	<menuitem name="rku-root-customers" parent="rku-root" 
+		title="student Portal" action="rku.student.portal.view" order="5"/>
+		
+	<action-view name="rku.student.portal.view" title="Student Portal"
+		model="com.axelor.apps.rku.db.StudentPortal" >
+		<view type="grid" name="student-portal-grid"/>
+		<view type="form" name="student-portal-form"/>
+	</action-view>
+	
+	<menuitem name="rku-conf" parent="rku-root" title="Configuration" order="25" icon="fa-cog"/>
+	
+	<menuitem name="rku-root-branch" parent="rku-conf" 
+		title="Branch" action="rku.branch.view" />
+		
+	<action-view name="rku.branch.view" title="Branch"
+		model="com.axelor.apps.rku.db.Branch" >
+		<view type="grid" name="branch-grid"/>
+		<view type="form" name="branch-form"/>
+	</action-view>
+		
+	<menuitem name="rku-root-course" parent="rku-conf" 
+		title="Course" action="rku.course.view" />
+		
+	<action-view name="rku.course.view" title="Course"
+		model="com.axelor.apps.rku.db.Course" >
+		<view type="grid" name="course-grid"/>
+		<view type="form" name="course-form"/>
+	</action-view>	
+		
+	
+</object-views>
