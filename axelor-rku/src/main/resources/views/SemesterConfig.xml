@@ -2,16 +2,16 @@
 <object-views xmlns="http://axelor.com/xml/ns/object-views" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.0.xsd">
 	
-	<grid name="course-grid" title="Student" model="com.axelor.apps.rku.db.Course">
+	<grid name="semester-config-grid" title="Semester config" model="com.axelor.apps.rku.db.SemesterConfig">
 		 <field name="name"/>
-		 <field name="totalYear"/>
+		 <field name="code" />
 	</grid>
 
-	<form name="course-form" title="Course" model="com.axelor.apps.rku.db.Course">
+	<form name="semester-config-form" title="Semester config" model="com.axelor.apps.rku.db.SemesterConfig" >
 		
-		<panel name="mainCoursePanal">
-			<field name="name" required="true"/>
-			<field name="totalYear"/>
+		<panel name="mainSemConfigPanal">
+			<field name="name" required="true" />
+			<field name="code"/>
 		</panel>
 		
 	</form>

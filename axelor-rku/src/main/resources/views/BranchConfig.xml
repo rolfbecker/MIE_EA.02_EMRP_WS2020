@@ -2,20 +2,17 @@
 <object-views xmlns="http://axelor.com/xml/ns/object-views" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.0.xsd">
 	
-	<grid name="branch-grid" title="Branch" model="com.axelor.apps.rku.db.Branch">
+	<grid name="branch-config-grid" title="Branch config" model="com.axelor.apps.rku.db.BranchConfig">
 		 <field name="name"/>
-		 <field name="course"/>
+		 <field name="code"/>
 	</grid>
 
-	<form name="branch-form" title="Branch" model="com.axelor.apps.rku.db.Branch" >
+	<form name="branch-config-form" title="Branch config" model="com.axelor.apps.rku.db.BranchConfig" >
 		
 		<panel name="mainBranchPanal">
-			<field name="name" required="true" colSpan="12" />
-			<field name="branch"></field>
-		 	<field name="course" required="true"/>
+			<field name="name" required="true"  />
+			<field name="code"/>
 		</panel>
-		
-		<panel-related field="semesterList" canSelect="true" />
 		
 	</form>
 </object-views>

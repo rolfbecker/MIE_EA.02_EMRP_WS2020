@@ -5,15 +5,11 @@
 
   <module name="rku" package="com.axelor.apps.rku.db"/>
 
-  <entity name="Branch" cachable="true">
+  <entity name="BranchConfig" cachable="true">
   
   	<string name="name" namecolumn="true" title="Branch Name" />
-  	<many-to-one name="branch" ref="com.axelor.apps.rku.db.BranchConfig"/>
-  	<integer name="totalStudent" title="Total Student"/>
+  	<string name="code" title="code" />
   	
-  	<many-to-one name="course" ref="com.axelor.apps.rku.db.Course"/>
-  	<one-to-many name="semesterList" ref="com.axelor.apps.rku.db.Semester" mappedBy="branch" title="Semester List" />
-      
   </entity>
   
 </domain-models>

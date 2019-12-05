@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.0.xsd">
+	
+	<grid name="semester-grid" title="Semester" model="com.axelor.apps.rku.db.Semester">
+		 <field name="name"/>
+		 <field name="semester"/>
+		 <field name="branchConfig" />
+	</grid>
+
+	<form name="semester-form" title="Semester" model="com.axelor.apps.rku.db.Semester" >
+		
+		<panel name="mainSemPanal">
+			<field name="name" required="true" colSpan="12"/>
+			<field name="semester"/>
+			<field name="branchConfig" />
+		</panel>
+		
+		<panel-related field="subjectList" canEdit="false" canRemove="false" canNew="false" >
+		
+		</panel-related>
+
+	</form>
+</object-views>
