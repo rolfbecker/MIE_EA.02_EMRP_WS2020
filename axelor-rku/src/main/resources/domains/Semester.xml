@@ -8,7 +8,7 @@
   <entity name="Semester" cachable="true">
   
   	<string name="name" namecolumn="true" title="Semester Name" />
-  	<many-to-one name="semester" ref="com.axelor.apps.rku.db.SemesterConfig"/>
+  	<many-to-one name="semesterConfig" ref="com.axelor.apps.rku.db.SemesterConfig"/>
   	<many-to-one name="branchConfig" ref="com.axelor.apps.rku.db.BranchConfig" title="Branch"></many-to-one>
   	<many-to-many name="subjectList" ref="com.axelor.apps.rku.db.Subject"/>
   	<many-to-one name="branch" ref="com.axelor.apps.rku.db.Branch" />

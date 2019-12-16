@@ -5,6 +5,8 @@
 	<grid name="subject-grid" title="Subject" model="com.axelor.apps.rku.db.Subject">
 		 <field name="name"/>
 		 <field name="code"/>
+		 <field name="subjectCredit" />
+		 <field name="active"/>
 	</grid>
 
 	<form name="subject-form" title="Subject" model="com.axelor.apps.rku.db.Subject" >
@@ -12,6 +14,10 @@
 		<panel name="mainSubjectPanal">
 			<field name="name" required="true"/>
 		 	<field name="code" required="true"/>
+		 	<field name="subjectCredit" required="true"/>
+			<field name="active"/>
+			<field name="branchConfig" required="true"/>
+			<field name="semesterConfig" required="true"/>
 		</panel>
 		
 	</form>

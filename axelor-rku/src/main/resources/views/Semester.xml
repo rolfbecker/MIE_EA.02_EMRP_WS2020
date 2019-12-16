@@ -4,21 +4,31 @@
 	
 	<grid name="semester-grid" title="Semester" model="com.axelor.apps.rku.db.Semester">
 		 <field name="name"/>
-		 <field name="semester"/>
+		 <field name="semesterConfig"/>
 		 <field name="branchConfig" />
 	</grid>
 
-	<form name="semester-form" title="Semester" model="com.axelor.apps.rku.db.Semester" >
+	<form name="semester-form" title="Semester" model="com.axelor.apps.rku.db.Semester" onSave="action-method-semester-set-name" >
 		
 		<panel name="mainSemPanal">
-			<field name="name" required="true" colSpan="12"/>
-			<field name="semester"/>
-			<field name="branchConfig" />
+			<field name="name" colSpan="12" readonly="true" />
+			<field name="branchConfig" required="true" onChange="action-method-semester-select-subject" />
+			<field name="semesterConfig" required="true" onChange="action-method-semester-select-subject" />
 		</panel>
 		
-		<panel-related field="subjectList" canEdit="false" canRemove="false" canNew="false" >
+		<panel-related field="subjectList" >
 		
 		</panel-related>
 
 	</form>
+	
+	<action-method name="action-method-semester-set-name">
+		<call class="com.axelor.apps.rku.web.SemesterController" method="setSemesterName"/>
+	</action-method>
+	
+	<action-method name="action-method-semester-select-subject">
+		<call class="com.axelor.apps.rku.web.SemesterController" method="selectSubject"/>
+	</action-method>
+	
+	
 </object-views>

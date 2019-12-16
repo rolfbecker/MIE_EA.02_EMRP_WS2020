@@ -7,9 +7,12 @@
 
   <entity name="Subject" cachable="true">
   
-  	<string name="name" namecolumn="true" title="Subject Name"/>
-  	<string name="code" title="Code"/>
-   
+  	<string name="name" namecolumn="true" title="Subject Name" required="true" />
+  	<string name="code" title="Code" required="true" unique="true" />
+  	<integer name="subjectCredit" title="Credit" required="true"/>
+    <boolean name="active" title="Active" />
+    <many-to-one name="branchConfig" ref="com.axelor.apps.rku.db.BranchConfig" />
+    <many-to-one name="semesterConfig" ref="com.axelor.apps.rku.db.SemesterConfig" />
   </entity>
   
 </domain-models>
@@ -18,4 +21,3 @@
 
 
 
-<!-- o2m with semester -->
