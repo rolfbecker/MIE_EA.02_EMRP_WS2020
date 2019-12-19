@@ -11,7 +11,7 @@
 
 	<form name="student-portal-form" title="Student Portal" model="com.axelor.apps.rku.db.StudentPortal"  width="large">
 		
-		<panel name="studentPanal">
+		<panel name="studentPanel">
 			<field name="firstName" colSpan="3" required="true" />
 			<field name="sureName" colSpan="3" required="true" />
 			<field name="lastName" colSpan="3" required="true" />
@@ -24,14 +24,15 @@
 			<field name="address" required="true" type="text"></field>
 		</panel>
 		
+		<panel name="studentInfoPanel">
+			<field name="activeUser"/>	
+			<field name="currentSem"/>	
+		</panel>
+		
 		<panel name="CoursePanal">
 			<field name="course"  required="true" />
 			<field name="branch" required="true"/>
 		</panel>
 		
-		<panel name="resultPanal">
-			<button name="result" title="Result" colSpan="12" height="30" onClick="" />
-		</panel>
-	
 	</form>
 </object-views>

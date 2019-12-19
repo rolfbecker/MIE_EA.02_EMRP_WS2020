@@ -7,11 +7,11 @@
 		 <field name="course"/>
 	</grid>
 
-	<form name="branch-form" title="Branch" model="com.axelor.apps.rku.db.Branch" onSave="action-attrs-branch-set-name" >
+	<form name="branch-form" title="Branch" model="com.axelor.apps.rku.db.Branch" >
 		
 		<panel name="mainBranchPanal">
 			<field name="name" colSpan="12" readonly="true" />
-			<field name="branchConfig" onChange="action-method-branch-select-semester" required="true"/>
+			<field name="branchConfig" onChange="action-attrs-branch-set-name,action-method-branch-select-semester" required="true"/>
 		 	<field name="course" required="true"/>
 		</panel>
 		
@@ -23,7 +23,7 @@
 	</action-method>
 	
 	<action-attrs name="action-attrs-branch-set-name">
-		<attribute name="value" for="name" expr="eval: branchConfig.name "/>
+		<attribute name="value" for="name" expr="eval: branchConfig.name" if="branchConfig" />
 	</action-attrs>
 	
 </object-views>

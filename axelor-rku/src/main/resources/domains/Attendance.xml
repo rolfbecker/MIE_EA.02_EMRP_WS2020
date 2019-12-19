@@ -5,19 +5,20 @@
 
   <module name="rku" package="com.axelor.apps.rku.db"/>
 
-  <entity name="Subject" cachable="true">
-  	
-  	<string name="fullName" namecolumn="true" title="Full name" unique="true"/>
-  	<string name="name" title="Subject Name" required="true" />
-  	<string name="code" title="Code" required="true" />
-  	<integer name="subjectCredit" title="Credit" required="true"/>
-    <boolean name="active" title="Active" />
+  <entity name="Attendance" cachable="true">
+  
+    <many-to-one name="userFaculty" ref="com.axelor.auth.db.User" title="User" />
+    <many-to-one name="subject" ref="com.axelor.apps.rku.db.Subject"/>
+    <date name="attendanceDate" title="Date" />  
     <many-to-one name="branchConfig" ref="com.axelor.apps.rku.db.BranchConfig" title="Branch Congig" />
     <many-to-one name="semesterConfig" ref="com.axelor.apps.rku.db.SemesterConfig" title="Semester config" />
-    
-    <many-to-one name="semester" ref="com.axelor.apps.rku.db.Semester" />
-    <many-to-many name="faculty" ref="com.axelor.apps.rku.db.Faculty"/>
-  
+  	<one-to-many name="attendanceLine" ref="com.axelor.apps.rku.db.AttendanceLine" mappedBy="attendance"/>
+  	
   </entity>
   
 </domain-models>
+
+
+
+
+

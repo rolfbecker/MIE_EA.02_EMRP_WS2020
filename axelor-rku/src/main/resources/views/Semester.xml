@@ -8,12 +8,12 @@
 		 <field name="branchConfig" />
 	</grid>
 
-	<form name="semester-form" title="Semester" model="com.axelor.apps.rku.db.Semester" onSave="action-method-semester-set-name" >
+	<form name="semester-form" title="Semester" model="com.axelor.apps.rku.db.Semester" >
 		
 		<panel name="mainSemPanal">
 			<field name="name" colSpan="12" readonly="true" />
-			<field name="branchConfig" required="true" onChange="action-method-semester-select-subject" />
-			<field name="semesterConfig" required="true" onChange="action-method-semester-select-subject" />
+			<field name="branchConfig" required="true" onChange="action-method-semester-set-name,action-method-semester-select-subject" />
+			<field name="semesterConfig" required="true" onChange="action-method-semester-set-name,action-method-semester-select-subject" />
 		</panel>
 		
 		<panel-related field="subjectList" >

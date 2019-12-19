@@ -3,6 +3,7 @@
 	xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.0.xsd">
 	
 	<grid name="subject-grid" title="Subject" model="com.axelor.apps.rku.db.Subject">
+		 <field name="fullName"/>
 		 <field name="name"/>
 		 <field name="code"/>
 		 <field name="subjectCredit" />
@@ -12,13 +13,18 @@
 	<form name="subject-form" title="Subject" model="com.axelor.apps.rku.db.Subject" >
 		
 		<panel name="mainSubjectPanal">
-			<field name="name" required="true"/>
+			<field name="fullName" readonly="true" colSpan="12"/>
+			<field name="name" required="true" onChange="action-subject-method-set-full-name"/>
 		 	<field name="code" required="true"/>
 		 	<field name="subjectCredit" required="true"/>
 			<field name="active"/>
-			<field name="branchConfig" required="true"/>
-			<field name="semesterConfig" required="true"/>
+			<field name="branchConfig" required="true" onChange="action-subject-method-set-full-name" />
+			<field name="semesterConfig" required="true" onChange="action-subject-method-set-full-name" />
 		</panel>
 		
 	</form>
+	
+	<action-method name="action-subject-method-set-full-name">
+		<call class="com.axelor.apps.rku.web.SubjectController" method="setFullName"/>
+	</action-method>
 </object-views>

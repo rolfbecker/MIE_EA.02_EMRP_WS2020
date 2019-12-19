@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_5.0.xsd">
+
+  <module name="rku" package="com.axelor.apps.rku.db"/>
+
+  <entity name="AttendanceLine" cachable="true">
+  
+  	<string name="enrollment" title="Enrollment"/>
+  	<integer name="present" selection="" title="Present"/>
+  	<date name="attendanceDate" title="Date"/>
+  	<string name="subject" title="Subject"/>
+  	<string name="semester" title="Semester"/>
+  	
+    <many-to-one name="attendance" ref="com.axelor.apps.rku.db.Attendance"/>
+    
+  	
+  </entity>
+  
+</domain-models>
+
+
+
+
+

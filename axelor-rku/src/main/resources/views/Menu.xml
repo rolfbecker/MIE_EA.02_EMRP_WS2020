@@ -6,13 +6,34 @@
 	<menuitem name="rku-root" title="RKU" order="-109 "
 		icon="fa-user" icon-background="#2fa042"/>
 	
-	<menuitem name="rku-root-customers" parent="rku-root" 
+	<menuitem name="rku-root-student" parent="rku-root" 
 		title="student Portal" action="rku.student.portal.view" order="5"/>
 		
 	<action-view name="rku.student.portal.view" title="Student Portal"
 		model="com.axelor.apps.rku.db.StudentPortal" >
 		<view type="grid" name="student-portal-grid"/>
 		<view type="form" name="student-portal-form"/>
+	</action-view>
+	
+	<menuitem name="rku-root-faculty" parent="rku-root" 
+		title="Faculty" order="6"/>
+		
+	<menuitem name="rku-root-faculty-faculty" parent="rku-root-faculty" 
+		title="Faculty" action="rku.faculty.view" order="4"/>
+		
+	<action-view name="rku.faculty.view" title="Faculty"
+		model="com.axelor.apps.rku.db.Faculty" >
+		<view type="grid" name="faculty-grid"/>
+		<view type="form" name="faculty-form"/>
+	</action-view>
+	
+	<menuitem name="rku-root-faculty-attendance" parent="rku-root-faculty" 
+		title="Attendance" action="rku.faculty.attendance.view" order="5"/>
+		
+	<action-view name="rku.faculty.attendance.view" title="Attendance"
+		model="com.axelor.apps.rku.db.Attendance" >
+		<view type="grid" name="attendance-grid"/>
+		<view type="form" name="attendance-form"/>
 	</action-view>
 	
 	<menuitem name="rku-conf" parent="rku-root" title="Configuration" order="25" icon="fa-cog"/>

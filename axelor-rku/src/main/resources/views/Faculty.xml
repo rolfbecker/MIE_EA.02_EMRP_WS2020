@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.0.xsd">
+	
+	<grid name="faculty-grid" title="Faculty" model="com.axelor.apps.rku.db.Faculty">
+		 <field name="firstName"/>
+		 <field name="identityNo"/>
+		 <field name="active" />
+	</grid>
+
+	<form name="faculty-form" title="Faculty" model="com.axelor.apps.rku.db.Faculty"  width="large" >
+		
+		<panel name="facultyPanel">
+			<field name="firstName" colSpan="3" required="true" />
+			<field name="sureName" colSpan="3" required="true" />
+			<field name="lastName" colSpan="3" required="true" />
+			<field name="userFaculty" required="true"/>
+			<field name="active" />
+		</panel>
+		
+		<panel name="secondPanel">
+			<field name="course"/>
+			<field name="branch"/>
+		</panel>
+		
+		<panel-related field="subjectSet" canEdit="false" canNew="false" canMove="true" />
+
+	</form>
+	
+</object-views>

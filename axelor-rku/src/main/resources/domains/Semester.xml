@@ -10,7 +10,9 @@
   	<string name="name" namecolumn="true" title="Semester Name" />
   	<many-to-one name="semesterConfig" ref="com.axelor.apps.rku.db.SemesterConfig"/>
   	<many-to-one name="branchConfig" ref="com.axelor.apps.rku.db.BranchConfig" title="Branch"></many-to-one>
-  	<many-to-many name="subjectList" ref="com.axelor.apps.rku.db.Subject"/>
+  	<one-to-many name="subjectList" ref="com.axelor.apps.rku.db.Subject" mappedBy="semester" title="Subject list" />
+  
+  
   	<many-to-one name="branch" ref="com.axelor.apps.rku.db.Branch" />
       
   </entity>

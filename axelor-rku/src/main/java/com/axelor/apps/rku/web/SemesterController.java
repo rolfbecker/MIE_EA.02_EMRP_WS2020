@@ -13,6 +13,11 @@ public class SemesterController {
   public void setSemesterName(ActionRequest request, ActionResponse response) {
 
     Semester semester = request.getContext().asType(Semester.class);
+
+    if (semester.getBranchConfig() == null || semester.getSemesterConfig() == null) {
+      return;
+    }
+
     String branchName = semester.getBranchConfig().getName();
     String semName = semester.getSemesterConfig().getName();
 
