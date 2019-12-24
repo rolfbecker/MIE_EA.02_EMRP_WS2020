@@ -10,11 +10,11 @@
 		 <field name="userFaculty"/>
 	</grid>
 
-	<form name="attendance-form" title="Attendance" model="com.axelor.apps.rku.db.Attendance" width="large">
+	<form name="attendance-form" title="Attendance" model="com.axelor.apps.rku.db.Attendance" width="large" onNew="action-attendance-attrs-set-user-and-date">
 		
 		<panel name="mainAttendancePanal">
 			 <field name="userFaculty"/>
-			 <field name="subject" />
+			 <field name="subject" domain="self.faculty.userFaculty = :userFaculty" />
 			 <field name="attendanceDate"/>
 			 <field name="semesterConfig"/>
 			 <field name="branchConfig"/>
@@ -23,4 +23,10 @@
 		<panel-related field="attendanceLine" canEdit="true"/>
 		
 	</form>
+	
+	<action-attrs name="action-attendance-attrs-set-user-and-date">
+		<attribute name="value" for="userFaculty" expr="eval: __user__"/>
+		<attribute name="value" for="attendanceDate" expr="eval: __date__"/>
+	</action-attrs>
+	
 </object-views>

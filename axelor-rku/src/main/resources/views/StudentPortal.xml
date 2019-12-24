@@ -9,7 +9,7 @@
 		 <field name="phoneNo"/>
 	</grid>
 
-	<form name="student-portal-form" title="Student Portal" model="com.axelor.apps.rku.db.StudentPortal"  width="large">
+	<form name="student-portal-form" title="Student Portal" model="com.axelor.apps.rku.db.StudentPortal"  width="large" onNew="action-student-portal-attrs-set-user">
 		
 		<panel name="studentPanel">
 			<field name="firstName" colSpan="3" required="true" />
@@ -34,5 +34,22 @@
 			<field name="branch" required="true"/>
 		</panel>
 		
+		<panel name="dataPanel" sidebar="true" >
+			<field name="createdOn"/>
+			<field name="updatedOn"/>
+			<field name="createdBy"/>
+			<field name="updatedBy"/>
+		</panel>
+		
+		<panel name="userPanel" sidebar="true">
+			<field name="userStudent"/>
+		</panel>
+		
 	</form>
+	
+	<action-attrs name="action-student-portal-attrs-set-user">
+		<attribute name="value" for="userStudent" expr="eval: __user__"/>
+		 <attribute name="value" expr="eval: __user__.name " for="enrollmentNo"/>
+	</action-attrs>
+	
 </object-views>

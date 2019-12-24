@@ -8,7 +8,7 @@
 		 <field name="active" />
 	</grid>
 
-	<form name="faculty-form" title="Faculty" model="com.axelor.apps.rku.db.Faculty"  width="large" >
+	<form name="faculty-form" title="Faculty" model="com.axelor.apps.rku.db.Faculty" onNew="action-faculty-attrs-set-user" width="large" >
 		
 		<panel name="facultyPanel">
 			<field name="firstName" colSpan="3" required="true" />
@@ -24,7 +24,11 @@
 		</panel>
 		
 		<panel-related field="subjectSet" canEdit="false" canNew="false" canMove="true" />
-
+		
 	</form>
+	
+	<action-attrs name="action-faculty-attrs-set-user">
+		<attribute name="value" for="userFaculty" expr="eval: __user__"/>
+	</action-attrs>
 	
 </object-views>
