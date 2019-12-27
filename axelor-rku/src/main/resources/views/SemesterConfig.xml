@@ -12,6 +12,7 @@
 		<panel name="mainSemConfigPanal">
 			<field name="name" required="true" />
 			<field name="code"/>
+			<field name="sem"/>
 		</panel>
 		
 	</form>

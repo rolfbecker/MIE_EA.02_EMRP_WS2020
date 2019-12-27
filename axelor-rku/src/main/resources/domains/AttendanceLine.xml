@@ -7,11 +7,12 @@
 
   <entity name="AttendanceLine" cachable="true">
   
-  	<string name="enrollment" title="Enrollment"/>
+  
+  	<many-to-one name="student" ref="com.axelor.auth.db.User" title="Student"/>
   	<integer name="present" selection="" title="Present"/>
   	<date name="attendanceDate" title="Date"/>
-  	<string name="subject" title="Subject"/>
-  	<string name="semester" title="Semester"/>
+  	<many-to-one name="subject" ref="com.axelor.apps.rku.db.Subject" title="Subject"/>
+  	<many-to-one name="semesterConfig" ref="com.axelor.apps.rku.db.SemesterConfig" title="Semester config"/>
   	
     <many-to-one name="attendance" ref="com.axelor.apps.rku.db.Attendance"/>
     

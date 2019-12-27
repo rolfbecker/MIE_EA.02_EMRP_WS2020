@@ -10,8 +10,6 @@
     <many-to-one name="userFaculty" ref="com.axelor.auth.db.User" title="User" />
     <many-to-one name="subject" ref="com.axelor.apps.rku.db.Subject"/>
     <date name="attendanceDate" title="Date" />  
-    <many-to-one name="branchConfig" ref="com.axelor.apps.rku.db.BranchConfig" title="Branch Congig" />
-    <many-to-one name="semesterConfig" ref="com.axelor.apps.rku.db.SemesterConfig" title="Semester config" />
   	<one-to-many name="attendanceLine" ref="com.axelor.apps.rku.db.AttendanceLine" mappedBy="attendance"/>
   	
   </entity>

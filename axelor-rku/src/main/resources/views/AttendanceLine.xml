@@ -2,22 +2,22 @@
 <object-views xmlns="http://axelor.com/xml/ns/object-views" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.0.xsd">
 	
-	<grid name="attendanceLine-grid" title="AttendanceLine" model="com.axelor.apps.rku.db.AttendanceLine">
-		 <field name="enrollment"/>
-		 <field name="present"/>
-		 <field name="attendanceDate"/>
-		 <field name="subject"/>
-		 <field name="semester"/>
+	<grid name="attendanceLine-grid" title="AttendanceLine" model="com.axelor.apps.rku.db.AttendanceLine" editable="true">
+		 <field name="student" readonly="true"/>
+		 <field name="present" canEdit="true"/>
+		 <field name="attendanceDate" readonly="true"/>
+		 <field name="subject" readonly="true"/>
+		 <field name="semesterConfig" readonly="true"/>
 	</grid>
 
-	<form name="attendanceLine-form" title="AttendanceLine" model="com.axelor.apps.rku.db.AttendanceLine">
+	<form name="attendanceLine-form" title="AttendanceLine" model="com.axelor.apps.rku.db.AttendanceLine" editable="true">
 		
 		<panel name="mainAttendanceLinePanal">
-			 <field name="enrollment"/>
-			 <field name="present"/>
-			 <field name="attendanceDate"/>
-			 <field name="subject"/>
-			 <field name="semester"/>
+		 <field name="student" readonly="true"/>
+		 <field name="present"/>
+		 <field name="attendanceDate" readonly="true"/>
+		 <field name="subject" readonly="true"/>
+		 <field name="semesterConfig" readonly="true"/>
 		</panel>
 		
 	</form>

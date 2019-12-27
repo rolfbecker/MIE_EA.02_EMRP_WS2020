@@ -7,8 +7,9 @@
 
   <entity name="SemesterConfig" cachable="true">
   
-  	<string name="name" namecolumn="true" title="Semester Name" />
+  	<string name="name" namecolumn="true" title="Semester Name" unique="true" />
   	<string name="code" title="Code" />
+  	<integer name="sem" title="Semester" selection="rku.semester.config.select" />
       
   </entity>
   

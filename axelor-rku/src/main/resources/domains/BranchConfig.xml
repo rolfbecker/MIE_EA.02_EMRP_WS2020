@@ -7,7 +7,7 @@
 
   <entity name="BranchConfig" cachable="true">
   
-  	<string name="name" namecolumn="true" title="Branch Name" />
+  	<string name="name" namecolumn="true" title="Branch Name" unique="true" />
   	<string name="code" title="code" />
   	
   </entity>

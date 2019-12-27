@@ -17,7 +17,6 @@
     
     <many-to-one name="semester" ref="com.axelor.apps.rku.db.Semester" />
     <many-to-many name="faculty" ref="com.axelor.apps.rku.db.Faculty"/>
-  
   </entity>
   
 </domain-models>

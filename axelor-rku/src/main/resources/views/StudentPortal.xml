@@ -26,14 +26,16 @@
 		
 		<panel name="studentInfoPanel">
 			<field name="activeUser"/>	
-			<field name="currentSem"/>	
+			<field name="currentSem" onChange="action-student-portal-method-set-subject"/>	
 		</panel>
 		
 		<panel name="CoursePanal">
 			<field name="course"  required="true" />
-			<field name="branch" required="true"/>
+			<field name="branch" required="true" onChange="action-student-portal-method-set-subject"/>
 		</panel>
 		
+		<panel-related field="subjectSet" name="subjectPanel" canSelect="true" canEdit="false" canNew="false"/>
+			
 		<panel name="dataPanel" sidebar="true" >
 			<field name="createdOn"/>
 			<field name="updatedOn"/>
@@ -51,5 +53,9 @@
 		<attribute name="value" for="userStudent" expr="eval: __user__"/>
 		 <attribute name="value" expr="eval: __user__.name " for="enrollmentNo"/>
 	</action-attrs>
+	
+	<action-method name="action-student-portal-method-set-subject">
+		<call class="com.axelor.apps.rku.web.StudentPortalController" method="setSubject"/>
+	</action-method>
 	
 </object-views>

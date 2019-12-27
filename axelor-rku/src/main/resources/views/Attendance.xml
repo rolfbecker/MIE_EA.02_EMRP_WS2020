@@ -5,22 +5,26 @@
 	<grid name="attendance-grid" title="Attendance" model="com.axelor.apps.rku.db.Attendance">
 		 <field name="subject" />
 		 <field name="attendanceDate"/>
-		 <field name="semesterConfig"/>
-		 <field name="branchConfig"/>
 		 <field name="userFaculty"/>
 	</grid>
 
 	<form name="attendance-form" title="Attendance" model="com.axelor.apps.rku.db.Attendance" width="large" onNew="action-attendance-attrs-set-user-and-date">
 		
 		<panel name="mainAttendancePanal">
-			 <field name="userFaculty"/>
-			 <field name="subject" domain="self.faculty.userFaculty = :userFaculty" />
-			 <field name="attendanceDate"/>
-			 <field name="semesterConfig"/>
-			 <field name="branchConfig"/>
+			 <field name="userFaculty" readonly="true"/>
+			 <field name="subject" domain="self.faculty.userFaculty = :userFaculty" onChange="action-attendance-method-get-attendance-line" />
+			 <field name="attendanceDate" onChange="action-attendance-method-change-line-date"/>
 		</panel>
-		
-		<panel-related field="attendanceLine" canEdit="true"/>
+	
+		<panel name="attendancePanel" colSpan="12">
+			<panel colSpan="12">
+				<button name="present" title="Present" width="150" colSpan="3" onClick="action-attendance-method-set-present"/>		
+				<button name="absent" title="Absent" width="150" colSpan="3" onClick="action-attendance-method-set-present"/>
+			</panel>
+			<panel colSpan="12">
+				<panel-related field="attendanceLine" colSpan="12" canEdit="true" grid-view="attendanceLine-grid" form-view="attendanceLine-form"/>
+			</panel>
+		</panel>
 		
 	</form>
 	
@@ -28,5 +32,17 @@
 		<attribute name="value" for="userFaculty" expr="eval: __user__"/>
 		<attribute name="value" for="attendanceDate" expr="eval: __date__"/>
 	</action-attrs>
+	
+	<action-method name="action-attendance-method-get-attendance-line">
+		<call class="com.axelor.apps.rku.web.AttendanceController" method="getAttendanceLineList"/>
+	</action-method>
+	
+	<action-method name="action-attendance-method-change-line-date">
+		<call class="com.axelor.apps.rku.web.AttendanceController" method="changeLineDate"/>
+	</action-method>
+	
+	<action-method name="action-attendance-method-set-present">
+		<call class="com.axelor.apps.rku.web.AttendanceController" method="setPresent"/>
+	</action-method>
 	
 </object-views>

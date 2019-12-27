@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.0.xsd">
+
+
+	<selection name="rku.semester.config.select">
+		<option value="1">sem1</option>
+		<option value="2">sem2</option>
+		<option value="3">sem3</option>
+		<option value="4">sem4</option>
+		<option value="5">sem5</option>
+		<option value="6">sem6</option>
+		<option value="7">sem7</option>
+		<option value="8">sem8</option>
+	</selection>
+
+	
+</object-views>
