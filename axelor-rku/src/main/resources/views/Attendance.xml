@@ -7,7 +7,7 @@
 		 <field name="attendanceDate"/>
 		 <field name="userFaculty"/>
 	</grid>
-
+	
 	<form name="attendance-form" title="Attendance" model="com.axelor.apps.rku.db.Attendance" width="large" onNew="action-attendance-attrs-set-user-and-date">
 		
 		<panel name="mainAttendancePanal">
@@ -28,6 +28,23 @@
 		
 	</form>
 	
+	<form title="Student attendance" name="attendance-student-form" model="com.axelor.apps.rku.db.Attendance" onNew="action-attendance-attrs-set-user-and-date" >
+		<panel>
+			<field name="userFaculty" readonly="true"/>
+			<field name="subject" domain="self.students.userStudent = :userFaculty"/>
+			<field name="attendanceDate"/>
+		</panel>
+		<panel>
+				<panel-related  field="attendanceLine" canEdit="false" canNew="false" canRemove="false" grid-view="attendance-student-line" form-view="attendanceLine-student-form"/>
+				
+		</panel>
+		<panel sidebar="true">
+			<button name="todayAttendance" title="ToDay`s Attendance" onClick="action-attendance-method-get-today-attendance" />
+			<button name="totalAttendance" title="Total Attendance" onClick=""/>
+		</panel>
+	</form>
+	
+	
 	<action-attrs name="action-attendance-attrs-set-user-and-date">
 		<attribute name="value" for="userFaculty" expr="eval: __user__"/>
 		<attribute name="value" for="attendanceDate" expr="eval: __date__"/>
@@ -43,6 +60,10 @@
 	
 	<action-method name="action-attendance-method-set-present">
 		<call class="com.axelor.apps.rku.web.AttendanceController" method="setPresent"/>
+	</action-method>
+	
+	<action-method name="action-attendance-method-get-today-attendance">
+		<call class="com.axelor.apps.rku.web.AttendanceController" method="getTodayAttendance"/>
 	</action-method>
 	
 </object-views>

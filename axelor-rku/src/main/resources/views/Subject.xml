@@ -9,7 +9,7 @@
 		 <field name="subjectCredit" />
 		 <field name="active"/>
 	</grid>
-
+	
 	<form name="subject-form" title="Subject" model="com.axelor.apps.rku.db.Subject" >
 		
 		<panel name="mainSubjectPanal">

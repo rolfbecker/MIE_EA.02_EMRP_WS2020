@@ -7,13 +7,24 @@
 		icon="fa-user" icon-background="#2fa042"/>
 	
 	<menuitem name="rku-root-student" parent="rku-root" 
-		title="student Portal" action="rku.student.portal.view" order="5"/>
+		title="student Portal" order="5"/>
+		
+	<menuitem name="rku-root-student-info" parent="rku-root-student"
+		 title="Student Info" action="rku.student.portal.view"/>
 		
 	<action-view name="rku.student.portal.view" title="Student Portal"
 		model="com.axelor.apps.rku.db.StudentPortal" >
 		<view type="grid" name="student-portal-grid"/>
 		<view type="form" name="student-portal-form"/>
 	</action-view>
+	
+	<menuitem name="rku-root-student-attendance" parent="rku-root-student"
+		title="Student attendance" action="rku.student.attendance.view"/>
+		
+		<action-view name="rku.student.attendance.view" title="Student attendance"
+			model="com.axelor.apps.rku.db.Attendance">
+			<view type="form" name="attendance-student-form"/>
+		</action-view>
 	
 	<menuitem name="rku-root-faculty" parent="rku-root" 
 		title="Faculty" order="6"/>

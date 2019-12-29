@@ -20,7 +20,8 @@
 	  
 	  <boolean name="activeUser" title="Active user" />
 	  <many-to-one name="currentSem" title="Current semester" ref="com.axelor.apps.rku.db.SemesterConfig" />
-	  <many-to-many name="subjectSet" ref="com.axelor.apps.rku.db.Subject" title="Subject set" />
+	  <many-to-many name="subjectSet" ref="com.axelor.apps.rku.db.Subject" title="Subject set" mappedBy="students"/>
+	  <one-to-many name="attendanceInfoLine" ref="com.axelor.apps.rku.db.AttendanceInfoLine" mappedBy="studentPortal" title="Attendance Info"/>
 	  														
 	  <many-to-one name="course" ref="com.axelor.apps.rku.db.Course"/>
 	  <many-to-one name="branch" ref="com.axelor.apps.rku.db.Branch"/>

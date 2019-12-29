@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.0.xsd">
+	
+	<grid name="attendance-info-line-grid" title="Attendance info" model="com.axelor.apps.rku.db.AttendanceInfoLine">
+		<field name="subject"/>
+		<field name="totalPresent"/>
+		<field name="totalAbsent"/>
+		<field name="totalLecture"/>
+		<field name="totalPercent"/>
+		<field name="branchConfig"/>
+		<field name="semesterConfig"/>
+	</grid>
+	
+	<form name="attendance-info-line-form" title="Attendance info" model="com.axelor.apps.rku.db.AttendanceInfoLine">
+		<panel name="mainPanel">
+			<field name="subject"/>
+			<field name="branchConfig"/>
+			<field name="semesterConfig"/>
+		</panel>
+		<panel name="infoPanel">
+			<field name="totalPresent"/>
+			<field name="totalAbsent"/>
+			<field name="totalLecture"/>
+			<field name="totalPercent"/>
+			
+		</panel>
+	</form>
+</object-views>

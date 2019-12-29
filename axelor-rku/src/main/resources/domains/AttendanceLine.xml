@@ -13,7 +13,8 @@
   	<date name="attendanceDate" title="Date"/>
   	<many-to-one name="subject" ref="com.axelor.apps.rku.db.Subject" title="Subject"/>
   	<many-to-one name="semesterConfig" ref="com.axelor.apps.rku.db.SemesterConfig" title="Semester config"/>
-  	
+  	<many-to-one name="branchConfig" ref="com.axelor.apps.rku.db.BranchConfig" title="Branch config"/>
+
     <many-to-one name="attendance" ref="com.axelor.apps.rku.db.Attendance"/>
     
   	
