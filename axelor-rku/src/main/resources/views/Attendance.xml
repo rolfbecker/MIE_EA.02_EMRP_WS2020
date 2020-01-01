@@ -18,8 +18,8 @@
 	
 		<panel name="attendancePanel" colSpan="12">
 			<panel colSpan="12">
-				<button name="present" title="Present" width="150" colSpan="3" onClick="action-attendance-method-set-present"/>		
-				<button name="absent" title="Absent" width="150" colSpan="3" onClick="action-attendance-method-set-present"/>
+				<button name="present" title="Present" width="150" colSpan="3" onClick="action-attendance-method-set-present,action-attendance-method-set-overall-attendance-info"/>		
+				<button name="absent" title="Absent" width="150" colSpan="3" onClick="action-attendance-method-set-present,action-attendance-method-set-overall-attendance-info"/>
 			</panel>
 			<panel colSpan="12">
 				<panel-related field="attendanceLine" colSpan="12" canEdit="true" grid-view="attendanceLine-grid" form-view="attendanceLine-form"/>
@@ -64,6 +64,10 @@
 	
 	<action-method name="action-attendance-method-get-today-attendance">
 		<call class="com.axelor.apps.rku.web.AttendanceController" method="getTodayAttendance"/>
+	</action-method>
+	
+	<action-method name="action-attendance-method-set-overall-attendance-info">
+		<call class="com.axelor.apps.rku.web.AttendanceController" method="setAttandanceInfo"/>
 	</action-method>
 	
 </object-views>

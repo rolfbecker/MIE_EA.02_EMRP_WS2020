@@ -53,4 +53,18 @@ public class AttendanceServiceImpl implements AttendanceService {
 
     return attendancsLineList;
   }
+
+	@Override
+	public void setAttendanceInfo(List<AttendanceLine> attendanceLines) {
+		for(AttendanceLine attendanceLine : attendanceLines) {
+			
+			StudentPortal student = Beans.get(StudentPortalRepository.class)
+					.all()
+					.filter("self.userStudent = ?",attendanceLine.getStudent())
+					.fetchOne();
+
+			
+		}
+		
+	}
 }

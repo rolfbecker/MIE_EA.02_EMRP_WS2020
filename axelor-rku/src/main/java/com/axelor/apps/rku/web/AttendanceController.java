@@ -3,6 +3,7 @@ package com.axelor.apps.rku.web;
 import com.axelor.apps.rku.db.Attendance;
 import com.axelor.apps.rku.db.AttendanceLine;
 import com.axelor.apps.rku.db.repo.AttendanceLineRepository;
+import com.axelor.apps.rku.service.AttendanceService;
 import com.axelor.apps.rku.service.AttendanceServiceImpl;
 import com.axelor.inject.Beans;
 import com.axelor.rpc.ActionRequest;
@@ -77,4 +78,11 @@ public class AttendanceController {
             .fetch();
     response.setValue("attendanceLine", attendanceLine);
   }
+  
+  public void setAttandanceInfo(ActionRequest request, ActionResponse response) {
+	  Attendance attendance = request.getContext().asType(Attendance.class);
+	  
+	  Beans.get(AttendanceService.class).setAttendanceInfo(attendance.getAttendanceLine());
+  }
+  
 }
