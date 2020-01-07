@@ -11,6 +11,7 @@
     <many-to-one name="subject" ref="com.axelor.apps.rku.db.Subject"/>
     <date name="attendanceDate" title="Date" />  
   	<one-to-many name="attendanceLine" ref="com.axelor.apps.rku.db.AttendanceLine" mappedBy="attendance"/>
+  	<boolean name="updateAttendance" />
   	
   </entity>
   

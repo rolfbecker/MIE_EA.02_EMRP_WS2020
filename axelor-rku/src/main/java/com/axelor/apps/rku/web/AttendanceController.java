@@ -40,6 +40,10 @@ public class AttendanceController {
 
   public void setPresent(ActionRequest request, ActionResponse response) {
     Attendance attendance = request.getContext().asType(Attendance.class);
+    
+    if (attendance.getAttendanceLine() == null) {
+      return;
+    }
     List<AttendanceLine> attendanceLines = attendance.getAttendanceLine();
     if (request.getContext().get("_signal").toString().equals("present")) {
       for (AttendanceLine attendanceLine : attendanceLines) {
@@ -61,6 +65,26 @@ public class AttendanceController {
 
     response.setValue("attendanceLine", attendanceLines);
   }
+  
+  public void updateAttendanceLine(ActionRequest request, ActionResponse response) {
+	  Attendance attendance = request.getContext().asType(Attendance.class);
+	    
+    if (attendance.getAttendanceLine() == null) {
+      return;
+    }
+    List<AttendanceLine> attendanceLines = attendance.getAttendanceLine();
+      for (AttendanceLine attendanceLine : attendanceLines) {
+        if (attendanceLine.isSelected()) {
+         if(attendanceLine.getPresent() == 1) {
+        	 attendanceLine.setPresent(0);
+         }
+         else {
+        	 attendanceLine.setPresent(1);
+         }
+        }
+      }
+	response.setValue("attendanceLine", attendanceLines);
+  }
 
   public void getTodayAttendance(ActionRequest request, ActionResponse response) {
     Attendance attendance = request.getContext().asType(Attendance.class);
@@ -78,11 +102,30 @@ public class AttendanceController {
             .fetch();
     response.setValue("attendanceLine", attendanceLine);
   }
-  
-  public void setAttandanceInfo(ActionRequest request, ActionResponse response) {
-	  Attendance attendance = request.getContext().asType(Attendance.class);
-	  
-	  Beans.get(AttendanceService.class).setAttendanceInfo(attendance.getAttendanceLine());
+
+  public void setAllPresent(ActionRequest request, ActionResponse response) {
+    Attendance attendance = request.getContext().asType(Attendance.class);
+    List<AttendanceLine> attendanceLines = attendance.getAttendanceLine();
+    if (attendanceLines == null) {
+      return;
+    }
+    System.err.println(request.getContext().get("_signal"));
+    if (request.getContext().get("_signal").toString().equals("allPresent")) {
+      for (AttendanceLine attendanceLine : attendanceLines) {
+        attendanceLine.setPresent(1);
+      }
+    } else {
+      for (AttendanceLine attendanceLine : attendanceLines) {
+        attendanceLine.setPresent(0);
+      }
+    }
+
+    response.setValue("attendanceLine", attendanceLines);
   }
-  
+
+  public void setAttandanceInfo(ActionRequest request, ActionResponse response) {
+    Attendance attendance = request.getContext().asType(Attendance.class);
+    System.err.println("sldfsds");
+    Beans.get(AttendanceService.class).setAttendanceInfo(attendance);
+  }
 }

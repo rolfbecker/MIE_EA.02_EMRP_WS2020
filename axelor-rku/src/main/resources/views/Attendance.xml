@@ -14,13 +14,26 @@
 			 <field name="userFaculty" readonly="true"/>
 			 <field name="subject" domain="self.faculty.userFaculty = :userFaculty" onChange="action-attendance-method-get-attendance-line" />
 			 <field name="attendanceDate" onChange="action-attendance-method-change-line-date"/>
+			 <field name="updateAttendance" hidden="true"/>
 		</panel>
-	
 		<panel name="attendancePanel" colSpan="12">
-			<panel colSpan="12">
-				<button name="present" title="Present" width="150" colSpan="3" onClick="action-attendance-method-set-present,action-attendance-method-set-overall-attendance-info"/>		
-				<button name="absent" title="Absent" width="150" colSpan="3" onClick="action-attendance-method-set-present,action-attendance-method-set-overall-attendance-info"/>
-			</panel>
+			    <panel colSpan="12">
+			      <panel colSpan="8">
+			        <panel colSpan="4">
+			      		<button name="present" title="Present" readonlyIf="updateAttendance" colSpan="3" width="150" onClick="action-attendance-method-set-present,action-attendance-method-set-overall-attendance-info,action-attendance-record-update-true,save"/>
+			      		<button name="allPresent" title="All Present" readonlyIf="updateAttendance" colSpan="1" width="85" onClick="action-attendance-method-set-all-present,action-attendance-method-set-overall-attendance-info,action-attendance-record-update-true,save"/>
+			      	</panel>
+			      	<panel colSpan="4">
+			      		<button name="absent" title="Absent" readonlyIf="updateAttendance" colSpan="3" width="150" onClick="action-attendance-method-set-present,action-attendance-method-set-overall-attendance-info,action-attendance-record-update-true,save"/>
+			      		<button name="allAbsent" title="All Absent" readonlyIf="updateAttendance" colSpan="1" width="25" onClick="action-attendance-method-set-all-present,action-attendance-method-set-overall-attendance-info,action-attendance-record-update-true,save"/>
+			      	</panel>
+			      </panel>
+			      <panel colSpan="4">
+			     	 <panel colspan="2">
+			      		<button name="update"  title="Update" readonlyIf="!updateAttendance" width="150" onClick="action-attendance-method-update-present"/>
+			   		 </panel>
+			      </panel>
+			    </panel>
 			<panel colSpan="12">
 				<panel-related field="attendanceLine" colSpan="12" canEdit="true" grid-view="attendanceLine-grid" form-view="attendanceLine-form"/>
 			</panel>
@@ -70,4 +83,15 @@
 		<call class="com.axelor.apps.rku.web.AttendanceController" method="setAttandanceInfo"/>
 	</action-method>
 	
+	<action-method name="action-attendance-method-set-all-present">
+		<call class="com.axelor.apps.rku.web.AttendanceController" method="setAllPresent"/>
+	</action-method>
+	
+	<action-record name="action-attendance-record-update-true" model="com.axelor.apps.rku.db.Attendance">
+		<field name="updateAttendance" expr="eval: true"/>
+	</action-record>
+	
+	<action-method name="action-attendance-method-update-present">
+		<call class="com.axelor.apps.rku.web.AttendanceController" method="updateAttendanceLine"/>
+	</action-method>
 </object-views>

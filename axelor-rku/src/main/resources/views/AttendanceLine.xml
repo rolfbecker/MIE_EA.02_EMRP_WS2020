@@ -5,7 +5,7 @@
 	<grid name="attendanceLine-grid" title="AttendanceLine" model="com.axelor.apps.rku.db.AttendanceLine" editable="true">
 		<hilite if="present == 0" color="danger"/>
 		 <field name="student" readonly="true"/>
-		 <field name="present" canEdit="true"/>
+		 <field name="present" readonly="true"/>
 		 <field name="attendanceDate" readonly="true"/>
 		 <field name="subject" readonly="true"/>
 		 <field name="semesterConfig" readonly="true"/>
@@ -23,7 +23,7 @@
 		
 		<panel name="mainAttendanceLinePanal">
 			 <field name="student" readonly="true"/>
-			 <field name="present"/>
+			 <field name="present" readonly="true"/>
 			 <field name="attendanceDate" readonly="true"/>
 			 <field name="subject" readonly="true"/>
 			 <field name="semesterConfig" readonly="true"/>

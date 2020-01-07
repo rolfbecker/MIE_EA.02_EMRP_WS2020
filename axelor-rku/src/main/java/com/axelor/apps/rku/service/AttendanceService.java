@@ -7,5 +7,6 @@ import java.util.List;
 public interface AttendanceService {
 
   List<AttendanceLine> getAttendanceLine(Attendance attendance);
-  void setAttendanceInfo(List<AttendanceLine> attendanceLine);
+
+  void setAttendanceInfo(Attendance attendance);
 }
