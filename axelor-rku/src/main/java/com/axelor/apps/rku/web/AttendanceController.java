@@ -1,7 +1,9 @@
 package com.axelor.apps.rku.web;
 
 import com.axelor.apps.rku.db.Attendance;
+import com.axelor.apps.rku.db.AttendanceInfoLine;
 import com.axelor.apps.rku.db.AttendanceLine;
+import com.axelor.apps.rku.db.repo.AttendanceInfoLineRepository;
 import com.axelor.apps.rku.db.repo.AttendanceLineRepository;
 import com.axelor.apps.rku.service.AttendanceService;
 import com.axelor.apps.rku.service.AttendanceServiceImpl;
@@ -102,6 +104,43 @@ public class AttendanceController {
     response.setValue("attendanceLine", attendanceLine);
   }
 
+  public void getOverallAttendance(ActionRequest request, ActionResponse response) {
+    Attendance attendance = request.getContext().asType(Attendance.class);
+    if (attendance.getSemester() == null) {
+      response.setFlash("Please select semester..");
+      return;
+    }
+    List<AttendanceInfoLine> attendanceInfo =
+        Beans.get(AttendanceInfoLineRepository.class)
+            .all()
+            .filter(
+                "self.studentPortal.userStudent = ? and self.semesterConfig = ?",
+                attendance.getUserFaculty(),
+                attendance.getSemester())
+            .fetch();
+
+    response.setValue("attendanceInfoLine", attendanceInfo);
+  }
+  
+  public void getStudentAttendanceInfo(ActionRequest request, ActionResponse response) {
+	  Attendance attendance = request.getContext().asType(Attendance.class);
+	  if(attendance.getSubject() == null) {
+		  response.setFlash("Please select subject..");
+		  return;
+	  }
+	  
+	  List<AttendanceInfoLine> attendanceInfo =
+		        Beans.get(AttendanceInfoLineRepository.class)
+		            .all()
+		            .filter(
+		                "self.subject = ?",
+		                 attendance.getSubject())
+		            .fetch();
+
+		    response.setValue("attendanceInfoLine", attendanceInfo);
+	  
+  }
+
   public void setAllPresent(ActionRequest request, ActionResponse response) {
     Attendance attendance = request.getContext().asType(Attendance.class);
     List<AttendanceLine> attendanceLines = attendance.getAttendanceLine();
@@ -124,7 +163,6 @@ public class AttendanceController {
 
   public void setAttandanceInfo(ActionRequest request, ActionResponse response) {
     Attendance attendance = request.getContext().asType(Attendance.class);
-    System.err.println("sldfsds");
     Beans.get(AttendanceService.class).setAttendanceInfo(attendance);
   }
 }

@@ -16,6 +16,7 @@
 	<decimal name="totalPercent" title="Attendance(%)"/>  
 	
 	<many-to-one name="studentPortal" ref="com.axelor.apps.rku.db.StudentPortal" title="Student"/>	
+	<many-to-one name="attendanceInfo" ref="com.axelor.apps.rku.db.Attendance" title="Attendance info"/>
   </entity>
   
 </domain-models>

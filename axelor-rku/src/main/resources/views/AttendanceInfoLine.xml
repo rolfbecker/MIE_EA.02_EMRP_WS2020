@@ -3,6 +3,7 @@
 	xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.0.xsd">
 	
 	<grid name="attendance-info-line-grid" title="Attendance info" model="com.axelor.apps.rku.db.AttendanceInfoLine">
+		<hilite if="totalPercent &lt; 65" color="danger"/>
 		<field name="subject"/>
 		<field name="totalPresent"/>
 		<field name="totalAbsent"/>
@@ -12,8 +13,29 @@
 		<field name="semesterConfig"/>
 	</grid>
 	
+	<grid name="attendance-info-line-student-grid" title="Attendance info" model="com.axelor.apps.rku.db.AttendanceInfoLine">
+		<hilite if="totalPercent &lt; 65" color="danger"/>
+		<field name="subject"/>
+		<field name="totalPresent"/>
+		<field name="totalAbsent"/>
+		<field name="totalLecture"/>
+		<field name="totalPercent"/>
+	</grid>
+	
+	<grid name="attendance-student-faculty-info-grid" title="Attendance info" model="com.axelor.apps.rku.db.AttendanceInfoLine">
+		<hilite if="totalPercent &lt; 65" color="danger"/>
+		<field name="studentPortal"/>
+		<field name="subject"/>
+		<field name="totalPresent"/>
+		<field name="totalAbsent"/>
+		<field name="totalLecture"/>
+		<field name="totalPercent"/>
+	</grid>
+	
+	
 	<form name="attendance-info-line-form" title="Attendance info" model="com.axelor.apps.rku.db.AttendanceInfoLine">
 		<panel name="mainPanel">
+			<field name="studentPortal"/>
 			<field name="subject"/>
 			<field name="branchConfig"/>
 			<field name="semesterConfig"/>

@@ -8,9 +8,11 @@
   <entity name="Attendance" cachable="true">
   
     <many-to-one name="userFaculty" ref="com.axelor.auth.db.User" title="User" />
-    <many-to-one name="subject" ref="com.axelor.apps.rku.db.Subject"/>
+    <many-to-one name="subject" ref="com.axelor.apps.rku.db.Subject" title="Subject"/>
+    <many-to-one name="semester" ref="com.axelor.apps.rku.db.SemesterConfig" title="Semester"/>
     <date name="attendanceDate" title="Date" />  
   	<one-to-many name="attendanceLine" ref="com.axelor.apps.rku.db.AttendanceLine" mappedBy="attendance"/>
+  	<one-to-many name="attendanceInfoLine" ref="com.axelor.apps.rku.db.AttendanceInfoLine" mappedBy="attendanceInfo" title="Overall attendance"/>
   	<boolean name="updateAttendance" />
   	
   </entity>

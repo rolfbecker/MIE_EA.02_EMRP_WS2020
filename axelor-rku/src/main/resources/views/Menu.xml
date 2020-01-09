@@ -39,13 +39,25 @@
 	</action-view>
 	
 	<menuitem name="rku-root-faculty-attendance" parent="rku-root-faculty" 
-		title="Attendance" action="rku.faculty.attendance.view" order="5"/>
+		title="Attendance" order="5"/>
+		
+	<menuitem title="Add attendance" name="rku-root-faculty-add-attendance" 
+	parent="rku-root-faculty-attendance" action="rku.faculty.attendance.view" />	
 		
 	<action-view name="rku.faculty.attendance.view" title="Attendance"
 		model="com.axelor.apps.rku.db.Attendance" >
 		<view type="grid" name="attendance-grid"/>
 		<view type="form" name="attendance-form"/>
 	</action-view>
+	
+	<menuitem title="View attendance" name="rku-root-faculty-view-attendance-info" 
+	parent="rku-root-faculty-attendance" action="rku.faculty.attendance.info.view" />	
+		
+	<action-view name="rku.faculty.attendance.info.view" title="Attendance"
+		model="com.axelor.apps.rku.db.Attendance" >
+		<view type="form" name="attendance-faculty-view-form"/>
+	</action-view>
+	
 	
 	<menuitem name="rku-conf" parent="rku-root" title="Configuration" order="25" icon="fa-cog"/>
 	

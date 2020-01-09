@@ -116,7 +116,7 @@ public class AttendanceServiceImpl implements AttendanceService {
           float totalPercent =
               (attendanceInfo.getTotalPresent() * 100) / attendanceInfo.getTotalLecture();
           attendanceInfo.setTotalPercent(new BigDecimal(totalPercent));
-          
+
         } else {
           if (attendanceLine.getPresent() == 1) {
             attendanceInfo.setTotalPresent(attendanceInfo.getTotalPresent() + 1);
