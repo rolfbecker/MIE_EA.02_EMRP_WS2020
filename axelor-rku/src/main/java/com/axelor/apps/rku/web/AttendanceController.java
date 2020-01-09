@@ -40,7 +40,7 @@ public class AttendanceController {
 
   public void setPresent(ActionRequest request, ActionResponse response) {
     Attendance attendance = request.getContext().asType(Attendance.class);
-    
+
     if (attendance.getAttendanceLine() == null) {
       return;
     }
@@ -65,25 +65,24 @@ public class AttendanceController {
 
     response.setValue("attendanceLine", attendanceLines);
   }
-  
+
   public void updateAttendanceLine(ActionRequest request, ActionResponse response) {
-	  Attendance attendance = request.getContext().asType(Attendance.class);
-	    
+    Attendance attendance = request.getContext().asType(Attendance.class);
+
     if (attendance.getAttendanceLine() == null) {
       return;
     }
     List<AttendanceLine> attendanceLines = attendance.getAttendanceLine();
-      for (AttendanceLine attendanceLine : attendanceLines) {
-        if (attendanceLine.isSelected()) {
-         if(attendanceLine.getPresent() == 1) {
-        	 attendanceLine.setPresent(0);
-         }
-         else {
-        	 attendanceLine.setPresent(1);
-         }
+    for (AttendanceLine attendanceLine : attendanceLines) {
+      if (attendanceLine.isSelected()) {
+        if (attendanceLine.getPresent() == 1) {
+          attendanceLine.setPresent(0);
+        } else {
+          attendanceLine.setPresent(1);
         }
       }
-	response.setValue("attendanceLine", attendanceLines);
+    }
+    response.setValue("attendanceLine", attendanceLines);
   }
 
   public void getTodayAttendance(ActionRequest request, ActionResponse response) {

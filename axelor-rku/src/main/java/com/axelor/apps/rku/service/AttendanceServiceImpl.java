@@ -62,7 +62,7 @@ public class AttendanceServiceImpl implements AttendanceService {
   @Override
   @Transactional(rollbackOn = {AxelorException.class, Exception.class})
   public void setAttendanceInfo(Attendance attendance) {
-	  List<AttendanceLine> attendanceLines = attendance.getAttendanceLine();
+    List<AttendanceLine> attendanceLines = attendance.getAttendanceLine();
     AttendanceInfoLineRepository attendanceInfoLineRepo =
         Beans.get(AttendanceInfoLineRepository.class);
     StudentPortalRepository studentPortalRepo = Beans.get(StudentPortalRepository.class);
@@ -103,33 +103,34 @@ public class AttendanceServiceImpl implements AttendanceService {
 
         attendanceInfoLineRepo.save(infoLine);
       } else {
-    	  if(attendance.getUpdateAttendance()) {
-    		  if(attendanceLine.isSelected()) {
-    			  if(attendanceLine.getPresent() == 0) {
-        			  attendanceInfo.setTotalPresent(attendanceInfo.getTotalPresent()-1);
-        			  attendanceInfo.setTotalAbsent(attendanceInfo.getTotalAbsent()+1);
-        		  }
-    			  else {
-    				  attendanceInfo.setTotalPresent(attendanceInfo.getTotalPresent()+1);
-        			  attendanceInfo.setTotalAbsent(attendanceInfo.getTotalAbsent()-1);
-    			  }
-    		  }
-    		  float totalPercent = (attendanceInfo.getTotalPresent()*100)/attendanceInfo.getTotalLecture();
-  	          attendanceInfo.setTotalPercent(new BigDecimal(totalPercent));
-    	  }
-    	  else {
-    		  if (attendanceLine.getPresent() == 1) {
-    	          attendanceInfo.setTotalPresent(attendanceInfo.getTotalPresent() + 1);
-    	          attendanceInfo.setTotalLecture(
-    	              attendanceInfo.getTotalPresent() + attendanceInfo.getTotalAbsent());
-    	        } else {
-    	          attendanceInfo.setTotalAbsent(attendanceInfo.getTotalAbsent() + 1);
-    	          attendanceInfo.setTotalLecture(
-    	              attendanceInfo.getTotalPresent() + attendanceInfo.getTotalAbsent());
-    	        }
-    	        float totalPercent = (attendanceInfo.getTotalPresent()*100)/attendanceInfo.getTotalLecture();
-    	        attendanceInfo.setTotalPercent(new BigDecimal(totalPercent));
-    	  }
+        if (attendance.getUpdateAttendance()) {
+          if (attendanceLine.isSelected()) {
+            if (attendanceLine.getPresent() == 0) {
+              attendanceInfo.setTotalPresent(attendanceInfo.getTotalPresent() - 1);
+              attendanceInfo.setTotalAbsent(attendanceInfo.getTotalAbsent() + 1);
+            } else {
+              attendanceInfo.setTotalPresent(attendanceInfo.getTotalPresent() + 1);
+              attendanceInfo.setTotalAbsent(attendanceInfo.getTotalAbsent() - 1);
+            }
+          }
+          float totalPercent =
+              (attendanceInfo.getTotalPresent() * 100) / attendanceInfo.getTotalLecture();
+          attendanceInfo.setTotalPercent(new BigDecimal(totalPercent));
+          
+        } else {
+          if (attendanceLine.getPresent() == 1) {
+            attendanceInfo.setTotalPresent(attendanceInfo.getTotalPresent() + 1);
+            attendanceInfo.setTotalLecture(
+                attendanceInfo.getTotalPresent() + attendanceInfo.getTotalAbsent());
+          } else {
+            attendanceInfo.setTotalAbsent(attendanceInfo.getTotalAbsent() + 1);
+            attendanceInfo.setTotalLecture(
+                attendanceInfo.getTotalPresent() + attendanceInfo.getTotalAbsent());
+          }
+          float totalPercent =
+              (attendanceInfo.getTotalPresent() * 100) / attendanceInfo.getTotalLecture();
+          attendanceInfo.setTotalPercent(new BigDecimal(totalPercent));
+        }
       }
     }
   }
