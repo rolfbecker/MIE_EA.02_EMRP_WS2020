@@ -2,7 +2,7 @@
 <object-views xmlns="http://axelor.com/xml/ns/object-views" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.0.xsd">
 	
-	<grid name="attendance-grid" title="Attendance" model="com.axelor.apps.rku.db.Attendance">
+	<grid name="attendance-grid" title="Attendance" canDelete="false" model="com.axelor.apps.rku.db.Attendance">
 		 <field name="subject" />
 		 <field name="attendanceDate"/>
 		 <field name="userFaculty"/>
@@ -47,14 +47,15 @@
 			<field name="semester"/>
 			<field name="attendanceDate"/>
 		</panel>
+		
+		<panel>
+		    <button name="todayAttendance" title="ToDay`s Attendance" onClick="action-attendance-method-get-today-attendance"/>
+		    <button name="totalAttendance" title="Total Attendance" onClick="action-attendance-method-get-overall-attendance"/>
+	  	</panel>
+				
 		<panel>
 				<panel-related  field="attendanceLine" canEdit="false" canNew="false" canRemove="false" grid-view="attendance-student-line" form-view="attendanceLine-student-form"/>
 				<panel-related field="attendanceInfoLine" canEdit="false" canNew="false" canRemove="false" grid-view="attendance-info-line-student-grid" form-view="attendance-info-line-form"/>
-				
-		</panel>
-		<panel sidebar="true">
-			<button name="todayAttendance" title="ToDay`s Attendance" onClick="action-attendance-method-get-today-attendance" />
-			<button name="totalAttendance" title="Total Attendance" onClick="action-attendance-method-get-overall-attendance" />
 		</panel>
 	</form>
 	

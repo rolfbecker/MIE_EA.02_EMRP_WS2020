@@ -28,7 +28,7 @@
 			<field name="activeUser"/>	
 			<field name="currentSem" onChange="action-student-portal-method-set-subject"/>	
 			<field name="course"  required="true" />
-			<field name="branch" required="true" onChange="action-student-portal-method-set-subject"/>
+			<field name="branchConfig" required="true" onChange="action-student-portal-method-set-subject"/>
 		</panel>
 		
 		<panel-related field="subjectSet" grid-view="subject-grid" form-view="subject-form" name="subjectPanel" canSelect="true" canEdit="false" canNew="false"/>

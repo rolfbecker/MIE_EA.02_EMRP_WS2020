@@ -12,7 +12,7 @@ public class StudentPortalController {
 
   public void setSubject(ActionRequest request, ActionResponse response) {
     StudentPortal student = request.getContext().asType(StudentPortal.class);
-    if (student.getBranch() == null) {
+    if (student.getBranchConfig() == null) {
       return;
     }
     if (student.getCurrentSem() == null) {
@@ -20,7 +20,7 @@ public class StudentPortalController {
     }
     String filter =
         "self.branchConfig.name = '"
-            + student.getBranch().getName()
+            + student.getBranchConfig().getName()
             + "' and self.semesterConfig.name = '"
             + student.getCurrentSem().getName()
             + "' and self.active = true";

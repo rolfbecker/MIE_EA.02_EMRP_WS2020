@@ -61,6 +61,8 @@
 	
 	<menuitem name="rku-conf" parent="rku-root" title="Configuration" order="25" icon="fa-cog"/>
 	
+	<!-- 
+	
 	<menuitem name="rku-root-branch" parent="rku-conf" order="10"
 		title="Branch" action="rku.branch.view" />
 		
@@ -79,7 +81,9 @@
 		<view type="form" name="semester-form"/>
 	</action-view>	
 	
-	<menuitem name="rku-root-subject" parent="rku-conf" order="30"
+	-->
+	
+	<menuitem name="rku-root-subject" parent="rku-conf" order="10"
 		title="Subject" action="rku.subject.view" />
 		
 	<action-view name="rku.subject.view" title="Subject"
@@ -88,9 +92,7 @@
 		<view type="form" name="subject-form"/>
 	</action-view>	
 	
-	<menuitem name="rku-conf-conf" parent="rku-conf" title="Config" order="40" icon="fa-cog"/>
-	
-	<menuitem name="rku-config-branch" parent="rku-conf-conf" 
+	<menuitem name="rku-config-branch" parent="rku-conf" order="20"
 		title="Branch config" action="rku.branch.config.view" />
 		
 	<action-view name="rku.branch.config.view" title="Branch config"
@@ -99,7 +101,7 @@
 		<view type="form" name="branch-config-form"/>
 	</action-view>	
 	
-	<menuitem name="rku-config-semester" parent="rku-conf-conf" 
+	<menuitem name="rku-config-semester" parent="rku-conf" order="30"
 		title="Sem config" action="rku.semester.config.view" />
 		
 	<action-view name="rku.semester.config.view" title="Sem config"
@@ -108,7 +110,7 @@
 		<view type="form" name="semester-config-form"/>
 	</action-view>	
 	
-	<menuitem name="rku-config-course" parent="rku-conf-conf" 
+	<menuitem name="rku-config-course" parent="rku-conf" order="40"
 		title="Course Config" action="rku.course.view" />
 		
 	<action-view name="rku.course.view" title="Course Config"
@@ -117,5 +119,16 @@
 		<view type="form" name="course-form"/>
 	</action-view>	
 		
+	
+	
+	<menuitem name="rku-root-report" parent="rku-root" title="Reportings" order="45" icon="fa-bar-chart"/>
+	
+	<menuitem name="menu-attendance-student-percentage" parent="rku-root-report"
+		title="Class attendance"  action="rku.calls.dashboard.view"/>	
+	
+	<action-view name="rku.calls.dashboard.view" title="Student attendance">
+		<view type="dashboard" name="rku.calls.dashboard" />
+	</action-view>
+	
 	
 </object-views>

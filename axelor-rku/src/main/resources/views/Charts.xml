@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.0.xsd">
+	  
+	  
+<chart name="chart.dashboard.student.class.attendance.bar" title="Class Attendance">
+  <dataset type="sql"><![CDATA[
+
+        SELECT
+
+        	AVG(infoLines.total_percent) AS percentage,
+        	students.enrollment_no as student
+
+        FROM
+		rku_student_portal students
+		
+		LEFT JOIN
+     		rku_attendance_info_line as infoLines ON infoLines.student_portal = Students.id
+
+		WHERE
+			Students.active_user = 'true' 
+			AND students.current_sem IN (SELECT current_sem from rku_student_portal WHERE user_student = :__user__)
+			AND students.branch_config IN(SELECT branch_config from rku_student_portal WHERE user_student = :__user__)
+		
+        GROUP BY
+        student
+        ORDER BY
+        student
+
+ ]]></dataset>
+  <category key="student" type="text" title="Student"/>
+  <series key="percentage" type="bar" title="Total Percent"/>
+</chart>
+
+
+ <chart name="chart.dashboard.student.subject.attendance.bar" title="Subject Attendance">
+   <dataset type="sql"><![CDATA[
+
+       SELECT
+
+       	infoLines.total_percent AS percentage,
+       	subject.full_name as name
+
+       FROM
+      rku_attendance_info_line infoLines
+
+      LEFT JOIN
+            rku_subject as subject ON subject.id = infoLines.subject
+
+      WHERE
+         infoLines.student_portal IN (SELECT id from rku_student_portal WHERE user_student = :__user__)
+
+
+]]></dataset>
+   <category key="name" type="text" title="Student"/>
+   <series key="percentage" type="bar" title="Total Percent"/>
+ </chart>
+
+
+
+		
+</object-views>

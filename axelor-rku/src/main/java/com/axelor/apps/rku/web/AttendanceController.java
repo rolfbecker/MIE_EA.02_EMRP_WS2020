@@ -121,24 +121,21 @@ public class AttendanceController {
 
     response.setValue("attendanceInfoLine", attendanceInfo);
   }
-  
-  public void getStudentAttendanceInfo(ActionRequest request, ActionResponse response) {
-	  Attendance attendance = request.getContext().asType(Attendance.class);
-	  if(attendance.getSubject() == null) {
-		  response.setFlash("Please select subject..");
-		  return;
-	  }
-	  
-	  List<AttendanceInfoLine> attendanceInfo =
-		        Beans.get(AttendanceInfoLineRepository.class)
-		            .all()
-		            .filter(
-		                "self.subject = ?",
-		                 attendance.getSubject())
-		            .fetch();
 
-		    response.setValue("attendanceInfoLine", attendanceInfo);
-	  
+  public void getStudentAttendanceInfo(ActionRequest request, ActionResponse response) {
+    Attendance attendance = request.getContext().asType(Attendance.class);
+    if (attendance.getSubject() == null) {
+      response.setFlash("Please select subject..");
+      return;
+    }
+
+    List<AttendanceInfoLine> attendanceInfo =
+        Beans.get(AttendanceInfoLineRepository.class)
+            .all()
+            .filter("self.subject = ?", attendance.getSubject())
+            .fetch();
+
+    response.setValue("attendanceInfoLine", attendanceInfo);
   }
 
   public void setAllPresent(ActionRequest request, ActionResponse response) {

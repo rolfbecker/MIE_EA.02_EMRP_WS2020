@@ -31,7 +31,7 @@ public class AttendanceServiceImpl implements AttendanceService {
         Beans.get(StudentPortalRepository.class)
             .all()
             .filter(
-                "self.currentSem.name = ? and self.branch.branchConfig.name = ? and self.activeUser = true",
+                "self.currentSem.name = ? and self.branchConfig.name = ? and self.activeUser = true",
                 semConfig.getName(),
                 branchConfig.getName())
             .fetch();
