@@ -1,0 +1,2 @@
+"name";"code";"installOrder";"description";"imagePath";"modules";"dependsOn";"sequence"
+"RKU";"rku";30;"RKU configuration";"app-rku.png";"Axelor-rku";"base";25

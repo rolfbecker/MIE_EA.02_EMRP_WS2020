@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<csv-inputs xmlns="http://axelor.com/xml/ns/data-import"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/data-import http://axelor.com/xml/ns/data-import/data-import_5.0.xsd">
+  
+<!--     IMPORT DU PACKAGE 'AUTH' -->
+
+    <input file="rku_course_conf.csv" separator=";" type="com.axelor.apps.rku.db.Course" search="self.importId = :importId" />
+    <input file="rku_sem_conf.csv" separator=";" type="com.axelor.apps.rku.db.SemesterConfig" search="self.importId = :importId" />
+    <input file="rku_branch_conf.csv" separator=";" type="com.axelor.apps.rku.db.BranchConfig" search="self.importId = :importId" />
+    
+    <input file="rku_subject_conf.csv" separator=";" type="com.axelor.apps.rku.db.Subject" search="self.importId = :importId" />
+    
+</csv-inputs>
+

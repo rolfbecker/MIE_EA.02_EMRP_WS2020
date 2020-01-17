@@ -4,6 +4,7 @@
 	
 	<grid name="course-grid" title="Student" model="com.axelor.apps.rku.db.Course">
 		 <field name="name"/>
+		 <field name="code" />
 		 <field name="totalYear"/>
 	</grid>
 
@@ -11,6 +12,7 @@
 		
 		<panel name="mainCoursePanal">
 			<field name="name" required="true"/>
+			<field name="code" />
 			<field name="totalYear"/>
 		</panel>
 		
