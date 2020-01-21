@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_5.0.xsd">
+
+  <module name="rku" package="com.axelor.apps.rku.db"/>
+
+  <entity name="Exam" cachable="true">
+  	
+  	<string name="name" title="Subject Name" required="true" />
+  	<string name="code" title="Code" required="true" />
+  	
+  </entity>
+  
+</domain-models>

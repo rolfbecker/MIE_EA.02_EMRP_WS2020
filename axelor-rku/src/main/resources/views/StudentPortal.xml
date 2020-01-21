@@ -15,7 +15,7 @@
 			<field name="firstName" colSpan="3" required="true" />
 			<field name="sureName" colSpan="3" required="true" />
 			<field name="lastName" colSpan="3" required="true" />
-			<field name="enrollmentNo" required="true"/>
+			<field name="enrollmentNo" required="true" readonly="true"/>
 			<field name="dateOfBirth" required="true"/>
 			<field name="email" required="true"/>
 			<field name="phoneNo" required="true"/>
@@ -43,7 +43,7 @@
 		</panel>
 		
 		<panel name="userPanel" sidebar="true">
-			<field name="userStudent"/>
+			<field name="userStudent" readonly="true"/>
 		</panel>
 		
 	</form>

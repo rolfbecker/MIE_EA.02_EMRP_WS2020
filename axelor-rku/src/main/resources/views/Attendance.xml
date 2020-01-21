@@ -41,7 +41,7 @@
 		
 	</form>
 	
-	<form title="Student attendance" name="attendance-student-form" model="com.axelor.apps.rku.db.Attendance" onNew="action-attendance-attrs-set-user-and-date" >
+	<form title="Student attendance" name="attendance-student-form" model="com.axelor.apps.rku.db.Attendance"  width="1300" onNew="action-attendance-attrs-set-user-and-date" >
 		<panel>
 			<field name="userFaculty" readonly="true"/>
 			<field name="semester"/>

@@ -20,11 +20,14 @@ package com.axelor.apps.rku.module;
 import com.axelor.app.AxelorModule;
 import com.axelor.apps.rku.service.AttendanceService;
 import com.axelor.apps.rku.service.AttendanceServiceImpl;
+import com.axelor.apps.rku.service.ResultService;
+import com.axelor.apps.rku.service.ResultServiceImpl;
 
 public class CrmModule extends AxelorModule {
 
   @Override
   protected void configure() {
     bind(AttendanceService.class).to(AttendanceServiceImpl.class);
+    bind(ResultService.class).to(ResultServiceImpl.class);
   }
 }

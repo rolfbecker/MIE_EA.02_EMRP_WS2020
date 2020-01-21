@@ -21,10 +21,19 @@
 	<menuitem name="rku-root-student-attendance" parent="rku-root-student"
 		title="Student attendance" action="rku.student.attendance.view"/>
 		
-		<action-view name="rku.student.attendance.view" title="Student attendance"
-			model="com.axelor.apps.rku.db.Attendance">
-			<view type="form" name="attendance-student-form"/>
-		</action-view>
+	<action-view name="rku.student.attendance.view" title="Student attendance"
+		model="com.axelor.apps.rku.db.Attendance">
+		<view type="form" name="attendance-student-form"/>
+	</action-view>
+	
+	
+	<menuitem name="rku-root-student-result" parent="rku-root-student"
+		title="Result" action="rku.student.result.view"/>
+		
+	<action-view name="rku.student.result.view" title="Student result"
+		model="com.axelor.apps.rku.db.Result">
+		<view type="form" name="result-student-form"/>
+	</action-view>
 	
 	<menuitem name="rku-root-faculty" parent="rku-root" 
 		title="Faculty" order="6"/>
@@ -56,6 +65,16 @@
 	<action-view name="rku.faculty.attendance.info.view" title="Attendance"
 		model="com.axelor.apps.rku.db.Attendance" >
 		<view type="form" name="attendance-faculty-view-form"/>
+	</action-view>
+	
+	
+	<menuitem name="rku-root-result" parent="rku-root-faculty" 
+		title="Result" action="rku.faculty.result" order="7"/>
+		
+	<action-view name="rku.faculty.result" title="Result"
+		model="com.axelor.apps.rku.db.Result" >
+		<view type="grid" name="result-grid"/>
+		<view type="form" name="result-form"/>
 	</action-view>
 	
 	
@@ -108,6 +127,15 @@
 		model="com.axelor.apps.rku.db.SemesterConfig" >
 		<view type="grid" name="semester-config-grid"/>
 		<view type="form" name="semester-config-form"/>
+	</action-view>	
+	
+	<menuitem name="rku-config-exam" parent="rku-conf" order="39"
+		title="Exam Config" action="rku.exam.view" />
+		
+	<action-view name="rku.exam.view" title="Exam Config"
+		model="com.axelor.apps.rku.db.Exam" >
+		<view type="grid" name="exam-config-grid"/>
+		<view type="form" name="exam-config-form"/>
 	</action-view>	
 	
 	<menuitem name="rku-config-course" parent="rku-conf" order="40"

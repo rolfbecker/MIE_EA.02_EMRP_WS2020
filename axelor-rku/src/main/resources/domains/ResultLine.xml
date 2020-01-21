@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_5.0.xsd">
+
+  <module name="rku" package="com.axelor.apps.rku.db"/>
+
+  <entity name="ResultLine" cachable="true">
+  
+  
+  	<many-to-one name="student" ref="com.axelor.auth.db.User" title="Student"/>
+  	
+  	<decimal name="point" title="Subject Points"/>
+	<many-to-one name="exam" ref="com.axelor.apps.rku.db.Exam" title="Exam type"/> 
+	 	
+  	<date name="attendanceDate" title="Date"/>
+  	<many-to-one name="subject" ref="com.axelor.apps.rku.db.Subject" title="Subject"/>
+  	<many-to-one name="semesterConfig" ref="com.axelor.apps.rku.db.SemesterConfig" title="Semester config"/>
+  	<many-to-one name="branchConfig" ref="com.axelor.apps.rku.db.BranchConfig" title="Branch config"/>
+
+    <many-to-one name="result" ref="com.axelor.apps.rku.db.Result"/>
+    
+  	
+  </entity>
+  
+</domain-models>
+
+
+
+
+

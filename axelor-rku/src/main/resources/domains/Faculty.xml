@@ -10,7 +10,7 @@
   	<string name="firstName"  title="FirstName"/>
     <string name="sureName"  title="SureName"/>
 	<string name="lastName"  title="LastName"/>
-    <many-to-one name="userFaculty" ref="com.axelor.auth.db.User" title="User" />
+    <many-to-one name="userFaculty" ref="com.axelor.auth.db.User" title="User" unique="true"/>
     <boolean name="active" title="Active"/>
     <many-to-one name="course" ref="com.axelor.apps.rku.db.Course" title="Course" />
     <many-to-one name="branch" ref="com.axelor.apps.rku.db.BranchConfig"  />

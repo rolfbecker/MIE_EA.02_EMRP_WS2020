@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.0.xsd">
+	
+	<grid name="result-grid" title="Attendance" model="com.axelor.apps.rku.db.Result">
+		 <field name="subject" />
+		 <field name="userFaculty"/>
+		 <field name="exam"/>
+	</grid>
+	
+	<form name="result-form" title="Result" model="com.axelor.apps.rku.db.Result" width="1300" onNew="action-attendance-attrs-set-user" >
+		
+		<panel name="mainResultPanal">
+			 <field name="userFaculty" readonly="true"/>
+			 <field name="subject" domain="self.faculty.userFaculty = :userFaculty" onChange="action-result-method-get-result-line" required="true" />
+			 <field name="exam" onChange="action-result-method-get-result-line" required="true"/>
+			 <field name="remedial"/>
+		</panel>
+		
+		<panel-related field="resultLine" canNew="false" canRemove="false" grid-view="result-line-grid" form-view="result-line-form"/>
+		
+	</form>
+	
+	
+	
+	<form title="Student Result" name="result-student-form" model="com.axelor.apps.rku.db.Result" onNew="action-attendance-attrs-set-user"  width="1300">
+		<panel>
+			<field name="userFaculty" readonly="true"/>
+			<field name="semester"/>
+			<field name="exam"/>
+		</panel>
+		
+		<panel>
+		   	<button name="getResult" title="Generate Result" onClick="action-result-method-generate-result" colSpan="12"/>
+	  	</panel>
+				
+		<panel-related  field="resultLine" canEdit="false" canNew="false" canRemove="false" grid-view="result-line-grid" form-view="result-line-form"/>
+	</form>
+	
+	
+	<action-attrs name="action-attendance-attrs-set-user">
+		<attribute name="value" for="userFaculty" expr="eval: __user__"/>
+	</action-attrs>
+	
+	<action-method name="action-result-method-get-result-line">
+		<call class="com.axelor.apps.rku.web.ResultController" method="getResultLineList"/>
+	</action-method>
+	
+	<action-method name="action-result-method-generate-result">
+		<call class="com.axelor.apps.rku.web.ResultController" method="generateResult"/>
+	</action-method>
+	
+	<!-- 
+	
+
+	
+	
+	
+	<action-method name="action-attendance-method-change-line-date">
+		<call class="com.axelor.apps.rku.web.AttendanceController" method="changeLineDate"/>
+	</action-method>
+	
+	<action-method name="action-attendance-method-set-present">
+		<call class="com.axelor.apps.rku.web.AttendanceController" method="setPresent"/>
+	</action-method>
+	
+	<action-method name="action-attendance-method-get-today-attendance">
+		<call class="com.axelor.apps.rku.web.AttendanceController" method="getTodayAttendance"/>
+	</action-method>
+	
+	<action-method name="action-attendance-method-get-overall-attendance">
+		<call class="com.axelor.apps.rku.web.AttendanceController" method="getOverallAttendance"/>
+	</action-method>
+	
+	<action-method name="action-attendance-method-get-students-attendance-info">
+		<call class="com.axelor.apps.rku.web.AttendanceController" method="getStudentAttendanceInfo"/>
+	</action-method>
+	
+	<action-method name="action-attendance-method-set-overall-attendance-info">
+		<call class="com.axelor.apps.rku.web.AttendanceController" method="setAttandanceInfo"/>
+	</action-method>
+	
+	<action-method name="action-attendance-method-set-all-present">
+		<call class="com.axelor.apps.rku.web.AttendanceController" method="setAllPresent"/>
+	</action-method>
+	
+	<action-record name="action-attendance-record-update-true" model="com.axelor.apps.rku.db.Attendance">
+		<field name="updateAttendance" expr="eval: true"/>
+	</action-record>
+	
+	<action-method name="action-attendance-method-update-present">
+		<call class="com.axelor.apps.rku.web.AttendanceController" method="updateAttendanceLine"/>
+	</action-method>
+
+ -->
+
+</object-views>
