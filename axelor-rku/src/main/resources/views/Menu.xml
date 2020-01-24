@@ -78,6 +78,25 @@
 	</action-view>
 	
 	
+	<menuitem name="rku-root-mentor" parent="rku-root" 
+		title="Mentor" order="6"/>
+	
+	<menuitem name="rku-root-mentor-student" parent="rku-root-mentor" 
+		title="Student" action="rku.mentor.student" order="5"/>
+		
+	<action-view name="rku.mentor.student" title="Student"
+		model="com.axelor.apps.rku.db.StudentPortal" >
+		<view type="grid" name="student-portal-grid"/>
+		<view type="form" name="student-portal-form"/>
+		
+		<domain>self.currentSem = :_semester AND self.branchConfig = :_branch</domain>
+		<context name="_user" expr="eval: __user__"/>
+		<context name="_semester" expr="eval:__repo__(Faculty).all().filter('self.userFaculty = ?',_user).fetchOne()?.semConfig"/>
+		<context name="_branch" expr="eval:__repo__(Faculty).all().filter('self.userFaculty = ?',_user).fetchOne()?.branch"/>
+	</action-view>
+	
+	
+	
 	<menuitem name="rku-conf" parent="rku-root" title="Configuration" order="25" icon="fa-cog"/>
 	
 	<!-- 

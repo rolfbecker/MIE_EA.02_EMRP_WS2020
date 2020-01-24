@@ -13,8 +13,9 @@
     <many-to-one name="userFaculty" ref="com.axelor.auth.db.User" title="User" unique="true"/>
     <boolean name="active" title="Active"/>
     <many-to-one name="course" ref="com.axelor.apps.rku.db.Course" title="Course" />
-    <many-to-one name="branch" ref="com.axelor.apps.rku.db.BranchConfig"  />
+    <many-to-one name="branch" ref="com.axelor.apps.rku.db.BranchConfig" title="Branch" />
     <many-to-many name="subjectSet" ref="com.axelor.apps.rku.db.Subject" title="Subject set" mappedBy="faculty" />
+    <many-to-one name="semConfig" title="Semester" ref="com.axelor.apps.rku.db.SemesterConfig" />
       
   </entity>
   

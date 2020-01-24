@@ -27,16 +27,19 @@ public class ResultController {
   public void generateResult(ActionRequest request, ActionResponse response) {
     Result result = request.getContext().asType(Result.class);
 
-    if (result.getExam() == null && result.getUserFaculty() == null && result.getSemester() == null) {
+    if (result.getExam() == null
+        && result.getUserFaculty() == null
+        && result.getSemester() == null) {
       return;
     }
     List<ResultLine> resultLine =
         Beans.get(ResultLineRepository.class)
             .all()
-            .filter("self.student = ? and self.exam = ? and self.semesterConfig = ?",
-            		result.getUserFaculty(),
-            		result.getExam(),
-            		result.getSemester())
+            .filter(
+                "self.student = ? and self.exam = ? and self.semesterConfig = ?",
+                result.getUserFaculty(),
+                result.getExam(),
+                result.getSemester())
             .fetch();
     response.setValue("resultLine", resultLine);
   }
