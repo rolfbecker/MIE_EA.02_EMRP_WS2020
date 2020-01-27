@@ -93,6 +93,7 @@
 		<context name="_user" expr="eval: __user__"/>
 		<context name="_semester" expr="eval:__repo__(Faculty).all().filter('self.userFaculty = ?',_user).fetchOne()?.semConfig"/>
 		<context name="_branch" expr="eval:__repo__(Faculty).all().filter('self.userFaculty = ?',_user).fetchOne()?.branch"/>
+		<context name="isUpdate" expr="eval: true"/>
 	</action-view>
 	
 	

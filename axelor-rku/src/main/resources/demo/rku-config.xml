@@ -9,7 +9,15 @@
     <input file="rku_sem_conf.csv" separator=";" type="com.axelor.apps.rku.db.SemesterConfig" search="self.importId = :importId" />
     <input file="rku_branch_conf.csv" separator=";" type="com.axelor.apps.rku.db.BranchConfig" search="self.importId = :importId" />
     
-    <input file="rku_subject_conf.csv" separator=";" type="com.axelor.apps.rku.db.Subject" search="self.importId = :importId" />
+    <input file="rku_subject_conf.csv" separator=";" type="com.axelor.apps.rku.db.Subject" />
+    
+    <input file="rku_student_portal.csv" separator=";" type="com.axelor.apps.rku.db.StudentPortal" >
+   		<bind to="subjectSet" column="subjectSetList" search="self.importId in :subjectSetList" eval="subjectSetList.split('\\|') as List"></bind>
+    </input>
+    
+    <input file="rku_faculty.csv" separator=";" type="com.axelor.apps.rku.db.Faculty">
+    	<bind to="subjectSet" column="subjectSet" search="self.fullName in :subjectSet" eval="subjectSet.split('\\|') as List"></bind>
+    </input>
     
 </csv-inputs>
 

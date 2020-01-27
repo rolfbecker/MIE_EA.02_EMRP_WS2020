@@ -1,0 +1,3 @@
+"importId";"firstName";"sureName";"lastName";"userFaculty.importId";"active";"branch.code";"course.code";"subjectSet"
+1;"gaurav";"bhatt";"gaurav";13;"true";"IT";"engineering";"java(IT-sem1)|dbms(IT-sem1)|ds(IT-sem1)|compiler(IT-sem1)|java(COM-sem1)|dbms(COM-sem1)"
+2;"kapildev";"naina";"kapildev";14;"TRUE";"COM";"engineering";"ccc(IT-sem1)|compiler(IT-sem1)|civil(CIVIL-sem1)|java(IT-sem1)"

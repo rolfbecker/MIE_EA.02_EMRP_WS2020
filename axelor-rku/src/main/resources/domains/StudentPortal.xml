@@ -17,6 +17,7 @@
 	  <date name="dateOfBirth" title="DOB"/>
 	  <string name="address" title="Address"/>	
 	  <string name="email" title="Email"/>
+	  <boolean name="updateInfo" title="Update information"/>
 	  
 	  <boolean name="activeUser" title="Active user" />
 	  <many-to-one name="currentSem" title="Current semester" ref="com.axelor.apps.rku.db.SemesterConfig" />

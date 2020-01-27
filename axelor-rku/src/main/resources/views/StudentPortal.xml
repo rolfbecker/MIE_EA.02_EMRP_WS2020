@@ -3,35 +3,37 @@
 	xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.0.xsd">
 	
 	<grid name="student-portal-grid" title="Student" model="com.axelor.apps.rku.db.StudentPortal">
+		<hilite if="updateInfo" color="danger"/>
 		 <field name="enrollmentNo"/>
 		 <field name="email"/>
 		 <field name="firstName"/>
 		 <field name="phoneNo"/>
+		 <field name="updateInfo" hidden="true"/>
 	</grid>
 
 	<form name="student-portal-form" title="Student Portal" model="com.axelor.apps.rku.db.StudentPortal"  width="large" onNew="action-student-portal-attrs-set-user">
 		
 		<panel name="studentPanel">
-			<field name="firstName" colSpan="3" required="true" />
-			<field name="sureName" colSpan="3" required="true" />
-			<field name="lastName" colSpan="3" required="true" />
+			<field name="firstName" colSpan="3" required="true" readonlyIf="!updateInfo" />
+			<field name="sureName" colSpan="3" required="true" readonlyIf="!updateInfo"/>
+			<field name="lastName" colSpan="3" required="true" readonlyIf="!updateInfo"/>
 			<field name="enrollmentNo" required="true" readonly="true"/>
-			<field name="dateOfBirth" required="true"/>
-			<field name="email" required="true"/>
-			<field name="phoneNo" required="true"/>
-			<field name="startYear" required="true"/>
-			<field name="endYear" required="true"/>
-			<field name="address" required="true" type="text"></field>
+			<field name="dateOfBirth" required="true" readonlyIf="!updateInfo"/>
+			<field name="email" required="true" readonlyIf="!updateInfo"/>
+			<field name="phoneNo" required="true" readonlyIf="!updateInfo"/>
+			<field name="startYear" required="true" readonlyIf="!updateInfo"/>
+			<field name="endYear" required="true" readonlyIf="!updateInfo"/>
+			<field name="address" required="true" type="text" readonlyIf="!updateInfo" />
 		</panel>
 		
 		<panel name="studentInfoPanel">
-			<field name="activeUser"/>	
-			<field name="currentSem" onChange="action-student-portal-method-set-subject"/>	
-			<field name="course"  required="true" />
-			<field name="branchConfig" required="true" onChange="action-student-portal-method-set-subject"/>
+			<field name="activeUser" readonlyIf="!updateInfo"/>	
+			<field name="currentSem" readonlyIf="!updateInfo" onChange="action-student-portal-method-set-subject"/>	
+			<field name="course"  required="true" readonlyIf="!updateInfo" />
+			<field name="branchConfig" required="true" readonlyIf="!updateInfo" onChange="action-student-portal-method-set-subject"/>
 		</panel>
 		
-		<panel-related field="subjectSet" grid-view="subject-grid" form-view="subject-form" name="subjectPanel" canSelect="true" canEdit="false" canNew="false"/>
+		<panel-related field="subjectSet" readonlyIf="!updateInfo" grid-view="subject-grid" form-view="subject-form" name="subjectPanel" canSelect="true" canEdit="false" canNew="false"/>
 		
 		<panel-related field="attendanceInfoLine" grid-view="attendance-info-line-grid" form-view="attendance-info-line-form" readonly="true"/>	
 			
@@ -46,6 +48,12 @@
 			<field name="userStudent" readonly="true"/>
 		</panel>
 		
+		<panel name="updatePanel" sidebar="true">
+			<field name="updateInfo" readonly="true" widget="InlineCheckbox"/>
+			<button name="updateEnable" title="Update Enable" onClick="action-student-portal-attrs-update-true" showIf="isUpdate" />
+			<button name="updateDisable" title="Update Disable" onClick="action-student-portal-attrs-update-false" showIf="isUpdate || updateInfo" />
+		</panel>
+		
 	</form>
 	
 	<action-attrs name="action-student-portal-attrs-set-user">
@@ -57,4 +65,12 @@
 		<call class="com.axelor.apps.rku.web.StudentPortalController" method="setSubject"/>
 	</action-method>
 	
+	<action-record name="action-student-portal-attrs-update-true" model="com.axelor.apps.rku.db.StudentPortal">
+		<field name="updateInfo" expr="eval: true"/>
+	</action-record>
+	
+	<action-record name="action-student-portal-attrs-update-false" model="com.axelor.apps.rku.db.StudentPortal">
+		<field name="updateInfo" expr="eval: false"/>
+	</action-record>
+		
 </object-views>
