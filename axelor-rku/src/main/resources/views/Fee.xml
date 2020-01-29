@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.0.xsd">
+	
+	<grid name="fee-grid" title="Fees" model="com.axelor.apps.rku.db.Fee">
+		 <field name="course"/>
+		 <field name="branchConfig"/>
+		 <field name="semester"/>
+		 <field name="tutionFees"/>
+		 <field name="examFees"/>
+	</grid>
+
+	<form name="fee-form" title="Fees" model="com.axelor.apps.rku.db.Fee" >
+		
+		<panel name="mainFeePanal">
+			 <field name="course"/>
+			 <field name="branchConfig"/>
+			 <field name="semester"/>
+			 <field name="tutionFees"/>
+			 <field name="examFees"/>
+		</panel>
+
+	</form>
+	
+</object-views>
