@@ -98,9 +98,16 @@
 	
 	<menuitem name="rku-root-account" title="Account" parent="rku-root" order="7"/>
 	
-	<menuitem  name="rku-root-account-fee" title="Fees" parent="rku-root-account" action="rku.account.view"/>
+	<menuitem  name="rku-root-account-account" title="Account" parent="rku-root-account" action="rku.account.account.view"/>
 	
-	<action-view name="rku.account.view" title="Fees" model="com.axelor.apps.rku.db.Fee">
+	<action-view name="rku.account.account.view" title="Account" model="com.axelor.apps.rku.db.Account">
+		<view type="grid" name="account-grid"/>
+		<view type="form" name="account-form"/>
+	</action-view>
+	
+	<menuitem  name="rku-root-account-fee" title="Fees" parent="rku-root-account" action="rku.account.fee.view"/>
+	
+	<action-view name="rku.account.fee.view" title="Fees" model="com.axelor.apps.rku.db.Fee">
 		<view type="grid" name="fee-grid"/>
 		<view type="form" name="fee-form"/>
 	</action-view>

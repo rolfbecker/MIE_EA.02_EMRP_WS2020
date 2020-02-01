@@ -37,12 +37,8 @@
 		
 		<panel-related field="attendanceInfoLine" grid-view="attendance-info-line-grid" form-view="attendance-info-line-form" readonly="true"/>	
 			
-		<panel name="dataPanel" sidebar="true" >
-			<field name="createdOn"/>
-			<field name="updatedOn"/>
-			<field name="createdBy"/>
-			<field name="updatedBy"/>
-		</panel>
+		<panel-related field="account" sidebar="true" title="Fees" readonly="true" grid-view="account-student-grid" form-view="account-form" >
+		</panel-related>
 		
 		<panel name="userPanel" sidebar="true">
 			<field name="userStudent" readonly="true"/>

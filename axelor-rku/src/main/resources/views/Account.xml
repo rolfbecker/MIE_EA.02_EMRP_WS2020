@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.0.xsd">
+	
+	<grid name="account-grid" title="Account" model="com.axelor.apps.rku.db.Account">
+		<hilite if="onHold" color="danger"/>
+		 <field name="student"/>
+		 <field name="course"/>
+		 <field name="branchConfig"/>
+		 <field name="semester"/>
+		 <field name="tutionFee"/>
+		 <field name="examFee"/>
+		 <field name="onHold" hidden="true"/>
+	</grid>
+	
+	<grid name="account-student-grid" title="Account" model="com.axelor.apps.rku.db.Account">
+		<hilite if="onHold" color="danger"/>
+			<field name="semester"/>
+			<field name="isPayTutionFee"/>
+			<field name="isPayExamFee"/>
+		 <field name="onHold" hidden="true"/>
+	</grid>
+	
+
+	<form name="account-form" title="Account" model="com.axelor.apps.rku.db.Account" >
+		
+		<panel name="mainAccountPanal">
+			 <field name="student" required="true" onChange="action-account-attrs-set-fee-details"/>
+			 <field name="course" readonly="true" />
+			 <field name="branchConfig" readonly="true" />
+			 <field name="semester" readonly="true" />
+			 <field name="tutionFee" readonly="true" />
+			 <field name="examFee" readonly="true" />
+			 <field name="isPayTutionFee" readonly="true"/>
+			 <field name="isPayExamFee" readonly="true"/>
+		</panel>
+		
+		<panel>
+			<field name="onHold" onChange="action-account-record-remove-hold-reason"/>
+			<field name="holdReason" requiredIf="onHold" />
+		</panel>
+		
+		<panel name="scolerPanel" sidebar="true">
+			<field name="scolerShip" onChange="action-account-method-less-scolership-from-fee" readonlyIf="student == null"/>
+		</panel>
+		
+		<panel name="btnFeesPay" sidebar="true">
+			<button name="examPay" title="Exam Fee" onClick="action-account-record-pay-exam-fee" readonlyIf="isPayExamFee || student == null"/>
+			<button name="tutionPay" title="Tution Fee" onClick="action-account-record-pay-tution-fee" readonlyIf="isPayTutionFee || student == null"/>
+			<button name="resetFee" title="Reset Fee" onClick="action-account-record-reset-fee"/>
+		</panel>
+	</form>
+
+	<action-method name="action-account-attrs-set-fee-details">
+		<call class="com.axelor.apps.rku.web.AccountController" method="setFeeDetails" />
+	</action-method>	
+	
+	<action-method name="action-account-method-less-scolership-from-fee">
+		<call class="com.axelor.apps.rku.web.AccountController" method="lessScolerShip"/>
+	</action-method>
+	
+	<action-record name="action-account-record-pay-exam-fee" model="com.axelor.apps.rku.db.Account">
+		<field name="isPayExamFee" expr="eval: true"/>
+	</action-record>
+	
+	<action-record name="action-account-record-pay-tution-fee" model="com.axelor.apps.rku.db.Account">
+		<field name="isPayTutionFee" expr="eval: true"/>
+	</action-record>
+	
+	<action-record name="action-account-record-reset-fee" model="com.axelor.apps.rku.db.Account">
+		<field name="isPayTutionFee" expr="eval: false"/>
+		<field name="isPayExamFee" expr="eval: false"/>
+	</action-record>
+	
+	<action-record name="action-account-record-remove-hold-reason" model="com.axelor.apps.rku.db.Account">
+		<field name="holdReason" expr="eval: null" if="!onHold" />
+	</action-record>
+	
+</object-views>

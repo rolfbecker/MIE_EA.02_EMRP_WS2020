@@ -24,7 +24,8 @@
 	  <many-to-one name="branchConfig" ref="com.axelor.apps.rku.db.BranchConfig" title="Branch config"/>
 	  <many-to-many name="subjectSet" ref="com.axelor.apps.rku.db.Subject" title="Subject set" mappedBy="students"/>
 	  <one-to-many name="attendanceInfoLine" ref="com.axelor.apps.rku.db.AttendanceInfoLine" mappedBy="studentPortal" title="Attendance Info"/>
-	  														
+	  <one-to-many name="account" ref="com.axelor.apps.rku.db.Account" mappedBy="student"/>	
+	  													
 	  <many-to-one name="course" ref="com.axelor.apps.rku.db.Course"/>
 	  <many-to-one name="branch" ref="com.axelor.apps.rku.db.Branch"/>
 	  <many-to-one name="userStudent" ref="com.axelor.auth.db.User" title="Student" />

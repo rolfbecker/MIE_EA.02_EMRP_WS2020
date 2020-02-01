@@ -15,6 +15,9 @@
   	<decimal name="examFee" title="Exam fee"/>
   	<boolean name="isPayTutionFee" title="Tution Pay"/>
   	<boolean name="isPayExamFee" title="Exam Pay"/>
+  	<boolean name="onHold" title="On hold"/>
+  	<string name="holdReason" title="Hold reason"/>
+  	<decimal name="scolerShip" title="Scloler Ship"/>
   	
   </entity>
   
