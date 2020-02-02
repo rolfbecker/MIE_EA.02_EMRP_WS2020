@@ -112,6 +112,16 @@
 		<view type="form" name="fee-form"/>
 	</action-view>
 	
+	<menuitem name="rku-root-password" parent="rku-root" 
+		title="Password" order="8"/>
+		
+	<menuitem  name="rku-root-password-reset" title="Reset password" parent="rku-root-password" action="rku.password.reset.view"/>
+		
+	<action-view name="rku.password.reset.view" title="Password" model="com.axelor.apps.rku.db.Password">
+		<view type="form" name="password-form"/>
+	</action-view>
+	
+	
 	<menuitem name="rku-conf" parent="rku-root" title="Configuration" order="25" icon="fa-cog"/>
 	
 	<!-- 

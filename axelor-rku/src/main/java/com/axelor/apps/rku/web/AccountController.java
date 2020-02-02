@@ -1,7 +1,5 @@
 package com.axelor.apps.rku.web;
 
-import java.math.BigDecimal;
-
 import com.axelor.apps.rku.db.Account;
 import com.axelor.apps.rku.db.BranchConfig;
 import com.axelor.apps.rku.db.Course;
@@ -12,6 +10,7 @@ import com.axelor.apps.rku.db.repo.FeeRepository;
 import com.axelor.inject.Beans;
 import com.axelor.rpc.ActionRequest;
 import com.axelor.rpc.ActionResponse;
+import java.math.BigDecimal;
 
 public class AccountController {
 
@@ -69,19 +68,18 @@ public class AccountController {
     response.setValue("tutionFee", fee.getTutionFees());
     response.setValue("examFee", fee.getExamFees());
   }
-  
-  public void lessScolerShip(ActionRequest request, ActionResponse response) {
-	  Account account = request.getContext().asType(Account.class);
-	  	BigDecimal examFee = account.getExamFee();
-	  	BigDecimal scolerShip = account.getScolerShip();
-	  	BigDecimal totalFee = examFee.subtract(scolerShip);
-	  	
-	  	if(totalFee.compareTo(new BigDecimal("0.00")) < 0) {
-	  		response.setValue("scolerShip", 0);
-	  		response.setFlash("invalid scoler ship..!!");
-	  	}
-	  	
-	  	response.setValue("tutionFee", totalFee);
-  }
 
+  public void lessScolerShip(ActionRequest request, ActionResponse response) {
+    Account account = request.getContext().asType(Account.class);
+    BigDecimal examFee = account.getExamFee();
+    BigDecimal scolerShip = account.getScolerShip();
+    BigDecimal totalFee = examFee.subtract(scolerShip);
+
+    if (totalFee.compareTo(new BigDecimal("0.00")) < 0) {
+      response.setValue("scolerShip", 0);
+      response.setFlash("invalid scoler ship..!!");
+    }
+
+    response.setValue("tutionFee", totalFee);
+  }
 }
