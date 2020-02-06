@@ -16,6 +16,7 @@
 		model="com.axelor.apps.rku.db.StudentPortal" >
 		<view type="grid" name="student-portal-grid"/>
 		<view type="form" name="student-portal-form"/>
+		<domain>self.userStudent = :__user__</domain>
 	</action-view>
 	
 	<menuitem name="rku-root-student-attendance" parent="rku-root-student"
@@ -45,6 +46,7 @@
 		model="com.axelor.apps.rku.db.Faculty" >
 		<view type="grid" name="faculty-grid"/>
 		<view type="form" name="faculty-form"/>
+		<domain>self.userFaculty = :__user__</domain>
 	</action-view>
 	
 	<menuitem name="rku-root-faculty-attendance" parent="rku-root-faculty" 

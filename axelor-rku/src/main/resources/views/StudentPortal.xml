@@ -14,7 +14,7 @@
 	<form name="student-portal-form" title="Student Portal" model="com.axelor.apps.rku.db.StudentPortal"  width="large" onNew="action-student-portal-attrs-set-user">
 		
 		<panel name="studentPanel">
-			<field name="firstName" colSpan="3" required="true" readonlyIf="!updateInfo" />
+			<field name="firstName" colSpan="3" required="true" readonlyIf="!updateInfo"/>
 			<field name="sureName" colSpan="3" required="true" readonlyIf="!updateInfo"/>
 			<field name="lastName" colSpan="3" required="true" readonlyIf="!updateInfo"/>
 			<field name="enrollmentNo" required="true" readonly="true"/>
@@ -35,7 +35,7 @@
 		
 		<panel-related field="subjectSet" readonlyIf="!updateInfo" grid-view="subject-grid" form-view="subject-form" name="subjectPanel" canSelect="true" canEdit="false" canNew="false"/>
 		
-		<panel-related field="attendanceInfoLine" grid-view="attendance-info-line-grid" form-view="attendance-info-line-form" readonly="true"/>	
+		<panel-related field="attendanceInfoLine" grid-view="attendance-info-line-grid" form-view="attendance-info-line-form" readonlyIf="!isUpdate || !updateInfo"/>	
 			
 		<panel-related field="account" sidebar="true" title="Fees" readonly="true" grid-view="account-student-grid" form-view="account-form" >
 		</panel-related>
@@ -45,7 +45,7 @@
 		</panel>
 		
 		<panel name="updatePanel" sidebar="true">
-			<field name="updateInfo" readonly="true" widget="InlineCheckbox"/>
+			<field name="updateInfo" readonly="true" widget="InlineCheckbox" />
 			<button name="updateEnable" title="Update Enable" onClick="action-student-portal-attrs-update-true" showIf="isUpdate" />
 			<button name="updateDisable" title="Update Disable" onClick="action-student-portal-attrs-update-false" showIf="isUpdate || updateInfo" />
 		</panel>
