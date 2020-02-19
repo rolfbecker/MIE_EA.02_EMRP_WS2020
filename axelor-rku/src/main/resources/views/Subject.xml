@@ -13,7 +13,8 @@
 	<form name="subject-form" title="Subject" model="com.axelor.apps.rku.db.Subject" >
 		
 		<panel name="mainSubjectPanal">
-			<field name="fullName" readonly="true" colSpan="12"/>
+			<field name="fullName" readonly="true"/>
+			<field name="course" required="true"/>
 			<field name="name" required="true" onChange="action-subject-method-set-full-name"/>
 		 	<field name="code" required="true"/>
 		 	<field name="subjectCredit" required="true"/>

@@ -14,8 +14,9 @@
     <boolean name="active" title="Active" />
     <many-to-one name="branchConfig" ref="com.axelor.apps.rku.db.BranchConfig" title="Branch Congig" />
     <many-to-one name="semesterConfig" ref="com.axelor.apps.rku.db.SemesterConfig" title="Semester config" />
-    
-    
+    <many-to-one name="course" ref="com.axelor.apps.rku.db.Course" title="Course"/>
+
+
     <many-to-one name="semester" ref="com.axelor.apps.rku.db.Semester" />
     <many-to-many name="faculty" ref="com.axelor.apps.rku.db.Faculty"/>
     <many-to-many name="students" ref="com.axelor.apps.rku.db.StudentPortal"/>

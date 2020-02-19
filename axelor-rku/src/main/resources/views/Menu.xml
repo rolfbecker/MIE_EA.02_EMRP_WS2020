@@ -7,7 +7,7 @@
 		icon="fa-university" icon-background="#F53607"/>
 	
 	<menuitem name="rku-root-student" icon="fa-user-circle-o"
-		title="student Portal" order="5"/>
+		title="student Portal" order="-108"/>
 		
 	<menuitem name="rku-root-student-info" parent="rku-root-student"
 		 title="Student Info" action="rku.student.portal.view"/>
@@ -37,7 +37,7 @@
 	</action-view>
 	
 	<menuitem name="rku-root-faculty" icon="fa-user-o" icon-background="#0E9136"
-		title="Faculty" order="6"/>
+		title="Faculty" order="-107"/>
 		
 	<menuitem name="rku-root-faculty-faculty" parent="rku-root-faculty" 
 		title="Faculty" action="rku.faculty.view" order="4"/>
@@ -81,7 +81,7 @@
 	
 	
 	<menuitem name="rku-root-mentor" icon="fa fa-users" icon-background="#30BFCB"
-		title="Mentor" order="6"/>
+		title="Mentor" order="-106"/>
 	
 	<menuitem name="rku-root-mentor-student" parent="rku-root-mentor" 
 		title="Student" action="rku.mentor.student" order="5"/>
@@ -91,14 +91,14 @@
 		<view type="grid" name="student-portal-grid"/>
 		<view type="form" name="student-portal-form"/>
 		
-		<domain>self.currentSem = :_semester AND self.branchConfig = :_branch</domain>
+		<domain>self.currentSem = :_semester AND self.branchConfig = :_branch AND self.activeUser = true</domain>
 		<context name="_user" expr="eval: __user__"/>
 		<context name="_semester" expr="eval:__repo__(Faculty).all().filter('self.userFaculty = ?',_user).fetchOne()?.semConfig"/>
 		<context name="_branch" expr="eval:__repo__(Faculty).all().filter('self.userFaculty = ?',_user).fetchOne()?.branch"/>
 		<context name="isUpdate" expr="eval: true"/>
 	</action-view>
 	
-	<menuitem name="rku-root-account" title="Account" icon="fa-newspaper-o" icon-background="#726E73" order="7"/>
+	<menuitem name="rku-root-account" title="Account" icon="fa-newspaper-o" icon-background="#726E73" order="-105"/>
 	
 	<menuitem  name="rku-root-account-account" title="Account" parent="rku-root-account" action="rku.account.account.view"/>
 	
@@ -124,7 +124,7 @@
 	</action-view>
 	
 	
-	<menuitem name="rku-conf"  title="Configuration" icon-background="#E7BE65" icon="fa fa-cogs" order="25"/>
+	<menuitem name="rku-conf"  title="Configuration" icon-background="#E7BE65" icon="fa fa-cogs" order="-100"/>
 	
 	<!-- 
 	
@@ -195,7 +195,7 @@
 		
 	
 	
-	<menuitem name="rku-root-report" icon-background="#FBC704"  title="Reportings" order="45" icon="fa-bar-chart"/>
+	<menuitem name="rku-root-report" icon-background="#FBC704"  title="Reportings" order="-99" icon="fa-bar-chart"/>
 	
 	<menuitem name="menu-attendance-student-percentage" parent="rku-root-report"
 		title="Class attendance"  action="rku.calls.dashboard.view"/>	

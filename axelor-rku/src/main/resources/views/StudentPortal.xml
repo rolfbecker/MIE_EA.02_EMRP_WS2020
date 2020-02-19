@@ -11,7 +11,7 @@
 		 <field name="updateInfo" hidden="true"/>
 	</grid>
 
-	<form name="student-portal-form" title="Student Portal" model="com.axelor.apps.rku.db.StudentPortal"  width="large" onNew="action-student-portal-attrs-set-user">
+	<form name="student-portal-form" title="Student Portal" model="com.axelor.apps.rku.db.StudentPortal"  width="large" onNew="action-student-portal-attrs-set-user" onLoad="action-student-portal-group-update-sem">
 		
 		<panel name="studentPanel">
 			<field name="firstName" colSpan="3" required="true" readonlyIf="!isUpdate &amp;&amp; setInfo"/>
@@ -30,22 +30,23 @@
 			<field name="activeUser" />	
 			<field name="currentSem" onChange="action-student-portal-method-set-subject"/>	
 			<field name="course"  required="true" />
-			<field name="branchConfig" required="true" onChange="action-student-portal-method-set-subject"/>
+			<field name="branchConfig" required="true" onChange="action-student-portal-method-set-subject" domain="self.course = :course" />
 		</panel>
 		
 		  <panel name="setInformationPanel" showIf="!setInfo">
   			<button name="setInfo" title="Set Info" onClick="action-student-portal-record-set-info-true" colSpan="12"/>
     		<field name="setInfo" title="Student info" hidden="true"/>
+    		<field name="changeSemester" hidden="true"/>
   		  </panel>
 		
-		<panel-related field="subjectSet" readonlyIf="!updateInfo" grid-view="subject-grid" form-view="subject-form" name="subjectPanel" canSelect="true" canEdit="false" canNew="false"/>
+		<panel-related field="subjectSet" readonlyIf="!updateInfo" grid-view="subject-grid" form-view="subject-form" name="subjectPanel" canSelect="true" canEdit="false" canNew="false" domain="self.course = :course"/>
 		
 		<panel name="AttendanceLineInfoPanel" readonlyIf="!isUpdate || !updateInfo">
 			<panel-related field="attendanceInfoLine" grid-view="attendance-info-line-grid" form-view="attendance-info-line-form" colSpan="12" />
 		</panel>
 			
 			
-		<panel-related field="account" sidebar="true" title="Fees" readonly="true" grid-view="account-student-grid" form-view="account-form" colSpan="12" >
+		<panel-related field="account" sidebar="true" title="Fees" readonly="true" canView="false" grid-view="account-student-grid" form-view="account-form" colSpan="12" >
 		</panel-related>
 		
 		<panel name="userPanel" sidebar="true">
@@ -80,5 +81,13 @@
 	<action-record name="action-student-portal-record-set-info-true" model="com.axelor.apps.rku.db.StudentPortal">
 		<field name="setInfo" expr="eval: true"/>
 	</action-record>
-		
+	
+	<action-group name="action-student-portal-group-update-sem">
+		<action name="action-student-portal-method-remove-subject-attendance" if="changeSemester"/>
+	</action-group>	
+	
+	<action-method name="action-student-portal-method-remove-subject-attendance">
+		<call class="com.axelor.apps.rku.web.StudentPortalController" method="changeSemester"/>
+	</action-method>
+	
 </object-views>

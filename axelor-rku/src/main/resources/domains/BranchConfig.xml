@@ -9,6 +9,7 @@
   
   	<string name="name" namecolumn="true" title="Branch Name" unique="true" />
   	<string name="code" title="code" />
+  	<many-to-one name="course" ref="com.axelor.apps.rku.db.Course" title="Course"/>
   	
   </entity>
   

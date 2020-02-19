@@ -23,8 +23,17 @@ public class StudentPortalController {
             + student.getBranchConfig().getName()
             + "' and self.semesterConfig.name = '"
             + student.getCurrentSem().getName()
+            + "' and self.course.name = '"
+            + student.getCourse().getName()
             + "' and self.active = true";
     List<Subject> subjects = Beans.get(SubjectRepository.class).all().filter(filter).fetch();
     response.setValue("subjectSet", subjects);
+  }
+
+  public void changeSemester(ActionRequest request, ActionResponse response) {
+    StudentPortal student = request.getContext().asType(StudentPortal.class);
+    response.setValue("subjectSet", null);
+    response.setValue("attendanceInfoLine", null);
+    response.setValue("changeSemester", false);
   }
 }

@@ -9,10 +9,13 @@
       
       <string name="name"  title="CourseName" namecolumn="true"/>
       <string name="code" title="Code" />
-      <integer name="totalYear" title="Total year"/>
+      <integer name="totalSem" title="Total Semester"/>
       
-      <integer name="year" title="Year"/>
-      <integer name="semester" selection=""/>
+      <string name="year" title="Year"/>
+      <string name="semester" selection="rku.semester.odd.even.select" title="Semester type"/>
+      <string name="currentYear" title="Current year" />
+      
+      <boolean name="setCurrentYear" />
     
   </entity>
   
