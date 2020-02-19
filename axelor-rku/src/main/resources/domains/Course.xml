@@ -10,6 +10,9 @@
       <string name="name"  title="CourseName" namecolumn="true"/>
       <string name="code" title="Code" />
       <integer name="totalYear" title="Total year"/>
+      
+      <integer name="year" title="Year"/>
+      <integer name="semester" selection=""/>
     
   </entity>
   

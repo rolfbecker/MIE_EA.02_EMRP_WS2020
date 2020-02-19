@@ -14,30 +14,38 @@
 	<form name="student-portal-form" title="Student Portal" model="com.axelor.apps.rku.db.StudentPortal"  width="large" onNew="action-student-portal-attrs-set-user">
 		
 		<panel name="studentPanel">
-			<field name="firstName" colSpan="3" required="true" readonlyIf="!updateInfo"/>
-			<field name="sureName" colSpan="3" required="true" readonlyIf="!updateInfo"/>
-			<field name="lastName" colSpan="3" required="true" readonlyIf="!updateInfo"/>
+			<field name="firstName" colSpan="3" required="true" readonlyIf="!isUpdate &amp;&amp; setInfo"/>
+			<field name="sureName" colSpan="3" required="true" readonlyIf="!isUpdate &amp;&amp; setInfo"/>
+			<field name="lastName" colSpan="3" required="true" readonlyIf="!isUpdate &amp;&amp; setInfo"/>
 			<field name="enrollmentNo" required="true" readonly="true"/>
-			<field name="dateOfBirth" required="true" readonlyIf="!updateInfo"/>
-			<field name="email" required="true" readonlyIf="!updateInfo"/>
-			<field name="phoneNo" required="true" readonlyIf="!updateInfo"/>
-			<field name="startYear" required="true" readonlyIf="!updateInfo"/>
-			<field name="endYear" required="true" readonlyIf="!updateInfo"/>
-			<field name="address" required="true" type="text" readonlyIf="!updateInfo" />
+			<field name="dateOfBirth" required="true" readonlyIf="!isUpdate &amp;&amp; setInfo"/>
+			<field name="email" required="true" readonlyIf="!isUpdate &amp;&amp; setInfo"/>
+			<field name="phoneNo" required="true" readonlyIf="!isUpdate &amp;&amp; setInfo"/>
+			<field name="startYear" required="true" readonlyIf="!isUpdate &amp;&amp; setInfo"/>
+			<field name="endYear" required="true" readonlyIf="!isUpdate &amp;&amp; setInfo"/>
+			<field name="address" required="true" type="text" readonlyIf="!isUpdate &amp;&amp; setInfo" />
 		</panel>
 		
-		<panel name="studentInfoPanel">
-			<field name="activeUser" readonlyIf="!updateInfo"/>	
-			<field name="currentSem" readonlyIf="!updateInfo" onChange="action-student-portal-method-set-subject"/>	
-			<field name="course"  required="true" readonlyIf="!updateInfo" />
-			<field name="branchConfig" required="true" readonlyIf="!updateInfo" onChange="action-student-portal-method-set-subject"/>
+		<panel name="studentInfoPanel" readonlyIf="!isUpdate &amp;&amp; setInfo">
+			<field name="activeUser" />	
+			<field name="currentSem" onChange="action-student-portal-method-set-subject"/>	
+			<field name="course"  required="true" />
+			<field name="branchConfig" required="true" onChange="action-student-portal-method-set-subject"/>
 		</panel>
+		
+		  <panel name="setInformationPanel" showIf="!setInfo">
+  			<button name="setInfo" title="Set Info" onClick="action-student-portal-record-set-info-true" colSpan="12"/>
+    		<field name="setInfo" title="Student info" hidden="true"/>
+  		  </panel>
 		
 		<panel-related field="subjectSet" readonlyIf="!updateInfo" grid-view="subject-grid" form-view="subject-form" name="subjectPanel" canSelect="true" canEdit="false" canNew="false"/>
 		
-		<panel-related field="attendanceInfoLine" grid-view="attendance-info-line-grid" form-view="attendance-info-line-form" readonlyIf="!isUpdate || !updateInfo"/>	
+		<panel name="AttendanceLineInfoPanel" readonlyIf="!isUpdate || !updateInfo">
+			<panel-related field="attendanceInfoLine" grid-view="attendance-info-line-grid" form-view="attendance-info-line-form" colSpan="12" />
+		</panel>
 			
-		<panel-related field="account" sidebar="true" title="Fees" readonly="true" grid-view="account-student-grid" form-view="account-form" >
+			
+		<panel-related field="account" sidebar="true" title="Fees" readonly="true" grid-view="account-student-grid" form-view="account-form" colSpan="12" >
 		</panel-related>
 		
 		<panel name="userPanel" sidebar="true">
@@ -46,8 +54,8 @@
 		
 		<panel name="updatePanel" sidebar="true">
 			<field name="updateInfo" readonly="true" widget="InlineCheckbox" />
-			<button name="updateEnable" title="Update Enable" onClick="action-student-portal-attrs-update-true" showIf="isUpdate" />
-			<button name="updateDisable" title="Update Disable" onClick="action-student-portal-attrs-update-false" showIf="isUpdate || updateInfo" />
+			<button name="updateEnable" title="Update Enable" onClick="action-student-portal-record-update-true" showIf="isUpdate" />
+			<button name="updateDisable" title="Update Disable" onClick="action-student-portal-record-update-false" showIf="isUpdate || updateInfo" />
 		</panel>
 		
 	</form>
@@ -61,12 +69,16 @@
 		<call class="com.axelor.apps.rku.web.StudentPortalController" method="setSubject"/>
 	</action-method>
 	
-	<action-record name="action-student-portal-attrs-update-true" model="com.axelor.apps.rku.db.StudentPortal">
+	<action-record name="action-student-portal-record-update-true" model="com.axelor.apps.rku.db.StudentPortal">
 		<field name="updateInfo" expr="eval: true"/>
 	</action-record>
 	
-	<action-record name="action-student-portal-attrs-update-false" model="com.axelor.apps.rku.db.StudentPortal">
+	<action-record name="action-student-portal-record-update-false" model="com.axelor.apps.rku.db.StudentPortal">
 		<field name="updateInfo" expr="eval: false"/>
+	</action-record>
+	
+	<action-record name="action-student-portal-record-set-info-true" model="com.axelor.apps.rku.db.StudentPortal">
+		<field name="setInfo" expr="eval: true"/>
 	</action-record>
 		
 </object-views>
