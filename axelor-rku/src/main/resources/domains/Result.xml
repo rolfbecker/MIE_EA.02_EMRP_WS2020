@@ -14,6 +14,9 @@
 	<boolean name="remedial" title="Remedial exam" />
   	<one-to-many name="resultLine" ref="com.axelor.apps.rku.db.ResultLine" mappedBy="result"/>
   	
+  	<many-to-one name="course" ref="com.axelor.apps.rku.db.Course" title="Cource"/>
+  	<string name="currentYear" title="Year"/>
+  	
   </entity>
   
 </domain-models>

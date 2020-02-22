@@ -18,6 +18,7 @@
   	<boolean name="onHold" title="On hold"/>
   	<string name="holdReason" title="Hold reason"/>
   	<decimal name="scolerShip" title="Scloler Ship"/>
+  	<string name="currentYear" title="Year"/>
   	
   </entity>
   

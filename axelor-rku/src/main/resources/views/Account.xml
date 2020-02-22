@@ -10,6 +10,7 @@
 		 <field name="semester"/>
 		 <field name="tutionFee"/>
 		 <field name="examFee"/>
+		 <field name="currentYear"/>
 		 <field name="onHold" hidden="true"/>
 	</grid>
 	
@@ -42,6 +43,10 @@
 		
 		<panel name="scolerPanel" sidebar="true">
 			<field name="scolerShip" onChange="action-account-method-less-scolership-from-fee" readonlyIf="student == null"/>
+		</panel>
+		
+		<panel name="yearPanel" sidebar="true">
+			<field name="currentYear" readonly="true"/>
 		</panel>
 		
 		<panel name="btnFeesPay" sidebar="true">

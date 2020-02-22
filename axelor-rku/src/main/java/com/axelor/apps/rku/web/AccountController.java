@@ -28,6 +28,7 @@ public class AccountController {
       response.setValue("scolerShip", 0);
       response.setValue("onHold", false);
       response.setValue("holdReason", null);
+      response.setValue("currentYear", null);
       return;
     }
 
@@ -58,6 +59,7 @@ public class AccountController {
       response.setValue("scolerShip", 0);
       response.setValue("onHold", false);
       response.setValue("holdReason", null);
+      response.setValue("currentYear", null);
       response.setFlash("Please set fee details");
       return;
     }
@@ -67,6 +69,7 @@ public class AccountController {
     response.setValue("semester", fee.getSemester());
     response.setValue("tutionFee", fee.getTutionFees());
     response.setValue("examFee", fee.getExamFees());
+    response.setValue("currentYear", fee.getCourse().getCurrentYear());
   }
 
   public void lessScolerShip(ActionRequest request, ActionResponse response) {

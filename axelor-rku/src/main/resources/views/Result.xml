@@ -12,9 +12,14 @@
 		
 		<panel name="mainResultPanal">
 			 <field name="userFaculty" readonly="true"/>
-			 <field name="subject" domain="self.faculty.userFaculty = :userFaculty" onChange="action-result-method-get-result-line" required="true" />
+			 <field name="subject" domain="self.faculty.userFaculty = :userFaculty" onChange="action-result-method-get-result-line,action-result-record-set-course" required="true" />
 			 <field name="exam" onChange="action-result-method-get-result-line" required="true"/>
 			 <field name="remedial"/>
+		</panel>
+		
+		<panel name="coursePanel" hidden="true">
+			<field name="course"/>
+			<field name="currentYear"/>
 		</panel>
 		
 		<panel-related field="resultLine" canNew="false" canRemove="false" grid-view="result-line-grid" form-view="result-line-form"/>
@@ -49,6 +54,11 @@
 	<action-method name="action-result-method-generate-result">
 		<call class="com.axelor.apps.rku.web.ResultController" method="generateResult"/>
 	</action-method>
+	
+	<action-record name="action-result-record-set-course" model="com.axelor.apps.rku.db.Result">
+		<field name="course" expr="eval: subject?.course"/>	
+		<field name="currentYear" expr="eval: subject?.course?.currentYear"/>
+	</action-record>
 	
 	<!-- 
 	
