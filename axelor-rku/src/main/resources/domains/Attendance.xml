@@ -15,6 +15,8 @@
   	<one-to-many name="attendanceInfoLine" ref="com.axelor.apps.rku.db.AttendanceInfoLine" mappedBy="attendanceInfo" title="Overall attendance"/>
   	<boolean name="updateAttendance" />
   	
+  	<many-to-one name="course" ref="com.axelor.apps.rku.db.Course" title="Course"/>
+  	<string name="currentYear" title="Current year"/>
   </entity>
   
 </domain-models>
