@@ -23,7 +23,7 @@ public class CourseServiceImpl implements CourseService {
     for (StudentPortal student : students) {
 
       if (student.getCurrentSem() == null) {
-        return;
+        continue;
       }
       SemesterConfig sem = student.getCurrentSem();
 

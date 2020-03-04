@@ -13,7 +13,8 @@
 	<integer name="totalLecture" title="Total lecture"/>
 	<integer name="totalPresent" title="Present"/>
 	<integer name="totalAbsent" title="Absent"/>
-	<decimal name="totalPercent" title="Attendance(%)"/>  
+	<decimal name="totalPercent" title="Attendance(%)"/> 
+	<string name="currentYear" title="Current Year"/> 
 	
 	<many-to-one name="studentPortal" ref="com.axelor.apps.rku.db.StudentPortal" title="Student"/>	
 	<many-to-one name="attendanceInfo" ref="com.axelor.apps.rku.db.Attendance" title="Attendance info"/>

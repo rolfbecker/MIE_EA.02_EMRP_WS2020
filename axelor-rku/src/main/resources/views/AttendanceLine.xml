@@ -10,6 +10,7 @@
 		 <field name="subject" readonly="true"/>
 		 <field name="semesterConfig" readonly="true"/>
 		 <field name="branchConfig" readonly="true"/>
+		 <field name="currentYear" readonly="true"/>
 	</grid>
 	
 	<grid model="com.axelor.apps.rku.db.AttendanceLine" title="Attendance student" name="attendance-student-line">
@@ -28,6 +29,7 @@
 			 <field name="subject" readonly="true"/>
 			 <field name="semesterConfig" readonly="true"/>
 			 <field name="branchConfig" readonly="true"/>
+			 <field name="currentYear" readonly="true"/>
 		</panel>
 
 	</form>

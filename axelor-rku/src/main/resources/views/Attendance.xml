@@ -12,7 +12,7 @@
 		
 		<panel name="mainAttendancePanal">
 			 <field name="userFaculty" readonly="true"/>
-			 <field name="subject" domain="self.faculty.userFaculty = :userFaculty" onChange="action-attendance-method-get-attendance-line,action-attendance-record-set-course" readonlyIf="updateAttendance" />
+			 <field name="subject" domain="self.faculty.userFaculty = :userFaculty" onChange="action-attendance-record-set-course,action-attendance-method-get-attendance-line" readonlyIf="updateAttendance" />
 			 <field name="attendanceDate" onChange="action-attendance-method-change-line-date"/>
 			 <field name="updateAttendance" hidden="true"/>
 		</panel>

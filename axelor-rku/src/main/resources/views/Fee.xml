@@ -14,7 +14,7 @@
 		
 		<panel name="mainFeePanal">
 			 <field name="course"/>
-			 <field name="branchConfig"/>
+			 <field name="branchConfig" domain="self.course = :course"/>
 			 <field name="semester"/>
 			 <field name="tutionFees"/>
 			 <field name="examFees"/>

@@ -25,7 +25,7 @@
 		<panel name="buttonPanel">
 			<field name="setCurrentYear" hidden="true"/>
 			<button name="setCurrentYear" title="Set Year" showIf="!setCurrentYear" colSpan="12"  onClick="save,action-course-method-set-current-year,action-course-record-set-currentyear-true"/>
-			<button name="changeSem" title="Change Semester" showIf="setCurrentYear" colSpan="12" onClick="action-course-method-change-current-semester,action-course-method-update-student-semester"/>
+			<button name="changeSem" title="Change Semester" showIf="setCurrentYear" colSpan="12" onClick="action-course-method-change-current-semester,action-course-method-update-student-semester,save"/>
 		</panel>
 		
 	</form>

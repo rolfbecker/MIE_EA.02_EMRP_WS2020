@@ -11,6 +11,7 @@
 		<field name="totalPercent"/>
 		<field name="branchConfig"/>
 		<field name="semesterConfig"/>
+		<field name="currentYear" />
 	</grid>
 	
 	<grid name="attendance-info-line-student-grid" title="Attendance info" model="com.axelor.apps.rku.db.AttendanceInfoLine">
@@ -20,6 +21,7 @@
 		<field name="totalAbsent"/>
 		<field name="totalLecture"/>
 		<field name="totalPercent"/>
+		<field name="currentYear" hidden="true" />
 	</grid>
 	
 	<grid name="attendance-student-faculty-info-grid" title="Attendance info" model="com.axelor.apps.rku.db.AttendanceInfoLine">
@@ -30,6 +32,7 @@
 		<field name="totalAbsent"/>
 		<field name="totalLecture"/>
 		<field name="totalPercent"/>
+		<field name="currentYear" />
 	</grid>
 	
 	
@@ -39,6 +42,7 @@
 			<field name="subject"/>
 			<field name="branchConfig"/>
 			<field name="semesterConfig"/>
+			<field name="currentYear"/>
 		</panel>
 		<panel name="infoPanel">
 			<field name="totalPresent"/>

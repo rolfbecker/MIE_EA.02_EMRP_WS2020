@@ -59,6 +59,7 @@
 		model="com.axelor.apps.rku.db.Attendance" >
 		<view type="grid" name="attendance-grid"/>
 		<view type="form" name="attendance-form"/>
+		<domain>self.course.currentYear = self.currentYear</domain>
 	</action-view>
 	
 	<menuitem title="View attendance" name="rku-root-faculty-view-attendance-info" 

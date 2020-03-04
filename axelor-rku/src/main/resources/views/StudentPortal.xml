@@ -11,7 +11,7 @@
 		 <field name="updateInfo" hidden="true"/>
 	</grid>
 
-	<form name="student-portal-form" title="Student Portal" model="com.axelor.apps.rku.db.StudentPortal"  width="large" onNew="action-student-portal-attrs-set-user" onLoad="action-student-portal-group-update-sem">
+	<form name="student-portal-form" title="Student Portal" model="com.axelor.apps.rku.db.StudentPortal"  width="large" onNew="action-student-portal-attrs-set-user" onLoad="action-student-portal-group-update-sem,save">
 		
 		<panel name="studentPanel">
 			<field name="firstName" colSpan="3" required="true" readonlyIf="!isUpdate &amp;&amp; setInfo"/>
@@ -39,7 +39,7 @@
     		<field name="changeSemester" hidden="true"/>
   		  </panel>
 		
-		<panel-related field="subjectSet" readonlyIf="!updateInfo" grid-view="subject-grid" form-view="subject-form" name="subjectPanel" canSelect="true" canEdit="false" canNew="false" domain="self.course = :course"/>
+		<panel-related field="subjectSet" readonlyIf="!updateInfo" grid-view="subject-grid" form-view="subject-form" name="subjectPanel" canSelect="true" canEdit="false" canNew="false" domain="self.course = :course AND self.branchConfig = :branchConfig AND self.semesterConfig = :currentSem"/>
 		
 		<panel name="AttendanceLineInfoPanel" readonlyIf="!isUpdate || !updateInfo">
 			<panel-related field="attendanceInfoLine" grid-view="attendance-info-line-grid" form-view="attendance-info-line-form" colSpan="12" />

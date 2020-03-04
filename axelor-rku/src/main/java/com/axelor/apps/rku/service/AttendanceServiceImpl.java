@@ -50,6 +50,7 @@ public class AttendanceServiceImpl implements AttendanceService {
         attendanceLine.setSubject(attendance.getSubject());
         attendanceLine.setSemesterConfig(semConfig);
         attendanceLine.setBranchConfig(branchConfig);
+        attendanceLine.setCurrentYear(attendance.getCurrentYear());
 
         attendancsLineList.add(attendanceLine);
         flag = false;
@@ -89,6 +90,7 @@ public class AttendanceServiceImpl implements AttendanceService {
         infoLine.setSemesterConfig(attendanceLine.getSemesterConfig());
         infoLine.setBranchConfig(attendanceLine.getBranchConfig());
         infoLine.setStudentPortal(student);
+        infoLine.setCurrentYear(attendanceLine.getCurrentYear());
         if (attendanceLine.getPresent() == 1) {
           infoLine.setTotalPresent(1);
           infoLine.setTotalAbsent(0);

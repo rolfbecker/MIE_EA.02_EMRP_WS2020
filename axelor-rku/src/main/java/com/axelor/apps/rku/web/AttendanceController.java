@@ -132,7 +132,7 @@ public class AttendanceController {
     List<AttendanceInfoLine> attendanceInfo =
         Beans.get(AttendanceInfoLineRepository.class)
             .all()
-            .filter("self.subject = ?", attendance.getSubject())
+            .filter("self.subject = ? and self.currentYear = ?", attendance.getSubject(),attendance.getSubject().getCourse().getCurrentYear())
             .fetch();
 
     response.setValue("attendanceInfoLine", attendanceInfo);

@@ -19,7 +19,7 @@
 		 	<field name="code" required="true"/>
 		 	<field name="subjectCredit" required="true"/>
 			<field name="active"/>
-			<field name="branchConfig" required="true" onChange="action-subject-method-set-full-name" />
+			<field name="branchConfig" required="true" onChange="action-subject-method-set-full-name" domain="self.course = :course"/>
 			<field name="semesterConfig" required="true" onChange="action-subject-method-set-full-name" />
 		</panel>
 		
