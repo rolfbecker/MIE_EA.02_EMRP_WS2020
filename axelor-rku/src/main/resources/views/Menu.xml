@@ -100,6 +100,36 @@
 		<context name="isUpdate" expr="eval: true"/>
 	</action-view>
 	
+	<menuitem name="rku-root-mentor-student-fee-paid" parent="rku-root-mentor" 
+		title="Student Fee Paid" action="rku.mentor.student.fee.paid" order="6"/>
+		
+	<action-view name="rku.mentor.student.fee.paid" title="Student Fee Paid"
+		model="com.axelor.apps.rku.db.StudentPortal" >
+		<view type="grid" name="student-portal-grid"/>
+		<view type="form" name="student-portal-form"/>
+		
+		<domain>self.currentSem = :_semester AND self.branchConfig = :_branch AND self.activeUser = true AND self.currentYearFee = true</domain>
+		<context name="_user" expr="eval: __user__"/>
+		<context name="_semester" expr="eval:__repo__(Faculty).all().filter('self.userFaculty = ?',_user).fetchOne()?.semConfig"/>
+		<context name="_branch" expr="eval:__repo__(Faculty).all().filter('self.userFaculty = ?',_user).fetchOne()?.branch"/>
+		<context name="isUpdate" expr="eval: true"/>
+	</action-view>
+	
+	<menuitem name="rku-root-mentor-student-fee-unpaid" parent="rku-root-mentor" 
+		title="Student Fee Unpaid" action="rku.mentor.student.fee.unpaid" order="6"/>
+		
+	<action-view name="rku.mentor.student.fee.unpaid" title="Student Fee Unpaid"
+		model="com.axelor.apps.rku.db.StudentPortal" >
+		<view type="grid" name="student-portal-grid"/>
+		<view type="form" name="student-portal-form"/>
+		
+		<domain>self.currentSem = :_semester AND self.branchConfig = :_branch AND self.activeUser = true AND self.currentYearFee = false</domain>
+		<context name="_user" expr="eval: __user__"/>
+		<context name="_semester" expr="eval:__repo__(Faculty).all().filter('self.userFaculty = ?',_user).fetchOne()?.semConfig"/>
+		<context name="_branch" expr="eval:__repo__(Faculty).all().filter('self.userFaculty = ?',_user).fetchOne()?.branch"/>
+		<context name="isUpdate" expr="eval: true"/>
+	</action-view>
+	
 	<menuitem name="rku-root-account" title="Account" icon="fa-newspaper-o" icon-background="#726E73" order="-105"/>
 	
 	<menuitem  name="rku-root-account-account" title="Account" parent="rku-root-account" action="rku.account.account.view"/>
@@ -116,12 +146,41 @@
 		<view type="form" name="fee-form"/>
 	</action-view>
 	
+	
+	
+	<menuitem name="rku-root-account-student" parent="rku-root-account" 
+		title="Student fee" action="rku.mentor.student" order="10"/>
+		
+	<menuitem name="rku-root-account-student-paid-fee" parent="rku-root-account-student" 
+		title="Paid Fee" action="rku.account.student.paid.fee" order="5"/>
+		
+	<action-view name="rku.account.student.paid.fee" title="Paid Fee" 
+		model="com.axelor.apps.rku.db.StudentPortal" >
+		<view type="grid" name="student-portal-grid"/>
+		<view type="form" name="student-portal-form"/>
+		
+		<domain>self.activeUser = true AND self.currentYearFee = true</domain>
+		<context name="isUpdate" expr="eval: true"/>
+	</action-view>
+	
+	<menuitem name="rku-root-account-student-unpaid-fee" parent="rku-root-account-student" 
+		title="Unpaid Fee" action="rku.account.student.unpaid.fee" order="10"/>
+		
+	<action-view name="rku.account.student.unpaid.fee" title="Unpaid Fee" 
+		model="com.axelor.apps.rku.db.StudentPortal" >
+		<view type="grid" name="student-portal-grid"/>
+		<view type="form" name="student-portal-form"/>
+		
+		<domain>self.activeUser = true AND self.currentYearFee = false</domain>
+		<context name="isUpdate" expr="eval: true"/>
+	</action-view>
+		
 	<menuitem name="rku-root-password" parent="rku-root" 
-		title="Password" order="8"/>
+		title="RKU Globel Chat" order="8"/>
 		
-	<menuitem  name="rku-root-password-reset" title="Reset password" parent="rku-root-password" action="rku.password.reset.view"/>
+	<menuitem  name="rku-root-password-reset" title="Internal Chat" parent="rku-root-password" action="rku.password.reset.view"/>
 		
-	<action-view name="rku.password.reset.view" title="Password" model="com.axelor.apps.rku.db.Password">
+	<action-view name="rku.password.reset.view" title="Post News" model="com.axelor.apps.rku.db.Password">
 		<view type="form" name="password-form"/>
 	</action-view>
 	
@@ -204,6 +263,43 @@
 	
 	<action-view name="rku.calls.dashboard.view" title="Student attendance">
 		<view type="dashboard" name="rku.calls.dashboard" />
+	</action-view>
+	
+	<menuitem name="menu-account-student-fee" parent="rku-root-report"
+		title="Student Fees"  action="rku.calls.dashboard.account.view"/>	
+	
+	<action-view name="rku.calls.dashboard.account.view" title="Student Fees">
+		<view type="dashboard" name="rku.account.dashboard" />
+	</action-view>
+	
+	
+	
+	<!--  .............................................................................................................   -->
+	
+	<menuitem name="rku-root-admin" title="RKU-Admin" order="-109 "/>
+	
+	<menuitem name="rku-root-student-admin" icon="fa-user-circle-o" parent="rku-root-admin"
+		title="student Portal" order="-108"/>
+		
+	<menuitem name="rku-root-student-info-admin" parent="rku-root-student-admin"
+		 title="Student Info" action="rku.student.portal.admin.view"/>
+		
+	<action-view name="rku.student.portal.admin.view" title="Student Portal"
+		model="com.axelor.apps.rku.db.StudentPortal" >
+		<view type="grid" name="student-portal-grid"/>
+		<view type="form" name="student-portal-form"/>
+	</action-view>
+	
+	<menuitem name="rku-root-faculty-admin" icon="fa-user-o" icon-background="#0E9136" parent="rku-root-admin"
+		title="Faculty" order="-107"/>
+		
+	<menuitem name="rku-root-faculty-faculty-admin" parent="rku-root-faculty-admin" 
+		title="Faculty" action="rku.faculty.admin.view" order="4"/>
+		
+	<action-view name="rku.faculty.admin.view" title="Faculty"
+		model="com.axelor.apps.rku.db.Faculty" >
+		<view type="grid" name="faculty-grid"/>
+		<view type="form" name="faculty-form"/>
 	</action-view>
 	
 	

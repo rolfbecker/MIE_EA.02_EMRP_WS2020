@@ -9,6 +9,7 @@
 		 <field name="firstName"/>
 		 <field name="phoneNo"/>
 		 <field name="updateInfo" hidden="true"/>
+		 <field name="currentYearFee" hidden="true"/>
 	</grid>
 
 	<form name="student-portal-form" title="Student Portal" model="com.axelor.apps.rku.db.StudentPortal"  width="large" onNew="action-student-portal-attrs-set-user" onLoad="action-student-portal-group-update-sem,save">
@@ -37,6 +38,7 @@
   			<button name="setInfo" title="Set Info" onClick="action-student-portal-record-set-info-true" colSpan="12"/>
     		<field name="setInfo" title="Student info" hidden="true"/>
     		<field name="changeSemester" hidden="true"/>
+  			<field name="currentYearFee" hidden="true"/>
   		  </panel>
 		
 		<panel-related field="subjectSet" readonlyIf="!updateInfo" grid-view="subject-grid" form-view="subject-form" name="subjectPanel" canSelect="true" canEdit="false" canNew="false" domain="self.course = :course AND self.branchConfig = :branchConfig AND self.semesterConfig = :currentSem"/>
@@ -58,6 +60,11 @@
 			<button name="updateEnable" title="Update Enable" onClick="action-student-portal-record-update-true" showIf="isUpdate" />
 			<button name="updateDisable" title="Update Disable" onClick="action-student-portal-record-update-false" showIf="isUpdate || updateInfo" />
 		</panel>
+		
+		<panel-mail name="mailsPanel">
+            <mail-messages limit="8" />
+            <mail-followers />
+        </panel-mail>
 		
 	</form>
 	
@@ -84,10 +91,15 @@
 	
 	<action-group name="action-student-portal-group-update-sem">
 		<action name="action-student-portal-method-remove-subject-attendance" if="changeSemester"/>
+		<action name="action-student-portal-method-check-current-year-fee-status"/>
 	</action-group>	
 	
 	<action-method name="action-student-portal-method-remove-subject-attendance">
 		<call class="com.axelor.apps.rku.web.StudentPortalController" method="changeSemester"/>
+	</action-method>
+	
+	<action-method name="action-student-portal-method-check-current-year-fee-status">
+		<call class="com.axelor.apps.rku.web.StudentPortalController" method="checkCurrentYearFee"/>
 	</action-method>
 	
 </object-views>

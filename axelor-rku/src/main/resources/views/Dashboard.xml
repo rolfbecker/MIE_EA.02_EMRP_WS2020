@@ -18,4 +18,18 @@
 	</action-view>
 
 
+
+	<dashboard title="Account Dashboard" name="rku.account.dashboard" >
+		<dashlet action="dashlet.chart.dashboard.account.tution.fee.per.course.bar" height="350"  colSpan="12" />
+		<dashlet action="dashlet.chart.dashboard.account.exam.fee.per.course.bar" height="350"  colSpan="12" />
+	</dashboard>
+	
+	<action-view name="dashlet.chart.dashboard.account.tution.fee.per.course.bar" title="Course per Fees">
+		<view type="chart" name="chart.dashboard.account.amount.per.course.tution.fee.bar"/>
+	</action-view>
+	
+	<action-view name="dashlet.chart.dashboard.account.exam.fee.per.course.bar" title="Course per Fees">
+		<view type="chart" name="chart.dashboard.account.amount.per.course.exam.fee.bar"/>
+	</action-view>
+
 </object-views>

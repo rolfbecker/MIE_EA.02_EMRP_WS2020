@@ -8,6 +8,7 @@
     <input file="rku_course_conf.csv" separator=";" type="com.axelor.apps.rku.db.Course" search="self.importId = :importId" />
     <input file="rku_sem_conf.csv" separator=";" type="com.axelor.apps.rku.db.SemesterConfig" search="self.importId = :importId" />
     <input file="rku_branch_conf.csv" separator=";" type="com.axelor.apps.rku.db.BranchConfig" search="self.importId = :importId" />
+    <input file="rku_fees.csv" separator=";" type="com.axelor.apps.rku.db.Fee" search="self.importId = :importId" />
     
     <input file="rku_subject_conf.csv" separator=";" type="com.axelor.apps.rku.db.Subject" />
     

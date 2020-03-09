@@ -5,6 +5,7 @@
 	<grid name="branch-config-grid" title="Branch config" model="com.axelor.apps.rku.db.BranchConfig">
 		 <field name="name"/>
 		 <field name="code"/>
+		 <field name="course"/>
 	</grid>
 
 	<form name="branch-config-form" title="Branch config" model="com.axelor.apps.rku.db.BranchConfig" >

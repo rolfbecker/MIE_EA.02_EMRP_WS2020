@@ -6,6 +6,9 @@
 		 <field name="fullName"/>
 		 <field name="name"/>
 		 <field name="code"/>
+		 <field name="semesterConfig"/>
+		 <field name="branchConfig"/>
+		 <field name="course"/>
 		 <field name="subjectCredit" />
 		 <field name="active"/>
 	</grid>

@@ -20,6 +20,7 @@
 	  <boolean name="updateInfo" title="Update information" default="true"/>
 	  <boolean name="setInfo" title="Set Info"/>
 	  <boolean name="changeSemester" title="Sem Change"/>
+	  <boolean name="currentYearFee" title="Current Year Fee"/>
 	  
 	  <boolean name="activeUser" title="Active user" />
 	  <many-to-one name="currentSem" title="Current semester" ref="com.axelor.apps.rku.db.SemesterConfig" />

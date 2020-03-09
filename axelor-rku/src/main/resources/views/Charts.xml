@@ -58,6 +58,60 @@
  </chart>
 
 
+ <chart name="chart.dashboard.account.amount.per.course.tution.fee.bar" title="Overall Course Income (Tution Fee)">
+ 
+ 	<search-fields> 	        
+	    <field type="string" name="year" title="%engineering-2020-odd%" x-required="true"/>
+	</search-fields>
+   <dataset type="sql"><![CDATA[
 
+       SELECT
+
+       	SUM(account.tution_fee) AS tution_fee,
+       	course.name as name
+       	
+       FROM
+    	   rku_course course
+
+       LEFT JOIN
+  	       rku_account as account ON course.id = account.course
+  	       
+  	   WHERE  account.current_year LIKE (:year)   
+  	   
+	   GROUP BY
+        name
+
+
+]]></dataset>
+   <category key="name" type="text" title="Student"/>
+   <series key="tution_fee" type="bar" title="Total Percent"/>
+ </chart>
+
+ <chart name="chart.dashboard.account.amount.per.course.exam.fee.bar" title="Overall Course Income (Exam Fee)">
+  	<search-fields> 	        
+	    <field type="string" name="year" title="%engineering-2020-odd%" x-required="true"/>
+	</search-fields>
+   <dataset type="sql"><![CDATA[
+
+       SELECT
+
+       	SUM(account.exam_fee) AS exam_fee,
+       	course.name as name
+       	
+       FROM
+    	   rku_course course
+
+       LEFT JOIN
+  	       rku_account as account ON course.id = account.course
+  	       
+  	       WHERE  account.current_year LIKE (:year)   
+		GROUP BY
+        name
+
+
+]]></dataset>
+   <category key="name" type="text" title="Student"/>
+   <series key="exam_fee" type="bar" title="Total Percent"/>
+ </chart>
 		
 </object-views>
