@@ -5,13 +5,15 @@
 
   <module name="rku" package="com.axelor.apps.rku.db"/>
 
-  <entity name="Password" cachable="true">
+  <entity name="InternalChat" cachable="true">
   
   	<string name="userName"/>
-  	<string name="email"/>
-  	<string name="newPassword"/>
-  	<string name="confirmPassword"/>
-  	
+  	<integer name="likeMessage" title="Like"/>
+  	<integer name="unLikeMessage" title="Unlike"/>
+  	<many-to-one name="image" ref="com.axelor.meta.db.MetaFile" title="Image"/>
+  	<string name="message" title="Message" max="500"/>
+  	<string name="subject" title="Subject"/>
+  		
   </entity>
   
 </domain-models>

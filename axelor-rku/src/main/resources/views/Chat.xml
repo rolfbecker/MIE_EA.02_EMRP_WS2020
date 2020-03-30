@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.0.xsd">
+
+
+	<form name="internal-chat-form" title="Chat" 
+		model="com.axelor.apps.rku.db.InternalChat">
+
+		<panel>
+			<panel colSpan="5">
+				<field name="image" widget="Image" height="300px" width="400px" showTitle="false" required="true" />
+			</panel>
+
+			<panel>
+				<panel colSpan="12">
+					<field name="subject" colSpan="12" required="true" />
+				</panel>
+				<panel colSpan="12">
+					<field name="message" widget="html" colSpan="12" height="400px" required="true" />
+				</panel>
+			</panel>
+
+		</panel>
+
+		<panel>
+			<button name="POST" title="POST" onClick="save" />
+			<button name="delete" title="DELETE" onClick="action-method-chat-delete-post" />
+		</panel>
+
+		<panel sidebar="true">
+			<field name="createdOn" />
+			<field name="createdBy" />
+		</panel>
+
+		<panel sidebar="true">
+			<field name="likeMessage" readonly="true" colSpan="6" />
+			<field name="unLikeMessage" readonly="true" colSpan="6" />
+		</panel>
+
+		 <panel sidebar="true">
+		    <button name="like" title="Like" onClick="" colSpan="6"/>
+		    <button name="unLike" title="Unlike" onClick="" colSpan="6"/>
+		 </panel>
+
+		<panel-mail name="mailsPanel" title="Comments..." showTitle="true"  >
+			<mail-messages limit="8"  />
+			<mail-followers />
+		</panel-mail>
+
+	</form>
+
+	<cards name="internal-chat-card" 
+		model="com.axelor.apps.rku.db.InternalChat" title="Internal Chat"
+		css="rect-image">
+		<field name="userName" />
+		<field name="image" />
+		<field name="subject"/>
+		<field name="likeMessage"/>
+		<field name="unLikeMessage"/>
+		<template><![CDATA[
+			<div class="span12"><center><strong>{{userName}}</strong></center></div>
+ 			<div class="span3 card-image ">
+		  	  <img ng-show="image" ng-src="{{$image('image', 'content')}}" />
+		  	  <img ng-show="!image" src="img/product-default.png" />
+			</div>
+
+			<div class="span8">
+			    <span>
+					<strong>{{subject}}</strong><br/><br/>
+				    <strong>Like:{{likeMessage}}</strong> &nbsp; &nbsp; &nbsp;
+				    <strong>Unlike:{{unLikeMessage}}</strong><br/>
+				</span>
+			</div>
+		]]>
+		</template>
+	</cards>
+
+	<action-method	name="action-method-chat-delete-post">
+		<call class="com.axelor.apps.rku.web.ChatController" method="deletePost" />
+	</action-method>
+
+</object-views>

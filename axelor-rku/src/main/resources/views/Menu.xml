@@ -178,10 +178,11 @@
 	<menuitem name="rku-root-password" parent="rku-root" 
 		title="RKU Globel Chat" order="8"/>
 		
-	<menuitem  name="rku-root-password-reset" title="Internal Chat" parent="rku-root-password" action="rku.password.reset.view"/>
+	<menuitem  name="rku-root-internal-chat" title="Internal Chat" parent="rku-root-password" action="rku.internal.chat.view"/>
 		
-	<action-view name="rku.password.reset.view" title="Post News" model="com.axelor.apps.rku.db.Password">
-		<view type="form" name="password-form"/>
+	<action-view name="rku.internal.chat.view" title="Post News" model="com.axelor.apps.rku.db.InternalChat">
+		<view type="form" name="internal-chat-form"/>
+		<view type="cards" name="internal-chat-card" />
 	</action-view>
 	
 	

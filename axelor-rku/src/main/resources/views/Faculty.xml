@@ -4,8 +4,10 @@
 	
 	<grid name="faculty-grid" title="Faculty" model="com.axelor.apps.rku.db.Faculty">
 		 <field name="firstName"/>
-		 <field name="identityNo"/>
+		 <field name="sureName"/>
 		 <field name="active" />
+		 <field name="branch" />
+		 <field name="semConfig" />
 	</grid>
 
 	<form name="faculty-form" title="Faculty" model="com.axelor.apps.rku.db.Faculty" onNew="action-faculty-attrs-set-user" width="large" >
