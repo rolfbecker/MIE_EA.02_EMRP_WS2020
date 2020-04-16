@@ -1,0 +1,2 @@
+"id";"name";"description";"permissions"
+1;"faculty1";"Access to all objects of the RKU module.";"perm.auth.all|perm.base.all|perm.dms.all|perm.exception.all|perm.mail.all|perm.message.all|perm.meta.all|perm.project.all|perm.rku.all|perm.team.all"

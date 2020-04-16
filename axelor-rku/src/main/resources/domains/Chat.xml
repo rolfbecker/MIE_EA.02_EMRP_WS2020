@@ -11,8 +11,11 @@
   	<integer name="likeMessage" title="Like"/>
   	<integer name="unLikeMessage" title="Unlike"/>
   	<many-to-one name="image" ref="com.axelor.meta.db.MetaFile" title="Image"/>
+  	<many-to-one name="secondImage" ref="com.axelor.meta.db.MetaFile" title="Image2"/>
+  	<many-to-one name="thirdImage" ref="com.axelor.meta.db.MetaFile" title="Image3"/>
   	<string name="message" title="Message" max="500"/>
   	<string name="subject" title="Subject"/>
+  	<many-to-many name="userLikes" ref="com.axelor.auth.db.User" title="Likes" />
   		
   </entity>
   

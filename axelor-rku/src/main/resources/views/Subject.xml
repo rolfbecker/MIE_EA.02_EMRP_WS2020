@@ -17,13 +17,13 @@
 		
 		<panel name="mainSubjectPanal">
 			<field name="fullName" readonly="true"/>
-			<field name="course" required="true"/>
+			<field name="course" required="true" canView="false"/>
 			<field name="name" required="true" onChange="action-subject-method-set-full-name"/>
 		 	<field name="code" required="true"/>
 		 	<field name="subjectCredit" required="true"/>
 			<field name="active"/>
-			<field name="branchConfig" required="true" onChange="action-subject-method-set-full-name" domain="self.course = :course"/>
-			<field name="semesterConfig" required="true" onChange="action-subject-method-set-full-name" />
+			<field name="branchConfig" required="true" onChange="action-subject-method-set-full-name" domain="self.course = :course" canView="false"/>
+			<field name="semesterConfig" required="true" onChange="action-subject-method-set-full-name" canView="false" />
 		</panel>
 		
 	</form>

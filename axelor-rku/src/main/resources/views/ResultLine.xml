@@ -15,12 +15,12 @@
 	<form name="result-line-form" title="ResultLine" model="com.axelor.apps.rku.db.ResultLine" editable="true">
 		
 		<panel name="mainResultLinePanal">
-			 <field name="student" readonly="true"/>
+			 <field name="student" readonly="true" canView="false" />
 			 <field name="point" readonly="true"/>
 			 <field name="exam" readonly="true"/>
-			 <field name="subject" readonly="true"/>
-			 <field name="semesterConfig" readonly="true"/>
-			 <field name="branchConfig" readonly="true"/>
+			 <field name="subject" readonly="true" canView="false"/>
+			 <field name="semesterConfig" readonly="true" canView="false"/>
+			 <field name="branchConfig" readonly="true" canView="false" />
 		</panel>
 
 	</form>

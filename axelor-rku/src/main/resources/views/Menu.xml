@@ -156,8 +156,8 @@
 		
 	<action-view name="rku.account.student.paid.fee" title="Paid Fee" 
 		model="com.axelor.apps.rku.db.StudentPortal" >
-		<view type="grid" name="student-portal-grid"/>
-		<view type="form" name="student-portal-form"/>
+		<view type="grid" name="student-portal-account-grid"/>
+		<view type="form" name="student-portal-account-form"/>
 		
 		<domain>self.activeUser = true AND self.currentYearFee = true</domain>
 		<context name="isUpdate" expr="eval: true"/>
@@ -168,21 +168,21 @@
 		
 	<action-view name="rku.account.student.unpaid.fee" title="Unpaid Fee" 
 		model="com.axelor.apps.rku.db.StudentPortal" >
-		<view type="grid" name="student-portal-grid"/>
-		<view type="form" name="student-portal-form"/>
+		<view type="grid" name="student-portal-account-grid"/>
+		<view type="form" name="student-portal-account-form"/>
 		
 		<domain>self.activeUser = true AND self.currentYearFee = false</domain>
 		<context name="isUpdate" expr="eval: true"/>
 	</action-view>
 		
-	<menuitem name="rku-root-password" parent="rku-root" 
-		title="RKU Globel Chat" order="8"/>
+	<menuitem name="rku-root-chat" parent="rku-root" 
+		title="RKU Chat" order="8"/>
 		
-	<menuitem  name="rku-root-internal-chat" title="Internal Chat" parent="rku-root-password" action="rku.internal.chat.view"/>
+	<menuitem  name="rku-root-internal-chat" title="Internal Chat" parent="rku-root-chat" action="rku.internal.chat.view"/>
 		
 	<action-view name="rku.internal.chat.view" title="Post News" model="com.axelor.apps.rku.db.InternalChat">
-		<view type="form" name="internal-chat-form"/>
 		<view type="cards" name="internal-chat-card" />
+		<view type="form" name="internal-chat-form"/>
 	</action-view>
 	
 	

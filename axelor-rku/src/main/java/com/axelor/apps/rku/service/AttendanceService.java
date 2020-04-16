@@ -9,4 +9,5 @@ public interface AttendanceService {
   List<AttendanceLine> getAttendanceLine(Attendance attendance);
 
   void setAttendanceInfo(Attendance attendance);
+  void setAttendanceInfoOnDelete(Attendance attendance);
 }

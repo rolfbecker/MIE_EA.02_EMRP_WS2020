@@ -16,20 +16,20 @@
 			<field name="firstName" colSpan="3" required="true" />
 			<field name="sureName" colSpan="3" required="true" />
 			<field name="lastName" colSpan="3" required="true" />
-			<field name="userFaculty" required="true" readonly="true"/>
+			<field name="userFaculty" required="true" readonly="true" canView="false"/>
 			<field name="active" />
 		</panel>
 		
 		<panel name="secondPanel">
-			<field name="course"/>
-			<field name="branch"/>
+			<field name="course" canView="false"/>
+			<field name="branch" canView="false"/>
 		</panel>
 		
 		<panel-related field="subjectSet" canEdit="false" canNew="false" canMove="true" />
 		
 		<panel sidebar="true" title="Mentor" name="mentorPanel">
-			<field name="branch"/>
-			<field name="semConfig"/>
+			<field name="branch" canView="false"/>
+			<field name="semConfig" canView="false"/>
 		</panel>
 		
 	</form>

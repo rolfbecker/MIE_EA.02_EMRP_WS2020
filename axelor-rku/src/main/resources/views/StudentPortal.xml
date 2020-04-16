@@ -11,6 +11,15 @@
 		 <field name="updateInfo" hidden="true"/>
 		 <field name="currentYearFee" hidden="true"/>
 	</grid>
+	
+	<grid name="student-portal-account-grid" title="Student" model="com.axelor.apps.rku.db.StudentPortal" canDelete="false" canNew="false" >
+		 <field name="enrollmentNo"/>
+		 <field name="email"/>
+		 <field name="firstName"/>
+		 <field name="phoneNo"/>
+		 <field name="updateInfo" hidden="true"/>
+		 <field name="currentYearFee" hidden="true"/>
+	</grid>
 
 	<form name="student-portal-form" title="Student Portal" model="com.axelor.apps.rku.db.StudentPortal"  width="large" onNew="action-student-portal-attrs-set-user" onLoad="action-student-portal-group-update-sem,save">
 		
@@ -29,9 +38,9 @@
 		
 		<panel name="studentInfoPanel" readonlyIf="!isUpdate &amp;&amp; setInfo">
 			<field name="activeUser" />	
-			<field name="currentSem" onChange="action-student-portal-method-set-subject"/>	
-			<field name="course"  required="true" />
-			<field name="branchConfig" required="true" onChange="action-student-portal-method-set-subject" domain="self.course = :course" />
+			<field name="currentSem" onChange="action-student-portal-method-set-subject" canView="false"/>	
+			<field name="course"  required="true" canView="false" />
+			<field name="branchConfig" required="true" onChange="action-student-portal-method-set-subject" domain="self.course = :course"  canView="false"/>
 		</panel>
 		
 		  <panel name="setInformationPanel" showIf="!setInfo">
@@ -52,7 +61,7 @@
 		</panel-related>
 		
 		<panel name="userPanel" sidebar="true">
-			<field name="userStudent" readonly="true"/>
+			<field name="userStudent" readonly="true" canView="false"/>
 		</panel>
 		
 		<panel name="updatePanel" sidebar="true">
@@ -66,6 +75,60 @@
             <mail-followers />
         </panel-mail>
 		
+	</form>
+	
+	<form name="student-portal-account-form" canEdit="false" canAttach="false" canArchive="false" canCopy="false" canNew="false" canDelete="false" canSave="false" title="Student Portal" model="com.axelor.apps.rku.db.StudentPortal"  width="large" onNew="action-student-portal-attrs-set-user" onLoad="action-student-portal-group-update-sem,save">
+		<panel name="studentPanel">
+			<field name="firstName" colSpan="3" required="true" readonlyIf="!isUpdate &amp;&amp; setInfo"/>
+			<field name="sureName" colSpan="3" required="true" readonlyIf="!isUpdate &amp;&amp; setInfo"/>
+			<field name="lastName" colSpan="3" required="true" readonlyIf="!isUpdate &amp;&amp; setInfo"/>
+			<field name="enrollmentNo" required="true" readonly="true"/>
+			<field name="dateOfBirth" required="true" readonlyIf="!isUpdate &amp;&amp; setInfo"/>
+			<field name="email" required="true" readonlyIf="!isUpdate &amp;&amp; setInfo"/>
+			<field name="phoneNo" required="true" readonlyIf="!isUpdate &amp;&amp; setInfo"/>
+			<field name="startYear" required="true" readonlyIf="!isUpdate &amp;&amp; setInfo"/>
+			<field name="endYear" required="true" readonlyIf="!isUpdate &amp;&amp; setInfo"/>
+			<field name="address" required="true" type="text" readonlyIf="!isUpdate &amp;&amp; setInfo" />
+		</panel>
+		
+		<panel name="studentInfoPanel" readonlyIf="!isUpdate &amp;&amp; setInfo">
+			<field name="activeUser" />	
+			<field name="currentSem" onChange="action-student-portal-method-set-subject" canView="false"/>	
+			<field name="course"  required="true" canView="false" />
+			<field name="branchConfig" required="true" onChange="action-student-portal-method-set-subject" domain="self.course = :course"  canView="false"/>
+		</panel>
+		
+		  <panel name="setInformationPanel" showIf="!setInfo">
+  			<button name="setInfo" title="Set Info" onClick="action-student-portal-record-set-info-true" colSpan="12"/>
+    		<field name="setInfo" title="Student info" hidden="true"/>
+    		<field name="changeSemester" hidden="true"/>
+  			<field name="currentYearFee" hidden="true"/>
+  		  </panel>
+		
+		<panel-related field="subjectSet" readonlyIf="!updateInfo" grid-view="subject-grid" form-view="subject-form" name="subjectPanel" canSelect="true" canEdit="false" canNew="false" domain="self.course = :course AND self.branchConfig = :branchConfig AND self.semesterConfig = :currentSem"/>
+		
+		<panel name="AttendanceLineInfoPanel" readonlyIf="!isUpdate || !updateInfo">
+			<panel-related field="attendanceInfoLine" grid-view="attendance-info-line-grid" form-view="attendance-info-line-form" colSpan="12" />
+		</panel>
+			
+			
+		<panel-related field="account" sidebar="true" title="Fees" readonly="true" canView="false" grid-view="account-student-grid" form-view="account-form" colSpan="12" >
+		</panel-related>
+		
+		<panel name="userPanel" sidebar="true">
+			<field name="userStudent" readonly="true" canView="false"/>
+		</panel>
+		
+		<panel name="updatePanel" sidebar="true" hidden="true">
+			<field name="updateInfo" readonly="true" widget="InlineCheckbox" />
+			<button name="updateEnable" title="Update Enable" onClick="action-student-portal-record-update-true" showIf="isUpdate" />
+			<button name="updateDisable" title="Update Disable" onClick="action-student-portal-record-update-false" showIf="isUpdate || updateInfo" />
+		</panel>
+		
+		<panel-mail name="mailsPanel">
+            <mail-messages limit="8" />
+            <mail-followers />
+        </panel-mail>
 	</form>
 	
 	<action-attrs name="action-student-portal-attrs-set-user">

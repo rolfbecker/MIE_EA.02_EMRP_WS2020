@@ -11,14 +11,14 @@
 	<form name="result-form" title="Result" model="com.axelor.apps.rku.db.Result" width="1300" onNew="action-attendance-attrs-set-user" >
 		
 		<panel name="mainResultPanal">
-			 <field name="userFaculty" readonly="true"/>
-			 <field name="subject" domain="self.faculty.userFaculty = :userFaculty" onChange="action-result-method-get-result-line,action-result-record-set-course" required="true" />
-			 <field name="exam" onChange="action-result-method-get-result-line" required="true"/>
+			 <field name="userFaculty" readonly="true" canView="false" />
+			 <field name="subject" canView="false" domain="self.faculty.userFaculty = :userFaculty" onChange="action-result-method-get-result-line,action-result-record-set-course" required="true" />
+			 <field name="exam" canView="false" onChange="action-result-method-get-result-line" required="true"/>
 			 <field name="remedial"/>
 		</panel>
 		
 		<panel name="coursePanel" hidden="true">
-			<field name="course"/>
+			<field name="course" />
 			<field name="currentYear"/>
 		</panel>
 		
@@ -30,8 +30,8 @@
 	
 	<form title="Student Result" name="result-student-form" model="com.axelor.apps.rku.db.Result" onNew="action-attendance-attrs-set-user"  width="1300">
 		<panel>
-			<field name="userFaculty" readonly="true"/>
-			<field name="semester"/>
+			<field name="userFaculty" readonly="true" canView="false"/>
+			<field name="semester" canView="false"/>
 			<field name="exam"/>
 		</panel>
 		

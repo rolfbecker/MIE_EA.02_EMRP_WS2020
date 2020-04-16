@@ -13,9 +13,9 @@
 	<form name="fee-form" title="Fees" model="com.axelor.apps.rku.db.Fee" >
 		
 		<panel name="mainFeePanal">
-			 <field name="course"/>
-			 <field name="branchConfig" domain="self.course = :course"/>
-			 <field name="semester"/>
+			 <field name="course" canView="false"/>
+			 <field name="branchConfig" domain="self.course = :course" canView="false"/>
+			 <field name="semester" canView="false"/>
 			 <field name="tutionFees"/>
 			 <field name="examFees"/>
 		</panel>
