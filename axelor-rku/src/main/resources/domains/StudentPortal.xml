@@ -31,7 +31,7 @@
 	  													
 	  <many-to-one name="course" ref="com.axelor.apps.rku.db.Course"/>
 	  <many-to-one name="branch" ref="com.axelor.apps.rku.db.Branch"/>
-	  <many-to-one name="userStudent" ref="com.axelor.auth.db.User" title="Student" />
+	  <many-to-one name="userStudent" ref="com.axelor.auth.db.User" title="Student" unique="true"/>
   </entity>
   
 </domain-models>

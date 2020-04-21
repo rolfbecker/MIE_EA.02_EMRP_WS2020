@@ -38,10 +38,10 @@ public class ChatController {
 
   public void removeLike(ActionRequest request, ActionResponse response) {
     InternalChat internalChat = request.getContext().asType(InternalChat.class);
-    	User user = AuthUtils.getUser();
-        Set<User> userlikes = internalChat.getUserLikes();
-        userlikes.remove(user);
-        internalChat.setUserLikes(userlikes);
-        response.setValue("userLikes", userlikes);
+    User user = AuthUtils.getUser();
+    Set<User> userlikes = internalChat.getUserLikes();
+    userlikes.remove(user);
+    internalChat.setUserLikes(userlikes);
+    response.setValue("userLikes", userlikes);
   }
 }

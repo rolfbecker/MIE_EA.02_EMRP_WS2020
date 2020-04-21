@@ -137,43 +137,50 @@ public class AttendanceServiceImpl implements AttendanceService {
     }
   }
 
-@Override
-@Transactional(rollbackOn = { AxelorException.class, Exception.class })
-public void setAttendanceInfoOnDelete(Attendance attendance) {
-	List<AttendanceLine> attendanceLines = attendance.getAttendanceLine();
-	AttendanceInfoLineRepository attendanceInfoLineRepo = Beans.get(AttendanceInfoLineRepository.class);
-	StudentPortalRepository studentPortalRepo = Beans.get(StudentPortalRepository.class);
-	for (AttendanceLine attendanceLine : attendanceLines) {
+  @Override
+  @Transactional(rollbackOn = {AxelorException.class, Exception.class})
+  public void setAttendanceInfoOnDelete(Attendance attendance) {
+    List<AttendanceLine> attendanceLines = attendance.getAttendanceLine();
+    AttendanceInfoLineRepository attendanceInfoLineRepo =
+        Beans.get(AttendanceInfoLineRepository.class);
+    StudentPortalRepository studentPortalRepo = Beans.get(StudentPortalRepository.class);
+    for (AttendanceLine attendanceLine : attendanceLines) {
 
-		StudentPortal student = studentPortalRepo.all().filter("self.userStudent = ?", attendanceLine.getStudent())
-				.fetchOne();
+      StudentPortal student =
+          studentPortalRepo
+              .all()
+              .filter("self.userStudent = ?", attendanceLine.getStudent())
+              .fetchOne();
 
-		AttendanceInfoLine attendanceInfo = attendanceInfoLineRepo.all()
-				.filter("self.studentPortal = ? and self.subject = ?", student, attendanceLine.getSubject())
-				.fetchOne();
+      AttendanceInfoLine attendanceInfo =
+          attendanceInfoLineRepo
+              .all()
+              .filter(
+                  "self.studentPortal = ? and self.subject = ?",
+                  student,
+                  attendanceLine.getSubject())
+              .fetchOne();
 
-		if (attendanceInfo == null) {
-			return;
-		} else {
-			if (attendance.getUpdateAttendance()) {
-				if (attendanceLine.getPresent() == 0) {
-					attendanceInfo.setTotalAbsent(attendanceInfo.getTotalAbsent() - 1);
-					attendanceInfo.setTotalLecture(attendanceInfo.getTotalLecture() - 1);
-				} else {
-					attendanceInfo.setTotalPresent(attendanceInfo.getTotalPresent() - 1);
-					attendanceInfo.setTotalLecture(attendanceInfo.getTotalLecture() - 1);
-				}
-				if (attendanceInfo.getTotalLecture() == 0) {
-					attendanceInfo.setTotalPercent(new BigDecimal(00));
-				} else {
-					float totalPercent = (attendanceInfo.getTotalPresent() * 100)
-							/ attendanceInfo.getTotalLecture();
-					attendanceInfo.setTotalPercent(new BigDecimal(totalPercent));
-
-				}
-			}
-		}
-	}
-
-}
+      if (attendanceInfo == null) {
+        return;
+      } else {
+        if (attendance.getUpdateAttendance()) {
+          if (attendanceLine.getPresent() == 0) {
+            attendanceInfo.setTotalAbsent(attendanceInfo.getTotalAbsent() - 1);
+            attendanceInfo.setTotalLecture(attendanceInfo.getTotalLecture() - 1);
+          } else {
+            attendanceInfo.setTotalPresent(attendanceInfo.getTotalPresent() - 1);
+            attendanceInfo.setTotalLecture(attendanceInfo.getTotalLecture() - 1);
+          }
+          if (attendanceInfo.getTotalLecture() == 0) {
+            attendanceInfo.setTotalPercent(new BigDecimal(00));
+          } else {
+            float totalPercent =
+                (attendanceInfo.getTotalPresent() * 100) / attendanceInfo.getTotalLecture();
+            attendanceInfo.setTotalPercent(new BigDecimal(totalPercent));
+          }
+        }
+      }
+    }
+  }
 }

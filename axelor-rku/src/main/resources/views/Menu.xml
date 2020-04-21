@@ -105,8 +105,8 @@
 		
 	<action-view name="rku.mentor.student.fee.paid" title="Student Fee Paid"
 		model="com.axelor.apps.rku.db.StudentPortal" >
-		<view type="grid" name="student-portal-grid"/>
-		<view type="form" name="student-portal-form"/>
+		<view type="grid" name="student-portal-account-grid"/>
+		<view type="form" name="student-portal-account-form"/>
 		
 		<domain>self.currentSem = :_semester AND self.branchConfig = :_branch AND self.activeUser = true AND self.currentYearFee = true</domain>
 		<context name="_user" expr="eval: __user__"/>
@@ -120,8 +120,8 @@
 		
 	<action-view name="rku.mentor.student.fee.unpaid" title="Student Fee Unpaid"
 		model="com.axelor.apps.rku.db.StudentPortal" >
-		<view type="grid" name="student-portal-grid"/>
-		<view type="form" name="student-portal-form"/>
+		<view type="grid" name="student-portal-account-grid"/>
+		<view type="form" name="student-portal-account-form"/>
 		
 		<domain>self.currentSem = :_semester AND self.branchConfig = :_branch AND self.activeUser = true AND self.currentYearFee = false</domain>
 		<context name="_user" expr="eval: __user__"/>

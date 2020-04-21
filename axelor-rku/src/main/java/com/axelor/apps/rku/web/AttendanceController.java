@@ -12,7 +12,6 @@ import com.axelor.inject.Beans;
 import com.axelor.rpc.ActionRequest;
 import com.axelor.rpc.ActionResponse;
 import com.google.inject.persist.Transactional;
-
 import java.util.List;
 
 public class AttendanceController {
@@ -168,22 +167,22 @@ public class AttendanceController {
     Attendance attendance = request.getContext().asType(Attendance.class);
     Beans.get(AttendanceService.class).setAttendanceInfo(attendance);
   }
-  
+
   public void changeAttendanceInfoOnDelete(ActionRequest request, ActionResponse response) {
-	  Attendance attendance = request.getContext().asType(Attendance.class);
-	  Beans.get(AttendanceService.class).setAttendanceInfoOnDelete(attendance);
+    Attendance attendance = request.getContext().asType(Attendance.class);
+    Beans.get(AttendanceService.class).setAttendanceInfoOnDelete(attendance);
   }
-  
+
   @Transactional
   public void deleteAttendace(ActionRequest request, ActionResponse response) {
-	  Attendance attendance = request.getContext().asType(Attendance.class);
-	  AttendanceRepository attendanceRepo = Beans.get(AttendanceRepository.class);
-	  try {
-		  Attendance record = attendanceRepo.find(attendance.getId());
-		  attendanceRepo.remove(record);
-	  }catch (NullPointerException e) {
-	      response.setFlash("Post has been Removed");
-	  }
-	  response.setCanClose(true);
+    Attendance attendance = request.getContext().asType(Attendance.class);
+    AttendanceRepository attendanceRepo = Beans.get(AttendanceRepository.class);
+    try {
+      Attendance record = attendanceRepo.find(attendance.getId());
+      attendanceRepo.remove(record);
+    } catch (NullPointerException e) {
+      response.setFlash("Post has been Removed");
+    }
+    response.setCanClose(true);
   }
 }
