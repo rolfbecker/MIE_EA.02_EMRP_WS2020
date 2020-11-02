@@ -21,9 +21,7 @@ Login as studi and open a terminal. Execute:
 conda install -c conda-forge paho-mqtt
 ```
 
-Open `Jupyter-Lab` (e.g. via `Anaconda Navigator`) and change to the directory of the MQTT Python notebooks `publisher_V004.ipynb` and `subscriber_V004.ipynb`, e.g.
-```
-/home/studi/Arduino/AMC2020/0600_ESP32/0630_MQTT/0631_Python_Publish_Subscribe
+Open `Jupyter-Lab` (e.g. via `Anaconda Navigator`) and change to the directory of the MQTT Python notebooks `publisher_V004.ipynb` and `subscriber_V004.ipynb`.
 ```
 Open the notebooks in Jupyter. Read the code and understand.
 
