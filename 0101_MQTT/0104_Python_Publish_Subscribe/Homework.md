@@ -7,6 +7,9 @@
 Use Python (e.g. with Jupyter or another way) to publish a sine wave which is received by node-red.
 Start with `publisher_V004.ipynb`. Create a copy, name it  `sine_publisher_V001.ipynb` and modify it. 
 
-The publisher loops infinitely. 
+The publisher loops infinitely. Send one point per second by using the simple `time.sleep(1)` function. It would delay the execution of one loop by one second.
 
-Should send a message in the format `{"sin" : y}`
+Send a message in the format `{"sin" : y}`
+
+With $y$
+
