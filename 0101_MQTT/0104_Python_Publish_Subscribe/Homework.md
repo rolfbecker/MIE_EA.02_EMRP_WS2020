@@ -13,6 +13,6 @@ The publisher loops infinitely. Send one point per second by using the simple `t
 
 Use an approch such as `y = A0*sin(2*pi*f*t)`
 
-Send the message as a string. It should have the format `{"sin" : y}`, like a dictionary of a JSON string.
+Send the message as a string. It should have the format `{"sin" : y}`, like a Python dictionary or a JSON string.
 
 Try to receive the string with the node-red MQTT Input block.
