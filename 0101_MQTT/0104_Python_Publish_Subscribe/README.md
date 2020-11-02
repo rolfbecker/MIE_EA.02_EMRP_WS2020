@@ -22,7 +22,7 @@ conda install -c conda-forge paho-mqtt
 ```
 
 Open `Jupyter-Lab` (e.g. via `Anaconda Navigator`) and change to the directory of the MQTT Python notebooks `publisher_V004.ipynb` and `subscriber_V004.ipynb`.
-```
+
 Open the notebooks in Jupyter. Read the code and understand.
 
 1. Execute the **subscriber first**. It is an infinite loop. The code does not stop on its own. You have to stop the execution of the cell or interrupt the kernel.
@@ -35,9 +35,9 @@ Many publishers and subscribers can use the same topic.
 
 You find many written and video tutorials on MQTT. 
 
-_Rui Santos_ from _Random Nerd Tutorials_ generally provides very good tutorials. His specialty is the ESP32 microcontroller and related topics such as MQTT. 
+_Rui Santos_ from [_Random Nerd Tutorials_](https://randomnerdtutorials.com/) generally provides very good tutorials. His specialty is the **ESP32** microcontroller and related topics such as **MQTT**. 
 
-Have a look here: https://randomnerdtutorials.com/what-is-mqtt-and-how-it-works/
+Have a look at his MQTT tutorial collection: https://randomnerdtutorials.com/what-is-mqtt-and-how-it-works/
 
 
 
