@@ -31,5 +31,13 @@ Open the notebooks in Jupyter. Read the code and understand.
 Many publishers and subscribers can use the same topic.
 
 
+# On MQTT
+
+You find many written and video tutorials on MQTT. 
+
+_Rui Santos_ from _Random Nerd Tutorials_ generally provides very good tutorials. His specialty is the ESP32 microcontroller and related topics such as MQTT. 
+
+Have a look here: https://randomnerdtutorials.com/what-is-mqtt-and-how-it-works/
+
 
 
