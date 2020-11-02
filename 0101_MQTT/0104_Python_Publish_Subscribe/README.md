@@ -33,11 +33,21 @@ Many publishers and subscribers can use the same topic.
 
 # On MQTT
 
-You find many written and video tutorials on MQTT. 
+You find many excellent tutorials (text and video) on MQTT. I could not do it better. 
+
+## Rui Santos
 
 _Rui Santos_ from [_Random Nerd Tutorials_](https://randomnerdtutorials.com/) generally provides very good tutorials. His specialty is the **ESP32** microcontroller and related topics such as **MQTT**. 
 
 Have a look at his MQTT tutorial collection: https://randomnerdtutorials.com/what-is-mqtt-and-how-it-works/
+
+## Steve Cope
+
+_Steve Cope_ maintains an excellent [Youtube Channel](https://www.youtube.com/c/stevecope/playlists) on topics related to IoT.
+
+## Andreas Spiess
+
+_Andreas Spiess_ is my favorite when it comes to microcontroller performance. He provides profound knowledge and results from own investigations on IoT related topics, not just microcontrollers. His performance analyses are phantastic.
 
 
 
