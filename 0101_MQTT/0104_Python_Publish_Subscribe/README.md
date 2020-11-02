@@ -47,7 +47,7 @@ _Steve Cope_ maintains an excellent [Youtube Channel](https://www.youtube.com/c/
 
 ## Andreas Spiess
 
-_Andreas Spiess_ is my favorite when it comes to microcontroller performance. He provides profound knowledge and results from own investigations on IoT related topics, not just microcontrollers. His performance analyses are phantastic.
+_Andreas Spiess_ is my favorite when it comes to microcontroller performance. He provides profound knowledge and results from own investigations on IoT (aka home automation) related topics, not just microcontrollers. The performance analyses and other tests on his [Youtube Channel](https://www.youtube.com/c/AndreasSpiess/playlists) are phantastic. He is very productive and the quality of his contributions is outstanding.
 
 
 
