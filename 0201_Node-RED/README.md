@@ -9,7 +9,7 @@ Install node-red-dashboard palette from within Node-RED. Select `menu -> manage 
 
 Create a UI tab and name it `EMRP2020`. Add a chart block to your flow and name it `time series`. Add the chart to a new group you name `group 1`.
 
-Use a Jupyter notebook to generate a sine sequentially and publish the data via MQTT.
+Use a Jupyter notebook to generate a sine sequentially and publish the data via MQTT. 
 
 ### Tutorials
 
