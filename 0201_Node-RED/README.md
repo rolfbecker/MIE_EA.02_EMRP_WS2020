@@ -9,4 +9,8 @@ Install node-red-dashboard palette from within Node-RED. Select `menu -> manage 
 
 Create a UI tab and name it `EMRP2020`. Add a chart block to your flow and name it `time series`. Add the chart to a new group you name `group 1`.
 
+### Tutorials
+
+Several excellent tutorials on Node-RED exist. 
+
 
