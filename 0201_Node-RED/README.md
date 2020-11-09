@@ -33,7 +33,7 @@ According to the documentation linked above the message should look like (no war
 "data": [
     [{ "x": "2020-11-09T22:23:22", "y": 0.456}],
     [{ "x": "2020-11-09T22:23:22", "y": 5.34}],
-    [{ "x": "2020-11-09T22:23:22", "y": -2.77}],
+    [{ "x": "2020-11-09T22:23:22", "y": -2.77}]
 ],
 "labels": [""]
 }]
