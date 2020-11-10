@@ -57,7 +57,7 @@ https://cookbook.nodered.org/basic/join-streams
 
 <img src="https://cookbook.nodered.org/images/basic/join-streams.png"
      alt="Join Stream"
-     Width="400" />
+     Width="600" />
 
 https://cookbook.nodered.org/images/basic/join-streams.png
 
