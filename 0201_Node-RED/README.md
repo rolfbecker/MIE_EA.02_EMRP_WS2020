@@ -55,7 +55,11 @@ Use Node-RED to combine the topics messages in one message stream, see:
 
 https://cookbook.nodered.org/basic/join-streams
 
+<img src="https://cookbook.nodered.org/images/basic/join-streams.png"
+     alt="Join Stream"
+     Width="400" />
 
+https://cookbook.nodered.org/images/basic/join-streams.png
 
 
 
