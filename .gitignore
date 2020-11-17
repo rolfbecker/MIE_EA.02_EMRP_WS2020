@@ -1,0 +1,19 @@
+# MIE_2.02_GeoInfo Course Material
+# R. Becker, 2020-11-04, V001
+
+# Use .gitignore to not share all solutions at once.
+# By default ignore all directories containing solutions denoted by trailing pattern _soln
+
+*_soln/
+*_dev/
+*_INCLASS/
+
+*.ipynb_checkpoints/
+*checkpoint.ipynb
+
+
+# Exceptions allow to disseminate the solutions selectively.
+
+#!gi0301_ALS_DTM_NRW_soln
+#!gi0321_Castra_Vetera_Georeferencing_soln
+#!gi0601_DWD_Stations_and_TS_for_TM_soln
