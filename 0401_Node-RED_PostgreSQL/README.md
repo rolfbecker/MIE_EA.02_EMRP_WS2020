@@ -4,7 +4,7 @@ Node-RED can be used to insert or select data from a PostgreSQL database.
 
 PostgreSQL is the most sophisticated open source object relational database management system (ODBMRS). For example it provides stored procedures, user defined abstract data types (own objects) and other powerful features. PostGIS is a spatial database extender to PostgreSQL to store and process geographic objects such as polygons. This allows to store vector type objects together with their attribute tables in one database.
 
-Assume a sensor sends the followinf data:
+Assume a sensor sends the following data:
 ```
 {"sensor_id": 22, "ts": '2020-09-09T12:13:14UTC', "val": 3.14159}
 ```
