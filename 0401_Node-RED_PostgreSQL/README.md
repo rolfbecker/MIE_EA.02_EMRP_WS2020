@@ -25,3 +25,6 @@ The SQL node contains:
 ```
 INSERT INTO TEST ("sensor_id", "ts", "val") VALUES ($1, $2, $3);
 ```
+
+For more information see the Jupyter notebook of this activity.
+
