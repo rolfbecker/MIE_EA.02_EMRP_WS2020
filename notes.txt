@@ -1,0 +1,2 @@
+how to set up TTN (to be cleaned up later):
+https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/documentation/from_sensor_to_ttn.md#4-setting-up-ttn
