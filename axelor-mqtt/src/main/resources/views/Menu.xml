@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.0.xsd">
+
+	<menuitem name="mqtt-root" title="Mqtt" order="-108 " icon=""
+		icon-background="#F53607" />
+
+
+	<menuitem name="mqtt-root-trash-can" parent="mqtt-root"
+		title="Trash Can" action="mqtt.trash.can.view" />
+
+	<action-view name="mqtt.trash.can.view" title="Tresh Can"
+		model="com.axelor.apps.mqtt.db.TrashCan">
+		<view type="grid" name="trash-can-grid" />
+		<view type="form" name="trash-can-form" />
+	</action-view>
+
+	<menuitem name="mqtt-root-sensor" parent="mqtt-root"
+		title="Sensor" action="mqtt.sensor.view" />
+
+
+	<action-view name="mqtt.sensor.view" title="Sensor"
+		model="com.axelor.apps.mqtt.db.Sensor">
+		<view type="grid" name="sensor-grid" />
+		<view type="form" name="sensor-form" />
+	</action-view>
+
+
+	<menuitem name="mqtt-root-device" parent="mqtt-root"
+		title="Device" action="mqtt.device.view" />
+
+	<action-view name="mqtt.device.view" title="Device"
+		model="com.axelor.apps.mqtt.db.Device">
+		<view type="grid" name="device-grid" />
+		<view type="form" name="device-form" />
+	</action-view>
+
+
+
+</object-views>

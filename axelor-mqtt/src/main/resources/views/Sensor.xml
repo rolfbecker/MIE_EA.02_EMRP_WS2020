@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.0.xsd">
+
+	<grid name="sensor-grid" title="Sensor" model="com.axelor.apps.mqtt.db.Sensor">
+		<field name="id" />
+		<field name="name" />
+		<field name="discriptions" />
+	</grid>
+
+	<form name="sensor-form" title="Sensor" model="com.axelor.apps.mqtt.db.Sensor">
+
+		<panel>
+			<field name="id" />
+			<field name="name" />
+			<field name="discriptions" type="text"/>
+		</panel>
+
+		<panel-related field="devices"/>
+
+	</form>
+</object-views>

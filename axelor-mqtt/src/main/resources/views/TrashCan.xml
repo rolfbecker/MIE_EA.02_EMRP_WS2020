@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.0.xsd">
+
+	<grid name="trash-can-grid" title="Trash Can"
+		model="com.axelor.apps.mqtt.db.TrashCan">
+		<field name="location" />
+		<field name="zipcode" />
+		<field name="address" />
+	</grid>
+
+	<form name="trash-can-form" title="Trash Can"
+		model="com.axelor.apps.mqtt.db.TrashCan">
+
+		<panel>
+			<field name="location" />
+			<field name="zipcode" />
+			<field name="address" />
+		</panel>
+
+		<panel-related field="devices" title="Sensor Devices" />
+
+	</form>
+</object-views>

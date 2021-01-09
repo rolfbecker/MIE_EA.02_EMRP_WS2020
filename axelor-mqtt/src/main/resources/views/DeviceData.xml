@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.0.xsd">
+
+	<grid name="device-data-grid" title="Device"
+		model="com.axelor.apps.mqtt.db.DeviceData">
+		<field name="id" />
+		<field name="name" />
+		<field name="value" />
+		<field name="device" />
+	</grid>
+
+	<form name="device-data-form" title="Device"
+		model="com.axelor.apps.mqtt.db.DeviceData">
+
+		<panel>
+			<field name="id" />
+			<field name="name" />
+			<field name="value" />
+			<field name="device" />
+		</panel>
+
+		<panel sidebar="true">
+			<field name="createdOn" title="Created on" />
+			<field name="createdBy" title="Created by" />
+		</panel>
+
+	</form>
+</object-views>

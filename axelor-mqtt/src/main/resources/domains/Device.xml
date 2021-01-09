@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_5.0.xsd">
+
+  <module name="mqtt" package="com.axelor.apps.mqtt.db"/>
+
+  <entity name="Device" cachable="true">
+  
+  	<many-to-one name="sensor" ref="com.axelor.apps.mqtt.db.Sensor" title="Sensor"/>
+	<string name="location" title="Location"/>
+  	<string name="name" title="Name"/>
+  	
+  	<one-to-many name="data" ref="com.axelor.apps.mqtt.db.DeviceData" mappedBy="device" title="Device" />
+  	<many-to-one name="trashCan" ref="com.axelor.apps.mqtt.db.TrashCan" title="Trash Can"/>
+	
+  </entity>
+  
+</domain-models>
+
+
+
+
+
