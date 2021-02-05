@@ -5,20 +5,26 @@
 
 	<grid name="device-data-grid" title="Device"
 		model="com.axelor.apps.mqtt.db.DeviceData">
-		<field name="id" />
 		<field name="name" />
 		<field name="value" />
-		<field name="device" />
+		<field name="frequency" />
+		<field name="getway" />
+		<field name="timeStamp" />
+		<field name="time" />
+		<field name="property" />
 	</grid>
 
 	<form name="device-data-form" title="Device"
 		model="com.axelor.apps.mqtt.db.DeviceData">
 
 		<panel>
-			<field name="id" />
 			<field name="name" />
 			<field name="value" />
-			<field name="device" />
+			<field name="frequency" />
+			<field name="getway" />
+			<field name="timeStamp" />
+			<field name="time" />
+			<field name="property" />
 		</panel>
 
 		<panel sidebar="true">

@@ -11,7 +11,7 @@
 	<string name="location" title="Location"/>
   	<string name="name" title="Name"/>
   	
-  	<one-to-many name="data" ref="com.axelor.apps.mqtt.db.DeviceData" mappedBy="device" title="Device" />
+  	<one-to-many name="property" ref="com.axelor.apps.mqtt.db.Property" mappedBy="device" title="Propoerty" />
   	<many-to-one name="trashCan" ref="com.axelor.apps.mqtt.db.TrashCan" title="Trash Can"/>
 	
   </entity>

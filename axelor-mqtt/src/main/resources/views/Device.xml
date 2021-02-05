@@ -17,10 +17,10 @@
 			<field name="id" />
 			<field name="name" />
 			<field name="location" />
-			<field name="sensor" title="Sensor"/>
+			<field name="sensor" title="Sensor" hidden="true" />
 		</panel>
 		
-		<panel-related field="data" title="Device Data"/>
+		<panel-related field="property" title="Property"/>
 
 	</form>
 </object-views>

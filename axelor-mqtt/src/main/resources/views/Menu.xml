@@ -17,10 +17,10 @@
 	</action-view>
 
 	<menuitem name="mqtt-root-sensor" parent="mqtt-root"
-		title="Sensor" action="mqtt.sensor.view" />
+		title="Device Info" action="mqtt.sensor.view" />
 
 
-	<action-view name="mqtt.sensor.view" title="Sensor"
+	<action-view name="mqtt.sensor.view" title="Device Info"
 		model="com.axelor.apps.mqtt.db.Sensor">
 		<view type="grid" name="sensor-grid" />
 		<view type="form" name="sensor-form" />
@@ -34,6 +34,15 @@
 		model="com.axelor.apps.mqtt.db.Device">
 		<view type="grid" name="device-grid" />
 		<view type="form" name="device-form" />
+	</action-view>
+	
+	<menuitem name="mqtt-root-property" parent="mqtt-root"
+		title="Property" action="mqtt.proprty.view" />
+
+	<action-view name="mqtt.proprty.view" title="Property"
+		model="com.axelor.apps.mqtt.db.Property">
+		<view type="grid" name="property-grid" />
+		<view type="form" name="property-form" />
 	</action-view>
 
 

@@ -7,10 +7,15 @@
 
   <entity name="DeviceData" cachable="true">
   
-  	<many-to-one name="device" ref="com.axelor.apps.mqtt.db.Device" title="Device"/>
+  	<many-to-one name="property" ref="com.axelor.apps.mqtt.db.Property" title="Property"/>
   	
   	<string name="name" title="Name"/>
   	<decimal name="value" title="Value"/>
+  	<string name="time" title="Time"></string>
+  	<string name="timeStamp" title="Time Stemp"></string>
+  	<string name="getway" title="Getway"></string>
+  	<string name="frequency" title="Frequency"></string>
+  	
 	
   	
   </entity>

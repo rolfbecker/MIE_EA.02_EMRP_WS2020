@@ -14,12 +14,20 @@
 		model="com.axelor.apps.mqtt.db.TrashCan">
 
 		<panel>
+			<button name="fechData" colSpan="12" title="Fetch Data" onClick="action-method-fetch-sensor-data" />	
+		</panel>
+
+		<panel>
 			<field name="location" />
 			<field name="zipcode" />
 			<field name="address" />
 		</panel>
 
-		<panel-related field="devices" title="Sensor Devices" />
+		<panel-related field="devices" title="Sensor Devices" canSelect="true" canNew="false" />
 
 	</form>
+
+<action-method name="action-method-fetch-sensor-data">
+	<call class="com.axelor.apps.mqtt.web.AppCrmController" method="fetchSensorData"/>
+</action-method>
 </object-views>

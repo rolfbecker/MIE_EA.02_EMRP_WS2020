@@ -3,21 +3,24 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.0.xsd">
 
-	<grid name="sensor-grid" title="Device Info" model="com.axelor.apps.mqtt.db.Sensor">
-		<field name="id" />
+	<grid name="property-grid" title="Property" model="com.axelor.apps.mqtt.db.Property">
 		<field name="name" />
-		<field name="discriptions" />
+		<field name="unit"></field>
+		<field name="discription"/>
+		<field name="device"></field>
 	</grid>
 
-	<form name="sensor-form" title="Device Info" model="com.axelor.apps.mqtt.db.Sensor">
+	<form name="property-form" title="Property"
+		model="com.axelor.apps.mqtt.db.Property">
 
 		<panel>
 			<field name="id" />
 			<field name="name" />
-			<field name="discriptions" type="text"/>
+			<field name="discription" />
+			<field name="device"></field>
 		</panel>
-
-		<panel-related field="devices"/>
+		
+		<panel-related field="data" title="Data"/>
 
 	</form>
 </object-views>

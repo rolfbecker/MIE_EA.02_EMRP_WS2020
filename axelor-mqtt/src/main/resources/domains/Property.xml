@@ -5,13 +5,15 @@
 
   <module name="mqtt" package="com.axelor.apps.mqtt.db"/>
 
-  <entity name="Sensor" cachable="true">
+  <entity name="Property" cachable="true">
   	
   	<string name="name" title="Name"/>
-	<string name="discriptions" title="Discription"/>	
-	<one-to-many name="devices" ref="com.axelor.apps.mqtt.db.Device" mappedBy="sensor" title="Devices"/>	
+	<string name="discriptions" title="Discription"/>
+	<string name="unit" title="Unit"></string>	
 
-
+	<one-to-many name="data" ref="com.axelor.apps.mqtt.db.DeviceData" mappedBy="property" title="Data" />
+	<many-to-one name="device" ref="com.axelor.apps.mqtt.db.Device" title="Device"/>
+	
 	<!-- 
 	<string name="appId" title="App_id"></string>
 	<string name="devId" title="Dev_id"></string>
