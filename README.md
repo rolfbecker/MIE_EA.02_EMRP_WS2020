@@ -1,33 +1,3 @@
-Axelor Open Suite
-================================
-
-Axelor Open Suite reduces the complexity and improve responsiveness of business processes. Thanks to its modularity, you can start with few features and  then activate other modules when needed.
-
-Axelor Open Suite includes the following modules :
-
-* Customer Relationship Management
-* Sales management
-* Financial and cost management
-* Human Resource Management
-* Project Management
-* Inventory and Supply Chain Management
-* Production Management
-* Multi-company, multi-currency and multi-lingual
-
-Axelor Open Suite is built on top of [Axelor Open Platform](https://github.com/axelor/axelor-open-platform)
-
-Download
--------------------------
-```bash
-$ git clone git@github.com:axelor/open-suite-webapp.git
-$ cd open-suite-webapp
-$ git checkout master
-$ git submodule init
-$ git submodule update
-$ git submodule foreach git checkout master
-$ git submodule foreach git pull origin master
-```
-
 EMRP Axelor project setup
 ================================
 EMRP Axelor setup section going to show project direcotry structure, For that need to clone this branch shown below 
@@ -138,8 +108,60 @@ Setp 4: Eclipse
 Next, load project on browser with  http://localhost:8080/axelor-erp
 
 
-How data comes from sensore?
+Sensore data management
 ================================
+
+Data comes from MQTT broker "eu.thethings.network" which is running on 8883 port for retrive sensore data, Run pythons script which is contain "hsrw_iotlab_lse01" ttn_app_id for this project. Data retrive with json format that can observe in terminal or CMD depending on operating system.
+
+Source code given on discord filename "TTN_HSRW_IoT_API".
+Install python library for run the script.
+1. pip3 install paho-mqtt python-etcd
+2. pip install requests
+
+API access for send JSON data to the axelor application.
+```bash
+    print("PAYLOAD: %s" % (payload))
+    data = {
+     'domain' : 'com.axelor.apps.rku.db.Account'
+    }
+    url = "http://localhost:8080/axelor-erp/ws/action/"
+    headers = {
+     "Content-Type": "application/json",
+     "Cookie": "JSESSIONID=0AFD014B6EFCE3ACB5A3B7A95C1FCFD9"
+    }
+    body = {
+     "action": "com.axelor.apps.mqtt.web.RequestDataController:getSensorData",
+     "data": payload
+    }
+```
+
+From above API need to give Seesion Cookie for authentication. Insomania API testing tool use to retrive session Cookie.
+LogIn Authentication API
+```bash
+method : post
+url : http://localhost:8081/axelor-erp/login.jsp
+body: 
+{
+"username":"admin",
+"password" : "admin"
+}
+header : Content-Type: application/json
+```
+ From above Login API Insomania get Seesion Cookie copy it and pest to "TTN_HSRW_IoT_API" file as shown in above example.
+ 
+ Run TTN_HSRW_IoT_API.py script 
+```bash
+$ python TTN_HSRW_IoT_API.py
+```
+All setup success completed, Open axelor application can view data which come from sensore.
+
+Further Development....
+1) Data analysis
+2) Graph or Chart generation
+3) Implement more functionality related to data model   
+
+
+ 
 
 
 
