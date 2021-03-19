@@ -81,7 +81,18 @@ It takes some time to run project, you find link on terminal http://localhost:80
 or past this link to browser 
 
 
+EMRP Axelor project setup for Windows
+=======================================
 
+prerequisite for emrp data excess data
+---------------------------------------
+1. postgres SQL for data management https://www.postgresql.org/download/windows/
+2. Git for version control https://desktop.github.com/
+3. Python for API call https://www.python.org/downloads/
+4. Insomaina for read Cookies https://insomnia.rest/download
+5. Tomcat Server 8.5.0 for run project on localhost https://tomcat.apache.org/tomcat-8.5-doc/index.html
+6. Eclipse for change data-model https://www.eclipse.org/downloads/
+7. Java minimum version 8
 
 
 
