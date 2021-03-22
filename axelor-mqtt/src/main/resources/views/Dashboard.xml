@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.0.xsd">
+
+	<action-view name="dashlet.mqtt.sensor" title="Sensore Data" model="com.axelor.apps.mqtt.db.DeviceData">
+		<view type="chart" name="chart.mqtt.sensor" />
+	</action-view>
+	
+	<action-view name="dashlet.mqtt.sensor.test2" title="Sensore Data test" >
+		<view type="chart" name="chart.dashboard.opportunities.source.amount.bar1" />
+	</action-view>
+
+	<dashboard title="Dashboard" name="mqtt.dashboard" >
+		<dashlet action="dashlet.mqtt.sensor" height="350"/>
+		<dashlet action="dashlet.mqtt.sensor.test2" height="350"/>
+	</dashboard>
+	
+	
+</object-views>

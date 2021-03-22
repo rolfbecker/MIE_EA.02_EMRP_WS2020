@@ -44,7 +44,23 @@
 		<view type="grid" name="property-grid" />
 		<view type="form" name="property-form" />
 	</action-view>
+	
+	<menuitem name="mqtt-root-data-demo" parent="mqtt-root"
+		title="Data" action="mqtt.data.demo.view" />
 
+	<action-view name="mqtt.data.demo.view" title="Property"
+		model="com.axelor.apps.mqtt.db.DeviceData">
+		<view type="grid" name="device-data-grid" />
+		<view type="form" name="device-data-form" />
+	</action-view>
+
+	<menuitem name="mqtt-root-dashboard" parent="mqtt-root"
+		title="Dashboard" action="mqtt.dashboard.view" />
+
+	<action-view name="mqtt.dashboard.view" title="Dashboard">
+		<view type="dashboard" name="mqtt.dashboard" />
+	</action-view>
+	
 
 
 </object-views>

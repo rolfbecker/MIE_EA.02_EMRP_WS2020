@@ -4,114 +4,81 @@
 	xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.0.xsd">
 	  
 	  
-<chart name="chart.dashboard.student.class.attendance.bar" title="Class Attendance">
+<chart name="chart.dashboard.opportunities.source.amount.bar1" title="Soil sensor">
   <dataset type="sql"><![CDATA[
 
-        SELECT
+	SELECT
 
-        	AVG(infoLines.total_percent) AS percentage,
-        	students.enrollment_no as student
+       	AVG(self.value) AS val,
+				prop.name AS name
 
-        FROM
-		rku_student_portal students
-		
-		LEFT JOIN
-     		rku_attendance_info_line as infoLines ON infoLines.student_portal = Students.id
+ FROM
+				mqtt_device_data self
 
-		WHERE
-			Students.active_user = 'true' 
-			AND students.current_sem IN (SELECT current_sem from rku_student_portal WHERE user_student = :__user__)
-			AND students.branch_config IN(SELECT branch_config from rku_student_portal WHERE user_student = :__user__)
-		
-        GROUP BY
-        student
-        ORDER BY
-        student
+ LEFT JOIN
+				mqtt_property as prop ON self.property = prop.id
 
- ]]></dataset>
-  <category key="student" type="text" title="Student"/>
-  <series key="percentage" type="bar" title="Total Percent"/>
+ GROUP BY
+
+     prop.name
+
+
+   ]]></dataset>
+  <category key="name" type="text" title="Source"/>
+  <series key="val" type="bar" title="Amount"/>
 </chart>
 
 
- <chart name="chart.dashboard.student.subject.attendance.bar" title="Subject Attendance">
-   <dataset type="sql"><![CDATA[
+<chart name="dashlet.mqtt.sensor" title="Test">
+	    <dataset type="sql">
+		    <![CDATA[
+			SELECT
+	          SUM(self.amount) AS amount,
+		      Source.name as _source
+		    FROM
+		        crm_opportunity self
+		    LEFT JOIN
+		        base_source as Source ON self.source = Source.id
+		    GROUP BY
+			    _source
+			ORDER BY
+			    _source
+		    ]]>
+	    </dataset>
+	    <category key="_source" type="text" title="Source"/>
+    	<series key="amount" type="bar" title="Amount"/>
+	  </chart>
+<!-- 
+<chart name="chart.dashboard.opportunities.source.amount.bar1" title="Opportunities By Source">
+  <dataset type="sql"><![CDATA[
 
-       SELECT
+	SELECT
 
-       	infoLines.total_percent AS percentage,
-       	subject.full_name as name
+       	AVG(self.value) AS val,
+				self.name AS name
 
-       FROM
-      rku_attendance_info_line infoLines
+ FROM
+				mqtt_device_data self
 
-      LEFT JOIN
-            rku_subject as subject ON subject.id = infoLines.subject
+ WHERE
+		self.name = 'hsrw_iotlab_lse01' 
 
-      WHERE
-         infoLines.student_portal IN (SELECT id from rku_student_portal WHERE user_student = :__user__)
+ GROUP BY
 
-
-]]></dataset>
-   <category key="name" type="text" title="Student"/>
-   <series key="percentage" type="bar" title="Total Percent"/>
- </chart>
-
-
- <chart name="chart.dashboard.account.amount.per.course.tution.fee.bar" title="Overall Course Income (Tution Fee)">
- 
- 	<search-fields> 	        
-	    <field type="string" name="year" title="%engineering-2020-odd%" x-required="true"/>
-	</search-fields>
-   <dataset type="sql"><![CDATA[
-
-       SELECT
-
-       	SUM(account.tution_fee) AS tution_fee,
-       	course.name as name
-       	
-       FROM
-    	   rku_course course
-
-       LEFT JOIN
-  	       rku_account as account ON course.id = account.course
-  	       
-  	   WHERE  account.current_year LIKE (:year)   
-  	   
-	   GROUP BY
-        name
+     self.name
 
 
-]]></dataset>
-   <category key="name" type="text" title="Student"/>
-   <series key="tution_fee" type="bar" title="Total Percent"/>
- </chart>
-
- <chart name="chart.dashboard.account.amount.per.course.exam.fee.bar" title="Overall Course Income (Exam Fee)">
-  	<search-fields> 	        
-	    <field type="string" name="year" title="%engineering-2020-odd%" x-required="true"/>
-	</search-fields>
-   <dataset type="sql"><![CDATA[
-
-       SELECT
-
-       	SUM(account.exam_fee) AS exam_fee,
-       	course.name as name
-       	
-       FROM
-    	   rku_course course
-
-       LEFT JOIN
-  	       rku_account as account ON course.id = account.course
-  	       
-  	       WHERE  account.current_year LIKE (:year)   
-		GROUP BY
-        name
+   ]]></dataset>
+  <category key="name" type="text" title="Source"/>
+  <series key="val" type="bar" title="Amount"/>
+</chart>
 
 
-]]></dataset>
-   <category key="name" type="text" title="Student"/>
-   <series key="exam_fee" type="bar" title="Total Percent"/>
- </chart>
-		
+]]>
+    
+    </dataset>
+    <category key="name" type="text" title="Student"/>
+    <series key="val" type="bar" title="Total Percent"/>
+  </chart> -->
+ 		
 </object-views>
