@@ -81,7 +81,6 @@ Step 2:
 3) Run following command for windows from CMD 
 ```bash
 $ gradlew.bat clean classes build -x test cleanEclipse eclipse
-$ gradlew.bat --no-daemon run
 ```
 Step 3: Now set up sub modules for that go to location "axelor-erp/modules/abs"
 clone sub modules and change the branch 
@@ -98,8 +97,14 @@ Important :
 2) Delete empty folder "abs"
 3) Rename folder from "MIE_EA.02_EMRP_WS2020" to "abs" on location "axelor-erp/modules/"
 
-All set up done, next run command for build project
+All set up done, next run command for build project Run Following command 
 
+```bash
+$ gradlew.bat clean classes build -x test cleanEclipse eclipse
+$ gradlew.bat --no-daemon run
+```
+
+Step 4 is going to show the Eclipse IDE setup for modify project as per further need 
 Setp 4: Eclipse 
 1) Import project with gradle import select root project folder
 2) Assign server tomcat 8.5 and load project into server
@@ -161,12 +166,12 @@ All setup success completed, Open axelor application can view data which come fr
 Table or Entity for "TrashCan"
 ---------------------------------------
 
-1) TrashCan
-2) DeviceInformation
-3) Device (Sensore)
-4) Property
-5) Data
-6) Dashboard (Dashboard for data overview)
+1) TrashCan  : Trashcan contains multipal device with property.    
+2) DeviceInformation : It is shows all device(sensor) Information.
+3) Device (Sensore) : Device is a sensore which can sense multipal property.
+4) Property : Property is element that sense by sensore (e.g. Tempreture, Humidity etc..)
+5) Data : collection of information about property. 
+6) Dashboard (Dashboard for data overview) : Dashboard is for visualization of Sensor data. 
 
 Define Relationship model 
 ---------------------------------------
