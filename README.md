@@ -1,5 +1,16 @@
 EMRP Axelor project setup
 ================================
+
+Prerequisite for emrp data excess 
+---------------------------------------
+1. postgres SQL for data management https://www.postgresql.org/download/windows/
+2. Git for version control https://desktop.github.com/
+3. Python for API call https://www.python.org/downloads/
+4. Insomaina for read Cookies https://insomnia.rest/download
+5. Tomcat Server 8.5.0 for run project on localhost https://tomcat.apache.org/tomcat-8.5-doc/index.html
+6. Eclipse for change data-model https://www.eclipse.org/downloads/
+7. Java minimum version 8
+
 EMRP Axelor setup section going to show project direcotry structure, For that need to clone this branch shown below 
  * https://github.com/rolfbecker/MIE_EA.02_EMRP_WS2020/tree/mqtt_axelor_root
  * https://github.com/rolfbecker/MIE_EA.02_EMRP_WS2020/tree/mqtt_axelor
@@ -54,16 +65,6 @@ or past this link to browser
 EMRP Axelor project setup for Windows
 =======================================
 
-Prerequisite for emrp data excess 
----------------------------------------
-1. postgres SQL for data management https://www.postgresql.org/download/windows/
-2. Git for version control https://desktop.github.com/
-3. Python for API call https://www.python.org/downloads/
-4. Insomaina for read Cookies https://insomnia.rest/download
-5. Tomcat Server 8.5.0 for run project on localhost https://tomcat.apache.org/tomcat-8.5-doc/index.html
-6. Eclipse for change data-model https://www.eclipse.org/downloads/
-7. Java minimum version 8
-
 Step 1: clone root project 
 ```bash
 $ git clone https://github.com/rolfbecker/MIE_EA.02_EMRP_WS2020.git
@@ -79,7 +80,8 @@ Step 2:
 2) Write password in file "axelor-erp/src/main/resources/application.properties" password is given on discord 
 3) Run following command for windows from CMD 
 ```bash
-$ gradlew.bat
+$ gradlew.bat clean classes build -x test cleanEclipse eclipse
+$ gradlew.bat --no-daemon run
 ```
 Step 3: Now set up sub modules for that go to location "axelor-erp/modules/abs"
 clone sub modules and change the branch 
@@ -96,7 +98,7 @@ Important :
 2) Delete empty folder "abs"
 3) Rename folder from "MIE_EA.02_EMRP_WS2020" to "abs" on location "axelor-erp/modules/"
 
-All set up done ....next run command for build project
+All set up done, next run command for build project
 
 Setp 4: Eclipse 
 1) Import project with gradle import select root project folder
@@ -154,6 +156,25 @@ header : Content-Type: application/json
 $ python TTN_HSRW_IoT_API.py
 ```
 All setup success completed, Open axelor application can view data which come from sensore.
+
+
+Table or Entity for "TrashCan"
+---------------------------------------
+
+1) TrashCan
+2) DeviceInformation
+3) Device (Sensore)
+4) Property
+5) Data
+6) Dashboard (Dashboard for data overview)
+
+Define Relationship model 
+---------------------------------------
+1. TrashCan with Device (OneToMany)
+2. Device With Property (OneToMany)
+3. Property With Data (OneToMany)
+4. Device With DeviceInformation (ManyToOne)
+5. Dashboard (No Entity Defination only defin menu Item)
 
 Further Development....
 1) Data analysis
