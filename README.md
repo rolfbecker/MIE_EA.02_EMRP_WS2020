@@ -21,9 +21,6 @@ Steps Of EMRP Process
 * Database or Cloud (e.g. Postgres-SQL) 
 * Application (e.g. Web Application or Dashboard)
 
-Components & Platform Requirements
---------------------------------------
-
 Software Requirements
 ----------------------
 
