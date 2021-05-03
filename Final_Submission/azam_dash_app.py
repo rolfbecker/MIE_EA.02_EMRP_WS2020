@@ -31,12 +31,8 @@ app.layout = html.Div(
 def update_graph_live(n):
 
     df = get_table("geo","trashbin")
-    df_data = get_last_100("geo", "trash_fill_level")
 
-#    df['level']= df_data['level']
-#    df['temp']= df_data['temp']
-
-    fig = px.scatter_mapbox(df, lat="latitude", lon="longitude", hover_name="bin_id", hover_data=["name", "fill_level"],
+    fig = px.scatter_mapbox(df, lat="latitude", lon="longitude", hover_name="bin_id", hover_data=["name", "fill_level","temperature"],
                             color= 'fill_level', color_continuous_scale=px.colors.sequential.YlOrRd, zoom=12, height=800)
     fig.update_layout(mapbox_style="open-street-map")   
     fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})

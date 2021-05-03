@@ -10,7 +10,7 @@ def main():
     #side bar section
     st.sidebar.header("User Input Features")
     # get list of sensors_id 
-    sensor_list_df = get_sensor_list("geo","emrp_lse01_test")
+    sensor_list_df = get_list("sensor_id","geo","emrp_lse01_test","sensor_id")
     sensors_choice = st.sidebar.multiselect('Sensor',sensor_list_df)
 
     st.title('Dashboard: Interactive map')
@@ -23,8 +23,9 @@ def main():
     sensor_df = get_table("geo","emrp_lse01_test")
     selected_sensor_df = sensor_df[ sensor_df['sensor_id'].isin(sensors_choice)]
     st.write(selected_sensor_df)
-#    st.markdown(filedownload(sensor_df) , unsafe_allow_html=True)
-# Plot soil measurements execpt 'ec'
+
+    ''' Plot soil measurements execpt 'ec' '''
+
     st.vega_lite_chart(sensor_df,
          {
         "width" : 800,
