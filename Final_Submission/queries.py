@@ -42,7 +42,6 @@ def get_table(schema,table):
     df = pd.read_sql(query, conn)
 
     cursor.close()
-
     print(df.shape)
     return df
 
@@ -90,9 +89,11 @@ def get_last_100(schema, table):
     print(df.shape)
     return df
 
-def get_last_50(schema, table):
 
-    query = "SELECT * FROM {}.{} ORDER BY ts DESC LIMIT 20;".format(str(schema), str(table))
+def get_last_val(schema, table,sensor_id):
+    ''' Get 4 lines insert in the table which represent newest measurement '''
+    
+    query = "SELECT sensor_id,variable_type,val FROM {}.{} WHERE sensor_id = '{}' ORDER BY ts DESC LIMIT 4;".format(str(schema), str(table), str(sensor_id))
 
 
     print(query)
@@ -105,4 +106,21 @@ def get_last_50(schema, table):
     print(df.shape)
     return df
 
-cursor.close()
+def get_sensor_val(): 
+    '''
+    Get last values send by sensors
+    '''
+    df_sensor = get_list("sensor_id","geo","emrp_lse01_test","sensor_id")
+    sensor_list = df_sensor['sensor_id'].tolist()
+    df = pd.DataFrame(columns=['sensor_id','variable_type','val'])
+    for i in sensor_list:
+        df_query = get_last_val("geo","emrp_lse01_test",i) 
+        df = df.append(df_query, ignore_index=True, sort=False)
+    df = pd.pivot(df, index=['sensor_id'],columns=['variable_type'], values='val')    
+    print(df)
+
+    #print(df)
+    cursor.close()
+    return df
+
+
